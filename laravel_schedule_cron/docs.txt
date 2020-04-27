@@ -1,0 +1,16 @@
+- link test cron: https://crontab.guru/
+- php artisan make:command XXXCommand
+- run:
+  + pwd // => get current path directory
+  + crontab -e
+  + insert the below command to crontab (this command will execute every minute)
+    * * * * * php <copy from pwd command> schedule:run
+
+* * * * *
+- - - - -
+| | | | |
+| | | | ---- day of week(0-7)
+| | | ------ month(1-12)
+| | -------- day of month(1-31)
+| ---------- hour(0-23)
+------------ min (0-59)

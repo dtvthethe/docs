@@ -1,0 +1,19 @@
+1/ RDP
+  sudo apt-get install xrdp
+  sudo apt install lxsession
+  lxsession -e LXDE -s Lubuntu
+  sudo service xrdp restart
+
+2/ SSH (putty)
+  sudo apt-get install openssh-server
+  cd .ssh
+  mkdir .ssh
+  // echo YourPublicKey >> authorized_keys
+  // chmod 400 authorized_keys
+  mkdir ssh_config_backup
+  sudo cp /etc/ssh/sshd_config ~/ssh_config_backup
+  sudo vi /etc/ssh/sshd_config
+    + PasswordAuthentication yes
+    + UsePAM no
+    + :wq
+  sudo service ssh restart

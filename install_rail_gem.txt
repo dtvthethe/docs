@@ -1,0 +1,20 @@
+1/ install curl:
+	sudo apt-get install curl
+
+2/ Install gnupg2:
+	sudo apt-get install gnupg2
+
+3/ Install RVM
+
+	- gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB #=> maybe the key change: https://rvm.io/rvm/install
+	- \curl -sSL https://get.rvm.io | bash
+	- rvm requirements
+4/ Install Ruby
+	- rvm list known
+	- rvm install x.x.0, Ex: rvm install 2.5.0
+	- rvm use <xx version> --default, Ex: rvm use 2.5.0 --default
+
+ERROR: RVM is not a function, selecting rubies with 'rvm use ...' will not work.
+
+	- In the Terminal: Edit/Profile Preferences/Command/ tick on `Run command as a login shell`
+	- In Lubuntu: /bin/bash --login

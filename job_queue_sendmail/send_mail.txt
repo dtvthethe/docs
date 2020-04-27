@@ -1,0 +1,75 @@
+* php artisan queue:work #-> you must run this command while process send mail
+* php artisan queue:restart
+*
+* $ > `mailcatcher --foreground --http-ip=0.0.0.0`
+* co the pass sang mail blade 1 object nhung nen su dung dd( ) trong blade mail de xem cau truc du lieu tranh truong hop bi loi 
+
+1/ Config  MailCatcher:
+-.env: -> cmd `mailcatcher` to get host, port...
+    	MAIL_FROM_ADDRESS=from_email@mail.com
+	MAIL_FROM_NAME=DevelopmentTest
+	MAIL_DRIVER=smtp
+	MAIL_HOST=127.0.0.1
+	MAIL_PORT=1025
+	MAIL_USERNAME=null
+	MAIL_PASSWORD=null
+        MAIL_ENCRYPTION=null
+
+2/ Config Queu Job:
+- env: 
+	QUEUE_DRIVER=database #-> ko can thiet
+	QUEUE_CONNECTION=database
+
+3/ Create DB:
+	- php artisan queue:table
+	- php artisan queue:failed-table
+	- php artisan migrate
+
+4/ Laravel code:
+	- tao Mailer:
+	 	 php artisan make:mail ABCMailable
+		setting view + params... 
+	- create job:
+	 	 php artisan make:job <JobName>
+		 
+		 handle(){
+		 	Mail::to(<email to address>)->send(new ABCMailable([params...]));
+		 }
+
+	- usage:
+		use Illuminate\Support\Facades\Hash;
+		Add job vao` queue
+		<JobName>::dispatch([params...]);
+	- cac phuong thuc tien ich khac:
+		+ Delay: <NameJob>::dispatch()->delay(now()->addMinutes(10));
+		+ Xu ly tren Quee nao`, job nao`: NewJob::dispatch()->onQueue('processing')->onConnection('sqs');
+
+5/ Send mail:
+	- php artisan queue:work #-> you must run this command while process send mail
+	or
+	- php artisan queue:listen
+
+
+6/ Turn off IPV 6
+	- Linux:
+		+ sudo nano /etc/sysctl.conf
+		+ add below to end of file:
+			net.ipv6.conf.all.disable_ipv6 = 1
+			net.ipv6.conf.default.disable_ipv6 = 1
+			net.ipv6.conf.lo.disable_ipv6 = 1
+		+ sudo sysctl -p
+		+ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+
+		if result display is `1` is successfully, but it is `0`: echo "1" > /proc/sys/net/ipv6/conf/all/disable_ipv6 or reboot computer
+7/ On docker:
+	- .docker/docker-composer.yml:
+		  mail:             <--------------------------
+		    image: schickling/mailcatcher             |
+		    ports:                                    |
+		      - 1080:1080                             |
+		      - 1025:1025                             |
+		    networks:                                 |
+		      - backend                               |
+                                                              |
+	- .env                                                |
+		MAIL_HOST=mail  ------------------------------

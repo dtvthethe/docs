@@ -1,0 +1,15 @@
+- co the thuc hien cac query/ xu li phuc tap o trong day
+- vi tri: app/Rules/<Rule Name>Rule.php
+- gom 2 phan:
+  + passes() -> true la pass
+  + message() -> return string message
+ - cach dung trong file FormRequest:
+   rules(){
+    'name' => [
+      'bail',
+       'required',
+       'max:100',
+       new <Rule Name>Rul>(),
+    ],
+   }
+   

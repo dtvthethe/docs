@@ -1,0 +1,36 @@
+1/ Controller:
+  public function detail(ABCRequest $request){
+  }	
+
+2/ FormRequest
+  public function passes($attribute, $value)
+  {
+      $cat = Category::where($attribute, $value)->where(function($query){
+          $query->whereDate('created_at', '>' , now());
+      })->first();
+
+      if(isset($cat)){
+          return true;
+      }
+      
+      return false;
+  }
+  
+3/ Rule:
+  public function rules()
+  {
+      return [
+          'reset_token' => [
+              'required',
+              'exists:categories,reset_token',
+              new ABCRule(),
+          ]
+      ];
+  }
+    
+4/ Blade:    
+  @if($errors->first('reset_token'))
+    <p>FORM ERROR</p>
+  @else
+    <p>FORM UPDATE PASSWORD + VALIDATE MESSAGES(validation msg here)</p>
+  @endif

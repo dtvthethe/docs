@@ -1,0 +1,5 @@
+$ curl -sL https://deb.nodesource.com/setup_xx.x | sudo -E bash -
+  -> setup_xx.x : setup_10.x, setup_12.x, setup_13.x...
+$ sudo apt install nodejs 
+  -> This command will install nodejs + npm
+  

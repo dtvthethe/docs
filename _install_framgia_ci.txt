@@ -1,0 +1,103 @@
+PHP CI:
+
+1/ Install pip3:
+	sudo apt-get -y install python3-pip
+	sudo apt-get update
+	curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+	python3 get-pip.py --user
+	pip3 --version
+
+2/ Install CI Framgia
+	pip3 install framgia-ci
+
+3/ Install PHP_CodeSniffer
+	curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+	curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+
+	php phpcs.phar -h
+	php phpcbf.phar -h
+
+	composer global require "squizlabs/php_codesniffer=*"
+	
+	wait wait wait wait..................... 
+
+
+	~/.composer/vendor/bin/
+
+	keep and run cmd on bin: $(composer global config bin-dir --absolute)
+
+	./vendor/bin/phpcs -h
+	./vendor/bin/phpcbf -h
+
+	ERROR: [ErrorException]                                                              
+  			file_put_contents(./composer.json): failed to open stream: Permission denied 
+  	FIX: sudo chown -R $USER ~/.composer/
+
+	cd ~/.composer/vendor/squizlabs/php_codesniffer/src/Standards
+	git clone https://github.com/wataridori/framgia-php-codesniffer.git Framgia
+
+	phpcs -i #=> `The installed coding standards are PEAR, PSR1, Framgia, Squiz, MySource, Zend and PSR2`
+
+4/ Config Standards folder:
+
+	sudo nano ~/.bashrc
+	Add this code to last file:	PATH="~/.composer/vendor/bin":$PATH
+	source ~/.bashrc
+
+	sudo nano ~/.profile
+	Add this code to last file:	PATH="~/.composer/vendor/bin":$PATH
+	source ~/.profile
+
+5/ Fix error: phpcs not found
+	composer global config bin-dir --absolute
+	`Changed current directory to /home/<username>/.config/composer
+     /home/<username>/.config/composer/vendor/bin`
+
+6/ Config Project
+	- Move to project folder:
+		framgia-ci init php
+
+	- Open .framgia-ci.yml:
+		`
+			project_type: php
+			test:
+			  phpcpd:
+			    ignore: true
+			    command: phpcpd --log-pmd=.framgia-ci-reports/phpcpd.xml app
+			  phpmd:
+			    ignore: true
+			    command: phpmd app xml codesize --reportfile .framgia-ci-reports/phpmd.xml
+			  pdepend:
+			    ignore: true
+			    command: pdepend --summary-xml=.framgia-ci-reports/pdepend.xml
+			        --jdepend-chart=.framgia-ci-reports/pdepend.svg
+			        --overview-pyramid=.framgia-ci-reports/pyramid.svg
+			        app
+			  phpmetrics:
+			    ignore: true
+			    command: phpmetrics --report-html=.framgia-ci-reports/metrics.html
+			        --report-xml=.framgia-ci-reports/metrics.xml
+			        app
+			  # eslint:
+			  #   ignore: true
+			  #   command: eslint --format=checkstyle
+			  #       --output-file=.framgia-ci-reports/eslint.xml
+			  #       resources/assets/js/
+			  phpcs:
+			    ignore: false
+			    command: phpcs --standard=Framgia --report-checkstyle=.framgia-ci-reports/phpcs.xml app
+			  # phpunit:
+			  #   command:
+			  #     - sleep 30
+			  #     - php artisan migrate --database=mysql_test
+			  #     - php artisan db:seed --database=mysql_test
+			  #     - php -dzend_extension=xdebug.so vendor/bin/phpunit
+			  #       --coverage-clover=.framgia-ci-reports/coverage-clover.xml
+			  #       --coverage-html=.framgia-ci-reports/coverage
+
+		`
+
+7/ Use:
+	framgia-ci run --local
+
+	Error in folder `.framgia-ci-reports` at file `framgia-ci.yml`

@@ -1,0 +1,60 @@
+docs: https://github.com/BenSampo/laravel-enum
+
+1/ Install:
+  composer require bensampo/laravel-enum
+  
+  If using Laravel < 5.5
+    + config/app.php
+    + 'BenSampo\Enum\EnumServiceProvider'
+    
+2/ Create an Enum:
+  php artisan make:enum <Enum name, Ex: UserType> 
+  
+3/ Define:
+  final class UserType extends Enum
+    {
+        const Huawei = 1;
+        const Apple = 2;
+        ...
+    }
+4/ Use:
+  UserType::Administrator
+
+5/ Install propertues:
+  ->key; // Huawei
+  ->value; // 1
+  ->description; // Hoa Hua #==> Language(i18n)
+ 
+6/ Localization:
+  // resources/lang/en or cn or vn.../enums.php:
+    return [
+        UserType::class => [ #=>  UserType : Enum name
+            UserType::Huawei => 'Hoa Hua',
+            UserType::Apple => 'Ping Hua',
+        ],
+    ];
+  // file UserType enum .php:
+    final class UserType extends Enum implements LocalizedEnum
+    
+7/ Attribute Casting / Database/ Model
+    class Example extends Model
+    {
+        use CastsEnums; #=> use enum class
+
+        protected $enumCasts = [
+            'user_type' => UserType::class, #=>  'attribute_name' => EnumCLassName::class
+        ];
+
+        /**
+         * Existing casts are processed before $enumCasts which can be useful if you're 
+         * taking input from forms and your enum values are integers.
+         */
+        protected $casts = [
+            'user_type' => 'int', #=> must type of data correct
+        ];
+    }
+    
+    Use:
+    $example = Example::first();
+    $example->user_type->description; #=> Hoa Hua
+    

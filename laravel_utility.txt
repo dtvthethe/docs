@@ -1,0 +1,7 @@
+- Cách để tạo dữ liệu:
+  + Use model: use Binou\Models\User;
+  + fill some fields: $user = factory(User::class)->create(['email'=>'user@gmail.com', 'password'=>bcrypt('123123')]);
+- haspassword: Hash::make
+- check require if: require_if <> require_unless, require_withall, require_without...
+- a ?? b <=> isset(a) ? a : b;
+- a ?: b <=> a != null ? a : b;

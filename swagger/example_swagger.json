@@ -1,0 +1,51 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "day la tieu de",
+        "description": "day la description",
+        "termsOfService": "",
+        "version": "1.0.0"
+    },
+    "tags": [
+        {
+            "name": "lay du lieu Nguoi dung",
+            "description": "day la mo ta lay data Nguoi dung"
+        }
+    ],
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "name": "Authorization",
+            "in": "header",
+            "type": "apiKey"
+        }
+    },
+    "paths": {
+        "/api/get_api/{id}": {
+            "post": {
+                "description": "Mo ta ve cai request post get_api",
+                "tags": [],
+                "consumes": "application/json",
+                "security": [],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "lay du lieu User thanh cong"
+                    },
+                    "422": {
+                        "description": "du lieu dau vao sai"
+                    },
+                    "404": {
+                        "description": "Ko tim thay request nay"
+                    }
+                }
+            }
+        }
+    }
+}

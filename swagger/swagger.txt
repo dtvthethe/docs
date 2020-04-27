@@ -1,0 +1,51 @@
+1. Install Swagger
+	- Install package swagger-php: 
+		composer require zircote/swagger-php 2.0.13
+
+	- Install package swagger-ui-dist: bằng cách thêm vào package.json
+		"swagger-ui-dist": "^3.22.1" 
+
+	run yarn install
+
+	- Sau đó để copy folder swagger trong node_modules đến public/swagger ta cấu hình trong webpack.min.js
+		mix.copyDirectory([
+		 'node_modules/swagger-ui-dist/swagger-ui-bundle.js',
+		 'node_modules/swagger-ui-dist/swagger-ui.css',
+		 	'node_modules/swagger-ui-dist/favicon-32x32.png',
+		 'node_modules/swagger-ui-dist/favicon-16x16.png',
+		 'node_modules/swagger-ui-dist/swagger-ui-standalone-preset.js',
+		 'node_modules/swagger-ui-dist/swagger-ui-standalone-preset.js.map',
+		 'node_modules/swagger-ui-dist/swagger-ui.css.map',
+		 	'node_modules/swagger-ui-dist/swagger-ui-bundle.js.map',
+		], 'public/swagger');
+
+	- Sửa file index.html trong public/swagger: `resources/views/swagger.blade.php`
+		`var swaggerJson = window.location.origin + '/swagger/swagger.json';`
+
+		update to: `url: swaggerJson,`
+
+	- access swagger:
+		+ web.php: define link to resources/views 
+		+ routes to swagger '/get-doc-api'
+		+ http://localhost:8000/get-doc-api
+
+2. Swagger Structure
+	- Any things please define into: public/swagger/swagger.json
+	- JSON Structure:
+		+ swagger: phiên bản swagger
+		+ info: Thông tin cấu hình
+		+ tags: Định nghĩa tags, gom tất cả các đầu API có trong một Controller thành một nhóm để người dùng dễ nhìn.
+		+ securityDefinitions: Mô tả các phương pháp xác thực được sử dụng trong API (Swagger Authencation).
+		+ paths: Định nghĩa điểm cuối của đường dẫn đến API, và các phương thức HTTP hỗ trợ ( GET, POST, PUT, DELETE,...) bởi các điểm cuối này. VD: GET /api/members/{user_id}
+		+ security: API nhận access_token xác thực từ securityDefinitions
+		+ parameters: các tham số được truyền vào API. Trong này ta có thể set tham số truyền vào:
+			* name:
+			* required: không null thì để true, ngược lại false
+			* in: 
+				$ body: Sẽ tạo cho người dùng một input area mà ở đó người ta sẽ phải nhập data body request vào (thường sử dụng cho PATH/PUT) 
+				$ formData: Sẽ tạo cho những người dùng những input đã được định trước và người ta sẽ nhập data request theo từng field đã định sẵn vào (thường sử dụng cho POST/PUT/PATH).
+				$ path: tạo cho người dùng một input để nhập vào giá trị khai báo trong routers, thường là id (VD: GET /api/members/{user_id} thì ở đây sẽ là giá trị {user_id}).
+				$ query: bạn sẽ tạo cho người dùng một input nhập vào giá trị theo các field định sẵn để gửi những query request (sử dụng trong methods GET).
+				$ header: khai báo những giá trị trong header của request mà bạn cần truyền lên.
+			* type: type request truyền lên.
+		+ response: là phần trả về của server. Có thể định nghĩa những HTTP code: 200, 404, 500,... với những mô tả cho từng trường hợp riêng.

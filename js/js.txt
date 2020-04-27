@@ -1,0 +1,72 @@
+++, --:
+    let a = 1
+    a++ // 1
+    ++a // 2
+
+for..of:
+    for (let product of products){
+        ..//
+    }
+
+for..in:
+    for (let property in products){
+        property ==> index | property name
+    }
+
+array methods:
+    + concat: combine 2 arrays to an array
+    + push: add an item to last array
+    + pop: get + remove an item at last array
+    + shift: get + remove an item at first array
+
+callback:
+    Gọi lại là một function sẽ được thực thi sau khi một function khác đã được thực thi xong
+
+array:
+    + map: bien doi cac items
+    + filter: get cac items thoa man dk(sk true/ false)
+    + find: get first item thoa man dk(sk true/ false)
+    + reduce: tinh toan => 1 gia tri duy nhat: VD tinh tong array, tinh tong tien shoping cart
+        arr.reduce(callback[, initialValue])
+        https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+        let totalprice = carts.reduce(function(preVal, nextVal){
+          return preVal + nextVal.price * nextVal.quantity;
+        }, 0);
+
+- prototype:
+    Prototype là cơ chế mà các object trong javascript kế thừa các tính năng từ một object khác: co the them thuoc tinh, them function,
+    + Trong constructor thi` co' 1 thuoc tinh'  la` prototype
+    + Trong prototype thi` co' 1 thuoc tinh' constructor lien ket nguoc lai. voi' constructor
+    VD: --------> `js/vd_1`
+
+- Module:
+    VD: --------> `js/vd_2`
+
+- Package:
+    `npm init`: enter neu la mac dinh, lay ten folder lam ten du an
+    `npm install abc-xyz --save` : --save luu vao file package json
+
+- JSON:
+    - JSON.stringify(<object>): Convert an object to JSON
+    - JSON.parse(<JSON>): Convert JSON to object
+
+- Promise:
+    .then() -> return Promise type
+    .catch()
+    .all([promises]): // day la cach truyen vao nhieu promise, .then(values) => [values]
+    new Promise(function(resolve, reject) {
+        // code .. resolve(data success), reject(exceptioin error)
+     } );
+
+- Async/ Await:
+
+
+- setTimeout: hen. gio: --> return ID
+
+- setInterval: lap lai sau x khoang thoi gian: --> return ID
+
+- clearTimeOut(ID setTimeout / ID setInterval): cancel setTimeout / setInterval
+
+setTimeout(function (){
+    // do somethings...
+}, 500);

@@ -1,0 +1,55 @@
+- Copy all new / modifiles files to .zip file at Destop:
+	zip ~/Desktop/mychange.pdf $({ (git ls-files --others --exclude-standard) ; (git ls-files --modified)})
+
+- merge commits to one:
+	git rebase -i HEAD~<N>
+	pick, squash: 
+	git commit --amend
+	git push origin xx -f
+
+- lo tay commit
+	git reset
+	git revert <commit ID>
+	git push origin xxx -f
+	
+- xu ly conflic: 
+	
+	1/ fetch remote vs local branch master  ==>  git fetch origin master:master
+	2/ rebase master
+	3/ loop:
+	  	3.1/ git add .
+	  	3.2/ git rebase --continue 
+	4/ git push xxx -f
+	5/ git rebase -i HEAD~2
+	6/ git push origin chapter_7 -f
+
+- chi nen co 1 commit tren 1 branch
+
+- su dung git reset HEAD~<so luong commit quay ve> de quay ve cac trang thai khac
+
+- ko rebase dc vi co 1 comimt da merge cua branch khac:
+	git branch -D develop 
+	git fetch sun develop:develop 
+	git rebase develop 
+	git add -A
+	git rebase --continue 
+	Applying: Assign Trainee
+	git branch 
+		  assign_supervisor
+		* assign_trainee
+		  develop
+	  	show_course
+	git push origin assign_trainee -f
+	
+- git stash: https://kipalog.com/posts/Su-dung-git-stash-hieu-qua
+	git stash save
+	
+	git stash list
+	`stash@{0}: WIP on <branch-name>: <lastest commit>
+	 stash@{1}: WIP on <branch-name>: <lastest commit>
+	 stash@{2}: WIP on <branch-name>: <lastest commit>`
+	
+	git stash pop stash@{1} -> get stash and drop stash
+	
+	git stash clear -> clear all stash
+	

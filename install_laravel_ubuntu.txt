@@ -1,0 +1,102 @@
+1. Cài đặt apache
+  $ sudo apt-get update
+  $ sudo apt-get install apache2
+
+2. Cài đặt MySQL
+
+  $ sudo apt-get update
+
+  $ sudo apt-get install mysql-server
+
+3. Cài đặt server side script
+
+  $ sudo apt-get update
+  $ sudo apt-get install python-software-properties
+  $ sudo add-apt-repository ppa:ondrej/php
+        |-> if doesn't work : sudo apt-get install software-properties-common
+  $ sudo apt-get update
+  $ sudo apt-get install php
+  $ sudo apt-get install php-pear php-curl php-dev php-gd php-mbstring php-zip php-mysql php-xml
+  
+  This command will install additional packages:
+  `libapache2-mod-php7.2
+  libargon2-0
+  libsodium23
+  libssl1.1
+  php7.2-cli
+  php7.2-common
+  php7.2-json
+  php7.2-opcache
+  php7.2-readline`
+
+  - For Debian:
+    sudo apt install ca-certificates apt-transport-https
+    wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
+    echo "deb https://packages.sury.org/php/ stretch main" | sudo tee /etc/apt/sources.list.d/php.list
+    cd /etc/apt/sources.list.d/
+    sudo mv ondrej-ubuntu* /tmp
+    sudo apt -y update
+    sudo apt install php7.3
+
+
+4. Cài đặt composer
+
+  $ sudo apt-get update
+
+  $ sudo apt-get install curl php-cli php-mbstring git unzip
+
+  $ cd ~
+
+  $ curl -sS https://getcomposer.org/installer -o composer-setup.php
+
+  $ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+
+5. Cài đặt phpmyadmin
+
+  $ sudo apt-get install phpmyadmin
+
+  Nếu sau khi cài đặt không chạy
+
+  $ sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+  $ sudo a2enconf phpmyadmin
+
+  $ sudo service apache2 reload
+
+- Fix `./libraries/sql.lib.php#601`:
+  + go to: /usr/share/phpmyadmin/libraries/sql.lib.php
+  || (count($analyzed_sql_results['select_expr'] == 1)
+  to:
+  || (count($analyzed_sql_results['select_expr']) == 1
+  
+- Fix user root can't login or Install MySQL Server missing input password step
+  password default if doesn't input: `password`
+  open terminal: sudo dpkg-reconfigure phpmyadmin
+- Update password for `root` user:
+  + service mysql stop 
+  + mysqld_safe --skip-grant-tables &
+  + sudo mysql -u root -p
+  + > use mysql;
+  + > select * from  user;
+  + > truncate table user;
+  + > flush privileges;
+  + > grant all privileges on *.* to root@localhost identified by 'YourNewPassword' with grant option;
+  + > flush privileges;
+  + > select host, user from user;
+  + > quit;
+  + > kill -KILL [PID of mysqld_safe]
+  + > kill -KILL [PID of mysqld]
+  + > service mysql start
+  + > mysql -u root -p 
+  
+  Link: https://stackoverflow.com/questions/2995054/access-denied-for-user-rootlocalhost-using-passwordno
+
+
+Link chi tiết fix lỗi: 
+  https://askubuntu.com/questions/55280/phpmyadmin-is-not-working-after-i-installed-it
+
+Tài liệu tham khảo:
+
+  Cài đặt MySQL: https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04
+  Cài đặt PHP: https://thishosting.rocks/install-php-on-ubuntu/
+  Cài đặt composer: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-16-04

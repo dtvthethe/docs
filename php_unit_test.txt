@@ -1,0 +1,56 @@
+
+* Mock: là thay thế một đối tượng thật = 1 đối tượng giả do mình tạo ra (fake hoặc mock object) loại bỏ những phụ thuộc từ bên ngoài như server api (trường hợp server die hay ko có server) thì mình có thể tạo ra các dữ liệu giả lập ở đây, hay goij đến một hệ thống bên ngoài mà chúng ta không càn phải test
+
+* Dependency Injecttion là: khi một method bên trong code lại gọi đến hàng trăm thaamjc hí hàng ngìn các methods con khác chưa kể những method con trong đó lại thuộc về các class khác nhau mà muốn gọi đến thì phải thực hiện new(khởi tạo CLass) vậy thì làm sao để khởi tạo đến các methods phụ thuộc đó, chưa kể nó còn lien quan đến hệ thống khác hệ không nằm trong 1 project:
+  1/ convert hết tất cả các new CLass trong method đó thành param, VD: public function foo(User $user)
+  2/ thực hiện tạo rfa các object fake để truyền vào method trên, VD: AuthorizeNetAIMFake, UserFake
+  
+ * PHPUnit Mock helper: cho phép bạn tạo 1 class mới thoả mãn điều kiện trên ngay khi đang chạy test mà không phải tạo file mới cho mỗi class, method hữu ích cho việc này là `getMockBuilder`, nhưng tất cả method của mock object đều trả về null. Những method này được gọi là stubs!
+ 
+ * Stub method: Stub method là một method bắt chước hành vi của method ban đầu theo 2 tiêu chí: cùng tên và cùng parameters. Điểm khác biệt của stub method là tất cả code logic bên trong sẽ bị loại bỏ. nó return null. Nhưng những methjod trc' đây gọi ddến server bên ngoài thì bây giờ nó đã trả vè null tức là nó ko còn dùng các method gọi đến server bên ngoài nữa
+  $authorizeNet->expects($this->once())->method('authorizeAndCapture')->will($this->returnValue('RETURN VALUE HERE!'));
+    + expects: never, once, any
+    + method: ten method muốn muốn override
+    + will(): muốn trả về giá trị là gì, VD: 1 chối string 'RETURN VALUE HERE!'
+    https://viblo.asia/p/php-unit-test-501-su-dung-mock-objects-stub-methods-va-dependency-injection-YWOZryg7KQ0
+
+
+
+- Install PHPUnitTest
+  sudo apt install php-xml php-json php-mbstring
+  composer require --dev phpunit/phpunit
+  
+  ./vendor/bin/phpunit
+  
+- Install on System XDebug
+  sudo apt-get install php-xdebug
+  php -m
+  sudo service apache2 restart
+  maybe you need : `
+    vi /etc/php/7.0/mods-available/xdebug.ini
+    xdebug.show_error_trace = 1
+  `
+  sudo apt-get install php-soap php-curl
+  
+- Các assertions hay dung;
+  assertArrayHasKey(), 
+  assertEquals(), 
+  assertFalse(), 
+  assertSame(),
+  assertTrue()
+
+- Test private/protected method:
+  $this->invokeMethod($user, 'cryptPassword', ['passwordToCrypt']);
+    + $user: object User
+    + cryptPassword: ten private/protected method
+    + tham so: passwordToCrypt
+- Coverage page:
+  ./vendor/bin/phpunit --coverage-html coverage
+- Chỉ số CRAF:
+  + nếu code có các câu lệnh như if else phức tạp hay lồng nhau hoặc foreach, swtich case thì chỉ sô CARF càng cao
+  + nếu viết test case cover cho đầy đủ các trường hợp rẽ nhánh if else hay foreach thì cái chỉ số này nó sẽ giảm xuống
+
+- Create DB for testing environment:
+   + rename .env.testing.example to .env.testing
+   + php artisan config:cache --env=testing : reload the config for testing environment
+   + php artisan migrate --env=testing : create tables

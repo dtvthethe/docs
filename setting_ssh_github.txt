@@ -1,0 +1,13 @@
+1/ Generate SSH key:
+	ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+2/ Press `Enter`
+
+3/ Input Type passphrase
+
+4/ Copy SSH key:
+	cat ~/.ssh/id_rsa.pub
+or with Windows:
+	clip < ~/.ssh/id_rsa.pub
+	then
+	ssh-add ~/.ssh/id_rsa

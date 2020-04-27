@@ -1,0 +1,12 @@
+https://kipalog.com/posts/Trien-khai-du-an-laravel-voi-laradock--p-1
+-----------------
+
+Step:
+  1/ Pull code laradock
+  2/ Chỉnh sửa cấu hình cho các container (nếu cần)
+  3/ Pull code laravel
+  4/ Cho các container start lên
+  5/ Vào workspace và chạy các câu lệnh cần thiết
+
+1/ Pull code Laradock:
+  git clone https://github.com/laradock/laradock.git

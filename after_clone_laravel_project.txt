@@ -1,0 +1,19 @@
+composer install
+yarn install
+yarn dev
+composer dump-autoload
+-- .env
+php artisan key:generate
+
+php artisan cache:clear
+php artisan config:clear
+php artisan config:cache
+php artisan view:cache
+php artisan route:cache
+
+php artisan migrate:fresh --seed
+
+php artisan passport:install
+php artisan passport:generate
+
+php artisan config:cache
