@@ -1,0 +1,93 @@
+- Hướng đối tượng:
+	+ Đối tượng: thực thể thể hiện của một lớp nào đó
+	+ Lớp: khuôn mẫu của các đối tượng
+	+ Thuộc tính: các biến
+	+ Phương thức: các hàm
+
+- 5 Tính chất:
+	+ Kế thừa (inheritance)
+	+ Đa hình (polymophism)
+	+ Đóng gói (encapsulation)
+	+ Trừu tượng (abstraction)
+
+- Class:
+	class <class_name>:
+
+	class Animal:
+		pass
+	
+	cat = Animal()
+
+- Thuộc tính:
+	+ thuộc tính private: __<tên thuộc tính>
+	+ thuộc tính của đối tượng: khai báo trong hàm __init__()
+	+ thuộc tính dùng chung: khai báo tong class
+
+	class Animal:
+		var_1 = 0
+		
+		def __init__(self):
+			self.__private = 0	
+			self.var3 = 0	
+
+- Khởi tạo:
+	def __init__(self, value1, value2 ....):
+		self.xxx = ..
+
+- Hàm hủy:
+	def __del__(self):
+
+- Hàm private: 
+	def __private_func(self): -> ko truy cập dc từ bên ngoài
+		....
+
+- Các hàm khác:
+	__str__(self):
+	__len__(self):
+	__add__(self):
+	__sub__(self):
+
+
+- Kế thừa:
+	+ Tái sử dụng
+	+ Tính linh hoạt
+	+ tính mở rộng
+	class <ClassChildren>(BaseClass1, BaseClass2...)
+
+- Đa hình:
+	+ Tính ngữ cảnh 
+	+ Override
+
+	class Cat:
+	class Duck:
+
+	def get_name(nanimal)
+		return animal.get_name()
+
+	cat = Cat()
+	duck = Duck()
+
+	print get_name(cat)
+	print get_name(duck)
+
+
+- Trừu tượng:
+	from abc import ABC, abstractmethod
+	class Animal(ABC)
+		@abstractmethod
+		def leg_number(self)
+			pass
+
+	class Cat(Animal):
+		-----------????????????------------- how to overide def leg_number
+
+- phạm vi biến / function ???
+- + thuộc tính của đối tượng: khai báo trong hàm __init__() ??
+- + thuộc tính dùng chung: khai báo tong class ???
+- __add__(self):
+	__sub__(self):
+	__del__(self):
+	 => dung lam` gì???
+- python cho phép da ke' thjuia`???
+- from abc import ABC, abstractmethod ?? tyac dung 
+- how to overide def leg_number class Cat

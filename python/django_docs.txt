@@ -1,0 +1,142 @@
+Install/Update Python
+	sudo apt-get update
+	$ python3 --version
+	$ sudo apt-get install software-properties-common
+	$ sudo add-apt-repository ppa:deadsnakes/ppa
+	$ sudo apt-get update
+	$ sudo apt-get install python3.x
+	$ python3 --version
+	$ sudo apt-get update
+
+Set Python3 as default
+	$ nano ~/.bashrc
+	append this code into the file: alias python=python3
+	$ source ~/.bashrc
+	$ python --version
+
+Install PIP:
+	$ sudo apt-get -y install python3-pip
+	$ sudo apt-get update
+	$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+	$ python get-pip.py --user
+Pip:
+	- pip: công cụ quản lý package cua python (Package Install for Python)
+	+ cài đặt: pip install <package_name> [<|==|<=|>=|> số phiên bản]
+	+ gỡ bỏ: pip uninstall <package_name>
+	+ cập nhật: pip install -U <package_name> 
+	+ kiểm tra địa chỉ, phiên bản: pip --version/pip -V
+	+ list package đã cài: pip list
+	+ export thư viện đã cài: pip freeze > requirements.txt
+	+ cài tất cả package: pip install -r requirements.txt
+
+Install other package:
+	$ sudo apt-get install python3-distutils
+
+Install virtualenv:
+	$ pip install virtualenv
+	$ virtualenv --help
+	$ virtualenv --version
+
+Create virtualenv:
+	$ virtualenv <name virtualenv 'env'> or virtualenv -p /usr/bin/python3.6 <name virtualenv 'env'>
+	$ source env/bin/activate
+	to exit `$ deactivate`
+
+Virtual envirment:
+	+ mỗi dự án nên có 1 env riêng 
+	+ ko dùng chung giữa các dự án hay của hệ thống
+	+ tính đóng gói
+
+Install Django -> co' nen install trong env ko?
+	$ python -m pip install Django
+	$ python -m django --version
+	$ django-admin --> to see the list of subcommands:
+		+ check
+	    + compilemessages
+	    + createcachetable
+	    + dbshell
+	    + diffsettings
+	    + dumpdata
+	    + flush
+	    + inspectdb
+	    + loaddata
+	    + makemessages
+	    + makemigrations
+	    + migrate
+	    + runserver
+	    + sendtestemail
+	    + shell
+	    + showmigrations
+	    + sqlflush
+	    + sqlmigrate
+	    + sqlsequencereset
+	    + squashmigrations
+	    + startapp
+	    + startproject : create Django project
+	    + test
+	    + testserver
+
+Django docs:
+	Create project
+		$ mkdir my_project
+		$ virtualenv <name virtualenv 'env'>
+		$ source env/bin/activate
+		to exit `$ deactivate`
+		$ django-admin startproject my_project
+		$ django-admin manage.py runserver
+
+	Structure:
+		./projectname
+			/env
+			/subprojectname
+			/app
+
+		manage.py: CLI
+		projectname/__init__.py: python package
+		projectname/settings.py: setting config
+		projectname/urls.py: url
+		projectname/wsgi.py: deploy
+
+	Create an app:
+		$ python manage.py startapp polls
+	
+
+Installl SQL: <subproject>/settings.py > DATABASES
+	ENGINE:
+		django.db.backends.sqlite3
+		django.db.backends.postgresql
+		django.db.backends.postgresql
+		django.db.backends.oracle
+
+	$ python manage.py migrate
+	
+namespaces:
+	django.urls import path, include :
+		include(): cho phep' include url cua app con
+	django.db import models
+	django.contrib.xx: các apps đã được cài đặt import để sử dụng chúng
+
+URLS:
+	import django.urls import path, include :
+
+Model:
+	import django.db import models
+	append app to settings.py INSTALLED_APPS
+
+Shell:
+	$ python manage.py shell
+
+DB:
+	$ python manage.py check -> to check exists any problems in project
+	$ python manage.py sqlmigrate <app name> 000x -> to see the SQL would run
+	$ python manage.py makemigrations <app name> -> to create migrations for those changes in an app
+	$ python manage.py migrate -> to apply those changes to the database. 
+
+see more:
+	https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.Field
+	https://docs.djangoproject.com/en/3.0/ref/django-admin/
+	https://docs.djangoproject.com/en/3.0/topics/db/queries/
+
+
+
+- virtualenv -p /usr/bin/python3.6 <name virtualenv 'env'> la` lam` gi` /
