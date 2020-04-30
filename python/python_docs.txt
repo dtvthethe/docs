@@ -1,0 +1,183 @@
+- Comment:
+	+ #
+	+ """
+	  	...
+	  """
+
+- Variable:
+	+ varable: abc_xyz
+	+ constant: ABC_XYZ
+
+- Operator:
+
+- Keyword:
+	and, del, from, not, while, as, elif, global, or, with, assert, else, if, pass, yield, break, type, expect, import, print, class, exec, in, raise, continue, finally, is, return, def, for, lambda, try
+
+	+ type():
+		a = None
+		print(type(a))
+	+ del:
+	+ as:
+		catch Exception as ex
+	+ global:
+		cho gọi biến bên ngoài vào phạm vi hiện tại để thay đổi giá trị, VD global.py
+	+ with:
+	+ assert:
+	+ yield:
+	+ expect:
+	+ in:
+		'he' in 'hello'
+	+ raise:
+	+ is:
+		dict is not None
+	+ lambda:
+	+ enumerate:
+
+- Data type:
+	None, Boolean, Number, String, Tuple, List, Set, Dict
+
+	+ Number: int, float, complex -> số phức
+	+ String
+	+ List -> []
+		++ len(list) --> length
+		++ list.append(<object>)
+		++ list.insert(index, <object>)
+		++ list_a.extend(list_b) --> append a list `list_b` to a list `list_a`
+		++ list.pop(index=None) return value at index, Exception;
+			+++ list.pop() -> delete value at last index
+			+++ list.pop(<index>) -> delete value at index
+		++ list.remove(<object>) Exception
+			+++ delete 1 object at first detect <object>
+		++ list.sort(reverse=False)
+			+++ reverse=False --> ASC
+			+++ reverse=True --> DESC
+			* values in array must same type data: number != string
+		++ list.reverse() --> reverse all values in array
+		++ list.count(object) --> count number of object in a list 
+		++ list.index(object) --> get index at first detect object
+	+ Tuple -> ()
+		* function like List, so can't update value in Tuple
+		++ convert list to tuple: tuple(<list>) return tuple
+	+ Set -> {}
+		++ dùng đc các phép toán
+	+ Dict -> {key: value, ...}
+		++ add: dict['key'] = value
+		++ dict.keys()
+		++ dict.values()
+		++ dict.items()
+		++ dict1.update(dict2)  -> update dict1 by dict2
+			-> if dict2 same key name it will be update value in dict1 only
+			-> if dict2 same key name and same value it will not update in dict1
+		++ dict.pop(<key>) return value -> delete by key name
+		++ dict.clear() -> delete all {}
+
+- Flow control
+	+ if:
+		if <condition>:
+		else:
+
+		if <condition>:
+		elif <condition>:
+		else:
+	+ try-catch:
+		try:
+			...
+		except BaseException as ex:
+			raise ex
+		else:
+			run this when not exists any exception 
+		finally:
+			....
+		++ more exception see: exception.png
+	+ for <variable> in <collection>:
+		++ break, continue
+
+		for key, value in dict.items():
+		for item in list:
+	+ while <condition>:
+		++ update index
+
+- Function:
+	+ def <function_name>([params]):
+		+ [return ....]
+
+	+ comment:
+	+ anotation
+	+ params key
+	+ params typehint
+	+ return typehint
+	+ multiple params key:
+	+ callback
+
+- File:
+	+ read file: VD /file_handle
+	+ libraries: pandas, python-docx, openpyxl
+	+ open(<file_name>, [mode = 'r'], [bufsize])
+		++ mode:
+			r: đọc dữ liệu kiểu text
+			rb: đọc kiểu nhị phân
+			w: ghi dữ liệu kiểu text
+			wb: ghi dữ liệu kiểu nhị phân
+			a: thêm vào cuối file
+			+: ghi đè
+		Ex read file:
+			input_file = open('data.txt', mode='r')
+
+			for line in input_file
+				line = line[:-1]
+				print(line0)
+
+			input_file.close()
+			content = input_file.readlines()
+
+		Ex write to file:
+			text = 'Hello'
+			input_file = open('data.txt', mode='w')
+			input_file.write(text)
+			input_file.close()
+- Module: là các file .py --> see module_package.png
+	import 
+		+ module có sẵn
+		+ module tự tạo
+	VD:
+		from <module_name> import <function_name>
+		from <module_name> import <function_name> as <alias_name>
+		from <module_name> import <function_name1>, <function_name2>
+		from <module_name> import *
+		from <path> import <module>
+
+- Package: chứa các modules/subpackage , chứa file __init__.py --> see module_package.png
+
+- Note:
+	bool('') -> False
+	bool(' ') -> True
+	bool() -> False
+	bool(None) -> False
+
+	range(start, stop, step)
+
+	random.choice([....])
+
+	str = '%s %s' % (str1, str2)
+	str = '%s' %str1
+
+	get exec command result;
+		a = []
+		input = '[12, 25, 38, 18, 16]'
+		exec('a = ' + input)
+
+	- get current file py name: 
+		if __name__ == '__main__':
+
+	- isinstance(var1, var2) ; check ??
+	- random.shuffle() ???
+	- sorted(victims, key=my_sort_func, reverse=False) ??
+
+	- enumerate ???
+	- function ??
+	- [:-1] ??
+	- input_file = open('data.txt', mode='w')
+			input_file.close() ==> using like C#
+	- assert True, 'ko co loi'
+	- assert False, 'co loi'
+	- phan biet module . package
