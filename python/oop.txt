@@ -20,6 +20,7 @@
 
 - Thuộc tính:
 	+ thuộc tính private: __<tên thuộc tính>
+	+ thuộc tính protected: _<tên thuộc tính>
 	+ thuộc tính của đối tượng: khai báo trong hàm __init__()
 	+ thuộc tính dùng chung: khai báo tong class
 
@@ -79,15 +80,12 @@
 			pass
 
 	class Cat(Animal):
-		-----------????????????------------- how to overide def leg_number
+		def leg_number(self)
+			....
 
-- phạm vi biến / function ???
-- + thuộc tính của đối tượng: khai báo trong hàm __init__() ??
-- + thuộc tính dùng chung: khai báo tong class ???
-- __add__(self):
-	__sub__(self):
-	__del__(self):
-	 => dung lam` gì???
-- python cho phép da ke' thjuia`???
-- from abc import ABC, abstractmethod ?? tyac dung 
-- how to overide def leg_number class Cat
+- Decorator:
+	
+
+- map, filter, reduce
+- static class/ method
+- thuc hhanh ham` proivate protected ????
