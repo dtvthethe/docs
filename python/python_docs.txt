@@ -1,3 +1,7 @@
+- PEP:
+	pip install pep8
+
+
 - Comment:
 	+ #
 	+ """
@@ -22,12 +26,16 @@
 	+ global:
 		cho gọi biến bên ngoài vào phạm vi hiện tại để thay đổi giá trị, VD global.py
 	+ with:
+		+ kiem soat tai nguyen: open, close 
+		+ need to add the methods: __enter__(self): open, __exit__(self): close
+		+ make code cleaner
 	+ assert:
 	+ yield:
 	+ expect:
 	+ in:
 		'he' in 'hello'
 	+ raise:
+		raise Exception("my error")
 	+ is:
 		dict is not None
 	+ lambda:
@@ -38,7 +46,7 @@
 
 	+ Number: int, float, complex -> số phức
 	+ String
-	+ List -> []
+	+ List -> [] Cho phép chứa dữ liệu trùng lặp
 		++ len(list) --> length
 		++ list.append(<object>)
 		++ list.insert(index, <object>)
@@ -55,12 +63,12 @@
 		++ list.reverse() --> reverse all values in array
 		++ list.count(object) --> count number of object in a list 
 		++ list.index(object) --> get index at first detect object
-	+ Tuple -> ()
+	+ Tuple -> () Cho phép chứa dữ liệu trùng lặp, không thể thay đổi
 		* function like List, so can't update value in Tuple
 		++ convert list to tuple: tuple(<list>) return tuple
-	+ Set -> {}
+	+ Set -> {} Không cho phép chứa dữ liệu trùng lặp, không có chỉ mục
 		++ dùng đc các phép toán
-	+ Dict -> {key: value, ...}
+	+ Dict -> {key: value, ...} Không cho phép chứa dữ liệu trùng lặp, có thể thay đổi và lập chỉ mục
 		++ add: dict['key'] = value
 		++ dict.keys()
 		++ dict.values()
@@ -71,6 +79,10 @@
 		++ dict.pop(<key>) return value -> delete by key name
 		++ dict.clear() -> delete all {}
 
+- Random:
+	random.choice(list): chon ngau nhien 1 gia tri trong list
+	random.shuffle(list): sap xep phan tu trong list random
+
 - Flow control
 	+ if:
 		if <condition>:
@@ -79,6 +91,8 @@
 		if <condition>:
 		elif <condition>:
 		else:
+	+ if one line:
+		value_true if <condition> else value_false
 	+ try-catch:
 		try:
 			...
@@ -106,9 +120,10 @@
 	+ params key
 	+ params typehint
 	+ return typehint
+	==> see more comment_function.py
+
 	+ multiple params key:
 	+ callback
-
 - File:
 	+ read file: VD /file_handle
 	+ libraries: pandas, python-docx, openpyxl
@@ -156,8 +171,6 @@
 
 	range(start, stop, step)
 
-	random.choice([....])
-
 	str = '%s %s' % (str1, str2)
 	str = '%s' %str1
 
@@ -166,18 +179,18 @@
 		input = '[12, 25, 38, 18, 16]'
 		exec('a = ' + input)
 
-	- get current file py name: 
+	check current file is main file: 
 		if __name__ == '__main__':
 
-	- isinstance(var1, var2) ; check ??
-	- random.shuffle() ???
-	- sorted(victims, key=my_sort_func, reverse=False) ??
+	isinstance(object, type); check the object is of type -> return true/false
+	sorted(victims, key=my_sort_func, reverse=False) ??
 
-	- enumerate ???
-	- function ??
-	- [:-1] ??
-	- input_file = open('data.txt', mode='w')
-			input_file.close() ==> using like C#
-	- assert True, 'ko co loi'
-	- assert False, 'co loi'
-	- phan biet module . package
+	enumerate: thêm vào một bộ đếm vào trước mỗi iterable và trả về kết quả dưới dạng đối tượng liệt kê (enumerate object)
+	
+	assert
+		- assert True, 'ko co loi'
+		- assert False, 'co loi'
+
+		if not condition: -> if result is false => raise Error
+    		raise AssertionError()
+
