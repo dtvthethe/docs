@@ -1,0 +1,5 @@
+pascal: ProductClass, ProductStatus
+lac da: productClass, productStatus
+
+- phan biet stack va heap
+- cac kieu du lieu
