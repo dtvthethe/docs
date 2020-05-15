@@ -1,0 +1,41 @@
+image chi doc ko the sua doi
+container: 
+
+docker images  -> xem tat ca cac images -> docker hub
+
+docker search <keyword>
+
+docker pull <image name>[: verson -> if empty is lastest]
+
+docker image rm <image name | image id> -> remove image 
+
+
+
+docker run [params] <image name[:version]> -> -t : terminal
+docker run -it [--name "container name"] [-h hostname] <image name[:version]>
+
+docker ps: xem nhung container nao dang chay
+docker ps -a: xem nhung tat ca container
+
+start contauner 
+docker start container <name contaiuner >
+vao laij terminal cuar container 
+docker attach <comtainer name >
+
+Ctrl + P + Q : thoat terminal nhung comntainer vcan chay
+container stop <container name>
+
+
+docker rm <container name> :xoa container 
+docker rm -f <container name> :xoa container  dang chay
+
+
+
+
+
+
+
+
+
+
+
