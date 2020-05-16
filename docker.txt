@@ -1,41 +1,45 @@
-image chi doc ko the sua doi
-container: 
+IMAGE:
+	- image chỉ đọc không thể sửa đổi
+	- container: 
 
-docker images  -> xem tat ca cac images -> docker hub
+	docker images  -> xem tất cả các images đang có 
 
-docker search <keyword>
+	docker search <keyword>
 
-docker pull <image name>[: verson -> if empty is lastest]
+	docker pull <image name>[: verson -> if empty is lastest] -> pull image 
 
-docker image rm <image name | image id> -> remove image 
+	docker image rm <image name | image id> -> remove image 
+	docker image rm <image name | image id> -f -> remove image if it used by container
 
+	docker run [params] <image name[:version]> -> -t : terminal run an image,-i input
+	docker run -it [--name <container name>] [-h hostname] <image name[:version]>
 
+	docker ps: xem tất cả các containers đang chạy 
+	docker ps -a: xem tất cả các containers dang có
 
-docker run [params] <image name[:version]> -> -t : terminal
-docker run -it [--name "container name"] [-h hostname] <image name[:version]>
+	docker start <comtainer name> -> start a container
+	docker attach <comtainer name>  -> attach termial to container (way 1)
+	docker exec -it <comtainer name> bash  -> attach termial to container (way 2)
+	Ctrl + P + Q : thoát terminal khỏi container nhưng vẫn giữ container chạy
+	
+	docker container stop <container name> (way1)
+	exit ->exit (way2)
 
-docker ps: xem nhung container nao dang chay
-docker ps -a: xem nhung tat ca container
+	docker rm <container name> -> xóa container 
+	docker rm -f <container name> -> xóa container đang chạy 
 
-start contauner 
-docker start container <name contaiuner >
-vao laij terminal cuar container 
-docker attach <comtainer name >
-
-Ctrl + P + Q : thoat terminal nhung comntainer vcan chay
-container stop <container name>
-
-
-docker rm <container name> :xoa container 
-docker rm -f <container name> :xoa container  dang chay
-
-
-
+	docker exec <container name> <system commander> -> thực thi lệnh từ phía ngoài vào trong container
 
 
+CONTAINER to IMAGE:
+	docker commit <container name> <save to image name>:<version> -> convert container to image
 
+	docker save --output <filename>.tar <image name> -> save image to file 
 
+	docker load -i <image file>.tar
+	docker tag <old image name> <new image name>:<version> -> set name + version to image loaded from file .tar
 
+SHARE DATA FROM HOST TO CONTAINER:
+	docker run -it -v <host directory path>:<container directory path> <id image> 
 
-
-
+	docker run -it --name <new container name> --volumes-from <container name want to copy> <image name>:<version> -> create a container map to host directory path like  from <container name want to copy>
