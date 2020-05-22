@@ -90,10 +90,12 @@
   + > mysql -u root -p 
   
   Link: https://stackoverflow.com/questions/2995054/access-denied-for-user-rootlocalhost-using-passwordno
-
-
-Link chi tiết fix lỗi: 
+  
+  Link chi tiết fix lỗi: 
   https://askubuntu.com/questions/55280/phpmyadmin-is-not-working-after-i-installed-it
+
+6. Switch PHP version:
+  sudo update-alternatives --config php
 
 Tài liệu tham khảo:
 
