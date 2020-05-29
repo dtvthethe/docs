@@ -1,0 +1,74 @@
+https://caniuse.com/
+
+TRANSFORM:
+
+transform: biến đổi
+        transform(X, Y)
+        transform(X Y)
+        transformX(X)
+        transformY(Y)
+        
+        scale:
+            scale(X, Y)
+            scale(X Y)
+            scaleX(X)
+            scaleY(Y)
+
+        rotate:
+            rotate(X, Y)
+            rotate(X Y)
+            rotateX(X)
+            rotateY(Y)
+            rotateZ(Z)
+
+            X and Y:
+                100deg
+            
+            
+    translate(x,y)	Di chuyển phần tử theo trục x và trục y
+    translateX(n)	Di chuyển phần tử theo trục x
+    translateY(n)	Di chuyển phần tử theo trục y
+    scale(x,y)	Thay đổi độ rộng và chiều cao của phần tử
+    scaleX(n)	Thay đổi độ rộng của phần tử
+    scaleY(n)	Thay đổi chiều cao của phần tử
+    rotate(angle)	Xoay phần tử theo một góc (angle)
+    skew(x-angle,y-angle)	Định dạng phần tử nghiêng theo một góc
+    skewX(angle)	Định dạng phần tử nghiêng một góc theo trục x
+    skewY(angle)	Định dạng phần tử nghiêng một góc theo trục y
+    matrix(n,n,n,n,n,n)	Tổng hợp giữa scale, skew và translate
+            
+            
+TRANSITION: thời gian 
+    VD: 
+        transition: <thuộc tính 1> <thời gian>s , <thuộc tính 2> <thời gian>s, ....
+    
+    số giây thay đổi tất cả thuộc tính từ `.circle` sang `.circle:hover` trong 1s
+        transition: 1s; 
+
+    số giây thay đổi từng thuộc tính cụ thể từ `.circle` sang `.circle:hover
+        transition: background-color 1s, transform 0.3s;
+                
+    sau 2s thì thực hiện transform trong vòng 0.3s
+        transition: background-color 1s, transform 0.3s 2s;
+                
+    tốc độ chuyển đổi xem toc_do_chuyen_doi.gìf 
+        transition: background-color 1s, transform 0.3s 2s ease;
+        
+        ease: tạo hiệu ứng chuyển đổi khi bắt đầu thì chậm sau đó nhanh dần và gần kết thúc lại chậm từ từ (giá trị mặc định).
+        linear: tạo hiệu ứng chuyển đổi từ lúc bắt đầu với lúc kết thúc tốc độ là như nhau.
+        ease-in: tạo hiệu ứng chuyển đổi chậm ở lúc bắt đầu.
+        ease-out: tạo hiệu ứng chuyển đổi chậm ở lúc kết thúc.
+        ease-in-out: tạo hiệu ứng chuyển đổi chậm ở lúc bắt đầu và lúc kết thúc.
+
+    độ trễ của transition:
+        transition-delay: 1s; -> 1s sau ms thuc hiện
+        
+POSITION:
+    relative: Giá trị này thường được sử dụng để thiết lập vị trí của phần tử mà không gây ảnh hưởng tới việc hiển thị ban đầu cũng như các phần tử khác
+    
+    absolute: Giá trị này dùng để thiết lập vị trí của một phần tử theo phần tử cha có giá trị thuộc tính position là relative hoặc absolute
+    
+    
+KEYFRAME:
+    from 
+    to
