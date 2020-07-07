@@ -1,0 +1,3 @@
+Exception occurred in driver: SQLSTATE[HY000] [2054] The server requeste d authentication method unknown to the client
+-> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'passwordxxx';
+
