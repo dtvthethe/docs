@@ -61,7 +61,7 @@ SHARE DATA FROM HOST TO CONTAINER:
 	* docker run -it -v <host directory path>:<container directory path> <id image> 
 
 	docker run -it --name <new container name> --volumes-from <container name want to copy> <image name>:<version> 
-		-> create a container map to host directory path same a an exists container <container name want to copy>
+		-> create new a container map to same directory <container name want to copy>
 	* docker volume ls -> list all disk
 	* docker volume create <disk name> -> create a disk
 	* docker volume inspect <disk name> -> get disk name info
