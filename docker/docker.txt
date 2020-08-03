@@ -58,22 +58,25 @@ CONTAINER to IMAGE:
 	docker tag <old image name> <new image name>:<version> -> set name + version to image loaded from file .tar
 
 SHARE DATA FROM HOST TO CONTAINER:
+	- Share data:
 	* docker run -it -v <host directory path>:<container directory path> <id image> 
-
-	docker run -it --name <new container name> --volumes-from <container name want to copy> <image name>:<version> 
+	* docker run -it --name <new container name> --volumes-from <container name want to copy> <image name>:<version> 
 		-> create new a container map to same directory <container name want to copy>
+	- Volume:
 	* docker volume ls -> list all disk
 	* docker volume create <disk name> -> create a disk
 	* docker volume inspect <disk name> -> get disk name info
 	* docker volume rm <disk name> -> delete a disk
-
-	docker run -it -name <container name> --mount source=<disk name>,target=<map to directory, Ex: /home/disk_abc> <image name>
+	- Create volume map to host folder:
+	* docker volume create --opt device=<directory on host> --opt type=none o=bind <disk name> 
+		-> create a disk map to directory folder on computer
+	
+	- Create container mount with volumn:
+	docker run -it --name <container name> --mount source=<disk name>,target=<map to container directory, Ex: /home/disk_abc> <image name>
 		-> assign a disk to container (way 1)
 	* docker run -it -v <disk name>:<map to directory on container> <image name>
 		-> assign a disk to container (way 2)
-	* docker volume create --opt device=<directory on device> --opt type=none o=bind <disk name> 
-		-> create a disk map to directory folder on computer
-
+		
 NETWORK
 	* docker network ls -> list all network
 	* docker network inspect <network name> -> get a network info
