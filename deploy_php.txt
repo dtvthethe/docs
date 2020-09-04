@@ -1,0 +1,15 @@
+cach deploy:
+1. checkout ra master 
+2. tao tag v.... `git tag v1.2.2`
+3. `git push `git server` --tags `, Ex: git push <branch git server> --tags 
+4. cd deployer/
+5. git checkout deploy_sprintxxx
+6. dep deploy --tag=v1.2.2 --hosts=<IP server> -> `<IP server` phai co trong deployer.php
+===========detail==========
+1. trên github merge vào `master`
+2. checkout vào nhánh master pull code từ `original git server` mới nhất về
+3. tạo tag `git tag v1.xx`
+4. git push cái tag vừa tạo ở step 3 lên `original git server`
+5. lên github kiểm tra lại tag đã tạo ở step 3 với nhánh `master` có các pull cần deploy chưa
+6. cd vào `deployer/`
+7. dep deploy --tag=v1.xx (tag đã tạo ở step 3) --hosts= IP của cái server PROD cần deploy nhưng phải có trong file `deployer.php`
