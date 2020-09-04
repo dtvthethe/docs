@@ -13,6 +13,7 @@ THAM SỐ HÀM:
 KHAI BÁO vs ĐỊNH NGHĨA:
 - Khai báo: là chỉ khai báo tên hàm và tên biến và có thể khai báo trùng nhau, VD:
   run(int speed);
+  
 - Định nghĩa: là định nghĩa hàm/biến bình thường và không thể khai báo trùng nhau, VD:
   int name = "abc";
   run (int speed) {
