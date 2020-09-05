@@ -1,0 +1,21 @@
+THAM SỐ HÀM:
+- Truyền giá trị cho hàm:
+  + Dùng khi kiểu giá trị truyền vào là những kiểu dữ liệu đơn giản(int, float, bool)
+  
+- Truyền tham chiếu cho hàm:
+  + Dùng khi kiểu giá trị truyền vào là những kiểu dữ liệu phức tạp (struct, object, class), vì sẽ ko phải mất tài nguyên để clone hay thời gian cho việc copy, VD:
+    void abc(Animal &animal)
+   
+- Truyền giá trị cho hàm ko muốn thay đổi giá trị của tham số:
+  + void abc(const int pi)
+  + void abc(const int &pi)
+
+KHAI BÁO vs ĐỊNH NGHĨA:
+- Khai báo: là chỉ khai báo tên hàm và tên biến và có thể khai báo trùng nhau, VD:
+  run(int speed);
+  
+- Định nghĩa: là định nghĩa hàm/biến bình thường và không thể khai báo trùng nhau, VD:
+  int name = "abc";
+  run (int speed) {
+    // TODO: Implement run function.
+  }
