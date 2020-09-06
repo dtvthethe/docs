@@ -10,6 +10,11 @@ NOTE:
 	- 1 container co the ket noi nhieu mang
 	- 1 container co the co nhieu ports
 	- -e <var name>=<var value> : thiet lap bien moi truong
+	- httpd: 
+		$ cd \var\www
+		$ httpd 
+		-> start httpd server in directory `\var\www`
+		$ wget -> access to httpd server, Ex: wget 172.xxx
 	==========================
 	- fpm la gi?
 	- lenh move, copy file, create file
@@ -82,9 +87,10 @@ NETWORK
 	* docker network ls -> list all network
 	* docker network inspect <network name> -> get a network info
 	* docker run -it --name <container name> -p <map to this computer port>:<container port> <container name>
+		-> MAP NETWORK to host 
 		-> create a container, this computer can access to this container
-		-> on this computer access to container: `localhost:<map to this computer port>`, `127.0.0.1:<map to this computer port>`
-	docker network create --driver bridge <bridge network name> 
+		-> on this computer access to container: `localhost:<map to this computer port>` or `127.0.0.1:<map to this computer port>`
+	docker network create --driver bridge <bridge network name>  -> create a network
 	docker network rm <network name> -> delete a network
 	* docker run -it --name <container name> --network <network name> <image name> -> create a container set to a network
 	* docker network connect <network name> <container name> -> assign a network to container is running
