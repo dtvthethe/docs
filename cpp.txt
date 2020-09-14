@@ -19,3 +19,26 @@ KHAI BÁO vs ĐỊNH NGHĨA:
   run (int speed) {
     // TODO: Implement run function.
   }
+
+- CON TRỎ:
+  + `&` lấy điạ chỉ của 1 biến: &a
+  + `*&` truy cập giá trị tại địa chỉ của 1 biến: *&a , *&a = 1
+  + `*` con trỏ phải đc gán = địa chỉ
+  + `nullptr` nên dùng để chỉ 1 con trỏ là null
+  + release pointer varriable:
+    delete <var_name>;
+    <var_name> = NULL;
+  + release pointer array:
+    delete <array_name>;
+
+- CON TRỎ MẢNG:
+  + <array_name>: phần tử đầu tiên
+  + <array_name> + N: phần tử thứ N -> ko nen dung, vi ko dong nhat kieu code
+  + <array_name>[N]: OK
+
+- ARRAY:
+  array <<type>, <dyanamic_number>>
+
+- BIẾN THAM CHIẾU:
+  
+
