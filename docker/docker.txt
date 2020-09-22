@@ -16,6 +16,8 @@ NOTE:
 		$ httpd 
 		-> start httpd server in directory `\var\www`
 		$ wget -> access to httpd server, Ex: wget 172.xxx
+	- config domain to host:  /etc/hosts
+	Ex: 127.0.0.1   example.com
 	- copy file from host to container:
 		`docker cp <host directory> <container ID, name>:<container directory>`
 	==========================
