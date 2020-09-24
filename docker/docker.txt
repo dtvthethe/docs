@@ -1,7 +1,7 @@
 NOTE:
 	- image: chỉ đọc không thể sửa đổi
 	- container: dc tao. tu` image
-	- easybox: general multiple comand
+	- busybox: general multiple comand
 	- $ ls /bin/ -ls -> list all command can use on current device
 	- bridge: mac. dinh. dc. cac container ket noi vao mang. nay
 	- var/www : project web location 
@@ -78,14 +78,14 @@ SHARE DATA FROM HOST TO CONTAINER:
 	* docker volume inspect <disk name> -> get disk name info
 	* docker volume rm <disk name> -> delete a disk
 	- Create volume map to host folder:
-	* docker volume create --opt device=<directory on host> --opt type=none --opt o=bind <disk name> 
+	* docker volume create --opt device=<directory on device> --opt type=none --opt o=bind <disk name>
 		-> create a disk map to directory folder on computer. 
 		-> Use param -v to mount: docker run -it -v <dick name>:<directory on container> <image name>
 	
 	- Create container mount with volumn:
 	docker run -it --name <container name> --mount source=<disk name>,target=<map to container directory, Ex: /home/disk_abc> <image name>
 		-> assign a disk to container (way 1)
-	* docker run -it -v <disk name>:<map to directory on container> <image name>
+	*  docker run -it --v <disk name>:<map to directory on container> <image name>
 		-> assign a disk to container (way 2)
 		
 NETWORK
