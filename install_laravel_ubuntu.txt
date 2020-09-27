@@ -13,6 +13,7 @@
   $ sudo apt-get update
   $ sudo apt-get install python-software-properties
   $ sudo add-apt-repository ppa:ondrej/php
+        or: LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
         |-> if doesn't work : sudo apt-get install software-properties-common
   $ sudo apt-get update
   $ sudo apt-get install php
