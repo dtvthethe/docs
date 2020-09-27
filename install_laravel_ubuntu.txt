@@ -19,6 +19,7 @@
   $ sudo apt-get update
   $ sudo apt-get install php
   $ sudo apt-get install php-fpm php-pear php-curl php-dev php-gd php-mbstring php-zip php-mysql php-xml php-cli
+  // ==> php-pear -> no version
   
   This command will install additional packages:
   `libapache2-mod-php7.2
