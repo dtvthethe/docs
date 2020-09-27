@@ -18,7 +18,7 @@
       or: LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
   $ sudo apt-get update
   $ sudo apt-get install php
-  $ sudo apt-get install php-pear php-curl php-dev php-gd php-mbstring php-zip php-mysql php-xml php-cli
+  $ sudo apt-get install php-fpm php-pear php-curl php-dev php-gd php-mbstring php-zip php-mysql php-xml php-cli
   
   This command will install additional packages:
   `libapache2-mod-php7.2
