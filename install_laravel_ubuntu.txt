@@ -17,7 +17,7 @@
         |-> if doesn't work : sudo apt-get install software-properties-common
   $ sudo apt-get update
   $ sudo apt-get install php
-  $ sudo apt-get install php-pear php-curl php-dev php-gd php-mbstring php-zip php-mysql php-xml
+  $ sudo apt-get install php-pear php-curl php-dev php-gd php-mbstring php-zip php-mysql php-xml php-cli
   
   This command will install additional packages:
   `libapache2-mod-php7.2
@@ -44,7 +44,7 @@
 
   $ sudo apt-get update
 
-  $ sudo apt-get install curl php-cli php-mbstring git unzip
+  $ sudo apt-get install curl git unzip
 
   $ cd ~
 
