@@ -7,6 +7,10 @@
   $ sudo apt-get update
 
   $ sudo apt-get install mysql-server
+  
+  -------------Ubuntu > 16----------------------
+  $ mysql -u <user> - h <host> -p
+  $ sudo mysql ---> to access mysql server
 
 3. Cài đặt server side script
 
