@@ -11,3 +11,15 @@ or with Windows:
 	clip < ~/.ssh/id_rsa.pub
 	then
 	ssh-add ~/.ssh/id_rsa
+
+5/ Config Multiple SSH:
+$ nano ~/.ssh/config
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_rsa
+Host <IP 1>
+  HostName <IP 1>
+  IdentityFile ~/.ssh/id_rsa_ip1
+Host <IP 2>
+  HostName <IP 2>
+  IdentityFile ~/.ssh/id_rsa_ip2
