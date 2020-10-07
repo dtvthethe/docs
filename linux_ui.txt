@@ -1,6 +1,8 @@
 I> UBuntu
-1.
+1. Make `Show apps` to left 
 - update position icon 'Show apps' to left : $ gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+
+2. Change icon `Show apps`
 - updte icon 'Show apps': 
   + downliad a .svg icon any size it will be auto resize  
   + $ sudo cp -p /usr/share/icons/Adwaita/scalable/actions/view-app-grid-symbolic.svg /usr/share/icons/Adwaita/scalable/actions/view-app-grid-symbolic.svg.bak --> backup icon
@@ -8,7 +10,12 @@ I> UBuntu
   + $ cd /usr/share/icons && sudo gtk-update-icon-cache Adwaita --> refresh cache
   + restore backup: $ sudo cp -p /usr/share/icons/Adwaita/scalable/actions/view-app-grid-symbolic.svg.bak /usr/share/icons/Adwaita/scalable/actions/view-app-grid-symbolic.svg
 
-
+3. make task bar opacity like Windows 10:
+ + gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
+ + gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.1
+ + reset : 
+   $ settings reset org.gnome.shell.extensions.dash-to-dock background-opacity
+   $ gsettings reset org.gnome.shell.extensions.dash-to-dock background-opacity
 
 II> Xubuntu
 
