@@ -13,3 +13,7 @@ cach deploy:
 5. lên github kiểm tra lại tag đã tạo ở step 3 với nhánh `master` có các pull cần deploy chưa
 6. cd vào `deployer/`
 7. dep deploy --tag=v1.xx (tag đã tạo ở step 3) --hosts= IP của cái server PROD cần deploy nhưng phải có trong file `deployer.php`
+
+
+===========deployer=========
+cd deployer && dep deploy --hosts=<host ip>
