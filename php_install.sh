@@ -18,4 +18,4 @@ mysql -v &&
 php -v &&
 composer -v &&
 nano -v &&
-git --version &&
+git --version
