@@ -32,7 +32,7 @@ php composer-setup.php --install-dir=/usr/local/bin --filename=composer &&
 apt-get update &&
 apt-get install -y mysql-server &&
 # 6. Chrome:
-#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &&
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &&
 apt install -y ./google-chrome-stable_current_amd64.deb &&
 apt-get update &&
 # 7. Pinta (App like Paint in Windows):
