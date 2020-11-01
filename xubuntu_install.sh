@@ -36,8 +36,8 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &
 apt install -y ./google-chrome-stable_current_amd64.deb &&
 apt-get update &&
 # 7. Pinta (App like Paint in Windows):
+snap install pinta-james-carroll &&
 apt-get update &&
-snap install pinta-james-carroll
 # 8. Sublime Text 3
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add - &&
 apt-get install -y apt-transport-https &&
@@ -45,7 +45,7 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.
 apt-get update &&
 apt-get install -y sublime-text &&
 # 9. Visual Code
-snap install code --classic
+snap install code --classic &&
 # 10. Mysql Workbench
 apt-get install -y mysql-workbench &&
 apt-get update &&
