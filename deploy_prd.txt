@@ -1,0 +1,18 @@
+cach deploy:
+0. check xem template co thay doi gi ko
+1. checkout ra master 
+2. tao tag v.... `git tag v1.2.2` -> xem tag trên github
+3. `git push upstream --tags `
+tren may local
+4. cd deployer/
+5. git checkout deploy_sprintxxx
+6. dep deploy --tag=v1.2.2 --hosts=18.179.170.185 -> `18.179.170.185` phai co trong deployer.php
+===========detail==========
+1. trên github merge vào `<upstream>:master`
+2. checkout vào nhánh master pull code từ `<upstream>:master` mới nhất về
+3. tạo tag `git tag v1.xx`
+4. git push cái tag vừa tạo ở step 3 lên <upstream>
+5. lên github kiểm tra lại tag đã tạo ở step 3 với nhánh `master` có cái pull hotfix đó chưa
+tren may local
+6. cd vào `deployer/`
+7. dep deploy --tag=v1.xx (tag đã tạo ở step 3) --hosts= IP của cái server PROD cần deploy nhưng phải có trong file `deployer.php`
