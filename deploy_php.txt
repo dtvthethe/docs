@@ -17,3 +17,6 @@ cach deploy:
 
 ===========deployer=========
 cd deployer && dep deploy --hosts=<host ip>
+
+===========deployer dev=========
+dep deploy <IP Server> -o branch=<branch to deploy>
