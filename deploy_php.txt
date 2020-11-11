@@ -1,4 +1,5 @@
 cach deploy:
+0. check templaye update
 1. checkout ra master 
 2. tao tag v.... `git tag v1.2.2`
 3. `git push `git server` --tags `, Ex: git push <branch git server> --tags 
@@ -6,6 +7,7 @@ cach deploy:
 5. git checkout deploy_sprintxxx
 6. dep deploy --tag=v1.2.2 --hosts=<IP server> -> `<IP server` phai co trong deployer.php
 ===========detail==========
+0. check templaye update
 1. trên github merge vào `master`
 2. checkout vào nhánh master pull code từ `original git server` mới nhất về
 3. tạo tag `git tag v1.xx`
