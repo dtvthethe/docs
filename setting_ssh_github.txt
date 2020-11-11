@@ -17,9 +17,12 @@ $ nano ~/.ssh/config
 Host github.com
   HostName github.com
   IdentityFile ~/.ssh/id_rsa
+  [User <user>]
 Host <IP 1>
   HostName <IP 1>
   IdentityFile ~/.ssh/id_rsa_ip1
+  [User <user>]
 Host <IP 2>
   HostName <IP 2>
   IdentityFile ~/.ssh/id_rsa_ip2
+  [User <user>]
