@@ -1,0 +1,83 @@
+# docker run -it --name=ssh_server6 --privileged=true dfeff22e96ae
+apt update
+apt upgrade
+apt install openssh-server
+service ssh start
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config_backup
+
+Step 1: setting login ssh by password:
+	nano /etc/ssh/sshd_config
+	`
+		PasswordAuthentication yes
+		PermitRootLogin yes #-> cho phep login account `root`
+	`
+	passwd <user>
+	service ssh restart
+
+	connect ssh to server: `ssh <user>@<server ip>`
+
+=> When first login u should save IP/server name with hostklnow id. (1) 
+Step 2: setting login ssh by public key:
+	+ On local:
+		create ssh `id_rsa` file: `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+		copy public key local to server: 
+			`scp ~/.ssh/id_rsa.pub <user>@<server ip>:~/.ssh/uploaded_key.pub`
+	+ On server:
+		append client ssh key to authorized_keys file: `cat uploaded_key.pub >> authorized_keys`
+
+		nano /etc/ssh/sshd_config 
+		`
+			# RSAAuthentication yes -> maybe don't need
+			# PubkeyAuthentication yes -> maybe don't need
+			AuthorizedKeysFile .ssh/authorized_keys
+		`
+
+		disable password login ssh:
+		`
+			PasswordAuthentication no
+		`
+
+		restart ssh service
+Step 3: create login other user:
+	- Create ssh user:
+		`useradd -m <username>` # -> create an user with `-m` home directory 
+		`passwd <user>`# -> seting password
+		`ls -la /home/` # -> list all home user 
+	- Allow login created user:
+		copy file ~/root.ssh/authorized_keys to new hom user
+	- Allow exec root command:
+		chown -R <new user>:<new user> /home/<new user>/.ssh/
+		chmod 600 /home/<new user>/.ssh/authorized_keys 
+		ps aux | grep -i sudo #-> show which user can exec sudo => maybe dont need
+		adduser <new user> sudo #-> add <new user> to sudo group => maybe dont need
+		apt install sudo
+	----------
+	- Disable ssh root user:
+		nano /etc/ssh/sshd_config
+		`
+			PermitRootLogin no #-> ko cho phep login account `root`
+		`
+	- restart ssh.
+
+Step 4: edit copyright messesage as soon as login:
+	nano /etc/update-motd.d/00-header
+	nano /etc/update-motd.d/10-help-text
+	nano /etc/ssh/sshd_config 
+	`
+		PrintLastLog no #-> this will disable the "Last login" message
+	`
+	Way 1: eayst
+		rm /etc/motd
+		nano /etc/motd #-> write message at login here
+	Way 2: 
+		nano /etc/update-motd.d/my-login-message # -> create new bash file
+		`
+		#!/bin/sh
+		echo "abc"
+		# screenfetch #-> or u can install screenfetch to display system info
+		`
+		chmod +x /etc/update-motd.d/my-login-message
+
+Error 1: WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
+	1. create backup: ~/.ssh/known_hosts
+	2. delete hostknow in file: ~/.ssh/known_hosts at saved (1)
