@@ -51,6 +51,8 @@ Step 3: create login other user:
 		ps aux | grep -i sudo #-> show which user can exec sudo => maybe dont need
 		adduser <new user> sudo #-> add <new user> to sudo group
 		apt install sudo => only install if the system haven't alreadly installed
+	- Allow user pressing keys(up,down,left,right)
+		chsh -s /bin/bash <username>
 	----------
 	- Disable ssh root user:
 		nano /etc/ssh/sshd_config
