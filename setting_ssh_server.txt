@@ -49,8 +49,8 @@ Step 3: create login other user:
 		chown -R <new user>:<new user> /home/<new user>/.ssh/
 		chmod 600 /home/<new user>/.ssh/authorized_keys 
 		ps aux | grep -i sudo #-> show which user can exec sudo => maybe dont need
-		adduser <new user> sudo #-> add <new user> to sudo group => maybe dont need
-		apt install sudo
+		adduser <new user> sudo #-> add <new user> to sudo group
+		apt install sudo => only install if the system haven't alreadly installed
 	----------
 	- Disable ssh root user:
 		nano /etc/ssh/sshd_config
