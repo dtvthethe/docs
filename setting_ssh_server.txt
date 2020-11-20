@@ -81,3 +81,6 @@ Step 4: edit copyright messesage as soon as login:
 Error 1: WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
 	1. create backup: ~/.ssh/known_hosts
 	2. delete hostknow in file: ~/.ssh/known_hosts at saved (1)
+Error 2: Permission denied (publickey)
+	chown -R <new user>:<new user> /home/<new user>/.ssh/
+	chmod 600 /home/<new user>/.ssh/authorized_keys 
