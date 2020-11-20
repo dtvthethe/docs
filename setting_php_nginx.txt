@@ -1,0 +1,69 @@
+/etc/nginx
+	/sites-available # -> u should edit in this location
+	/sites-enabled
+
+cd /etc/nginx/sites-available
+- backup default
+- copy from default to <custom_file>
+- edit <custom_file>:
+	+ listen -> change to other port 80
+	+ listen [::]: -> change to other port 80
+	+ root -> link project
+	+ server_name -> abc.com www.abc.com
+	+ Ex:
+	`
+	server {
+		listen 81 default_server; # -> access by url: <ip>:81
+		listen [::]:81 default_server;
+		root /var/www/html/hi;
+		index index.html index.htm index.nginx-debian.html;
+		server_name hi.dev www.hi.dev;
+		location / {
+			try_files $uri $uri/ =404;
+		}
+	}
+	`
+- create symlink from /sites-available -> /sites-enabled
+	+ `ln -s /etc/nginx/sites-available/<custom_file> /etc/nginx/sites-enabled/`
+- verify: nginx -t
+- restart nginx 
+- create virtual link to url on client
+	+ edit /ect/hosts
+		`
+			<ip> abc.com
+			<ip> www.abc.com
+		`
+- config for php:
+	+ install php<version>-fpm
+	+ index -> index.php in <custom_file>
+	+ uncomment in <custom_file>:
+	 `
+	 location ~ \.php$ {
+	 	include
+	 	fastcgi_pass unix
+	 }
+	 `
+	+ start php<version>-fpm service
+	+ restart nginx
+	+ Ex:
+	`
+	server {
+		listen 82 default_server;
+		listen [::]:82 default_server;
+		root /var/www/html/lo;
+		index index.php index.html index.htm index.nginx-debian.html;
+		server_name lo.dev www.lo.dev;
+		location / {
+			try_files $uri $uri/ =404;
+		}
+		location ~ \.php$ {
+			include snippets/fastcgi-php.conf;
+			fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+		}
+	}
+
+	`
+- Log file:
+
+/var/log/nginx/access.log
+/var/log/nginx/error.log
