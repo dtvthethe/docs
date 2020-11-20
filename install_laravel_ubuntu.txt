@@ -99,6 +99,9 @@
 
 6. Switch PHP version:
   sudo update-alternatives --config php
+  
+7. Downgrade composer version on Windows:
+   $ composer self-update --1
 
 Tài liệu tham khảo:
 
