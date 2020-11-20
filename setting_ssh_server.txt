@@ -27,8 +27,6 @@ Step 2: setting login ssh by public key:
 
 		nano /etc/ssh/sshd_config 
 		`
-			# RSAAuthentication yes -> maybe don't need
-			# PubkeyAuthentication yes -> maybe don't need
 			AuthorizedKeysFile .ssh/authorized_keys
 		`
 
