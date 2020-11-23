@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 RUN apt update && apt upgrade -y
 RUN	apt install -y nano
+RUN apt install -y iputils-ping
 RUN	apt install -y nginx
 RUN	apt update && apt install -y software-properties-common
 RUN	LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
