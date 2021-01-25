@@ -1,0 +1,3 @@
+$ nvm list
+$ nvm alias default vxxx
+
