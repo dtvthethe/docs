@@ -1,3 +1,0 @@
-$ nvm list
-$ nvm use default vxxx
-
