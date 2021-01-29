@@ -1,0 +1,15 @@
+Install mysql workbench error: `The following packages have unmet dependencies`
+== Solution: Install by aptitude==
+sudo apt-get install aptitude
+step 1 choice n
+step 2,3 choice Y
+sudo aptitude install mysql-workbench
+
+- Export DB:
+mysqldump -u <user> -p <db name> > /home/xxxx/database-dump.sql
+If error, try cmd below:
+mysqldump --single-transaction -u <user> -p <db name> > /home/xxxx/database-dump.sql
+
+- Import DB:
+CREATE DATABASE newdatabase;
+mysql -u [username] -p newdatabase < [database name].sql

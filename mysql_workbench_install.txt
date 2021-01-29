@@ -1,6 +1,0 @@
-Install mysql workbench error: `The following packages have unmet dependencies`
-== Solution: Install by aptitude==
-sudo apt-get install aptitude
-step 1 choice n
-step 2,3 choice Y
-sudo aptitude install mysql-workbench
