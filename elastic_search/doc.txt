@@ -25,3 +25,43 @@ docs: https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modu
 Cluster: A cluster is a collection of one or more servers that together hold entire data and give federated indexing and search capabilities across all servers. For relational databases, the node is DB Instance. There can be N nodes with the same cluster name.
 Node: A node is a single server that holds some data and participates in the cluster’s indexing and querying. A node can be configured to join a specific cluster by the particular cluster name. A single cluster can have as many nodes as we want. A node is simply one Elasticsearch instance.
 Shard: A shard is a subset of documents of an index. An index can be divided into many shards.
+
+ElasticSearch
+
+- indexes -> DBs
+- types -> table
+- documents -> rows
+- column -> fields
+- schema -> mapping
+- Index -> `tìm kiếm` full-text search
+
+1> Install ElasticSearch
+	https://hub.docker.com/_/elasticsearch
+
+	ElasticSearch config : /etc/elasticsearch/elasticsearch.yml
+	env config: /usr/lib/systemd/system/elasticsearch.service
+	journalctl: sudo journalctl --unit elasticsearch
+2> Using ElasticSearch with Laravel (Elasticquent)
+	config: app/config/elastiquent.php
+	model: setting $mappingProperties
+
+docs: https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html
+? shard
+? node
+
+
+Cluster: A cluster is a collection of one or more servers that together hold entire data and give federated indexing and search capabilities across all servers. For relational databases, the node is DB Instance. There can be N nodes with the same cluster name.
+Node: A node is a single server that holds some data and participates in the cluster’s indexing and querying. A node can be configured to join a specific cluster by the particular cluster name. A single cluster can have as many nodes as we want. A node is simply one Elasticsearch instance.
+Shard: A shard is a subset of documents of an index. An index can be divided into many shards.
+
+
+=====================
+index: 1 table, 1 colection các dữ liệu
+document: json , 1 record trong index
+
+- Query
+ + must: `and`
+ + must_not: ngc vs must
+ + should: `or`
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html
