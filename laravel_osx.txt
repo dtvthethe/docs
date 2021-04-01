@@ -1,0 +1,40 @@
+PHP
+    echo 'export PATH="/usr/local/opt/php@7.3/bin:$PATH"' >> ~/.profile
+    echo 'export PATH="/usr/local/opt/php@7.3/sbin:$PATH"' >> ~/.profile
+    source ~/.profile
+
+//add extension
+    brew tap kabel/php-ext
+    brew install php@7.3-imap
+
+MYSQL
+    echo 'export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"' >> ~/.profile
+    source ~/.profile
+    mysql_secure_installation (1)
+    sudo mysql -uroot -p  (pass at step (1))
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+    FLUSH PRIVILEGES;
+
+    mysql.server start
+    mysql.server stop
+    mysql.server restart
+
+APACHE
+    sudo apachectl start
+    sudo apachectl restart
+    sudo apachectl stop
+
+MAILHOG
+    brew services start mailhog
+
+
+error 400
+    /etc/apache2/httpd.conf
+    insert: SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+after run passport
+    /etc/apache2 
+    env Passport config: update
+    db update column redirect port number
+    update env APP_URL
+    
