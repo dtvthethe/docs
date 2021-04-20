@@ -143,3 +143,9 @@ DOCKER FILE: `Dockerfile`
 	+ USER : user
 	+ WORKDIR : thư mục làm việc
 	+ EXPOSE : thiết lập cổng
+
+COPY FILE
+- From local to docker:
+	docker cp <local_path> <container_name>:<destination path>
+- From docker to local:
+	docker cp <container_name>:<destination path> <local_path>
