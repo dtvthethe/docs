@@ -1,6 +1,9 @@
 1/ Create self-signed certificate:
 $ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /xxx/nginx-ssl.key -out /xxx/nginx-ssl.crt
 
+VD: sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-ssl.key -out /etc/ssl/certs/nginx-ssl.crt
+
+
 - Country Name (2 letter code) [AU]:VN
 - State or Province Name (full name) [Some-State]:DANANG VN
 - Locality Name (eg, city) []:DANANG
@@ -11,7 +14,7 @@ $ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /xxx/nginx-ss
 
 2/ Configure NGINX to use SSL:
 $ sudo nano /etc/nginx/snippets/self-signed.conf
-
+// 2 files created step 1
 ssl_certificate /home/<user>/ssl_config/nginx-ssl.crt;
 ssl_certificate_key /home/<user>/ssl_config/nginx-ssl.key;
 
