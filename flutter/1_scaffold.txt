@@ -1,0 +1,17 @@
+Scaffold
+|
+|- AppBar
+|
+|- Container
+    |
+    |- Column
+        |
+        |- Row
+        |   |
+        |   |-Icon
+        |   |
+        |   |-Text
+        |
+        |- Image
+
+Scaffold là một widget có khả năng mở rộng lấp đầy không gian sẵn có hoặc lấp đầy màn hình, nó cung cấp API để hiển thị các widget chính của ứng dụng như Drawer, SnackBar, Bottom-Sheet, FloatingActionButton, AppBar, BottomNavigationBar,...
