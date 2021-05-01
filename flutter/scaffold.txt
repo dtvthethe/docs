@@ -1,0 +1,15 @@
+Scaffold
+|
+|- AppBar
+|
+|- Container
+    |
+    |- Column
+        |
+        |- Row
+        |   |
+        |   |-Icon
+        |   |
+        |   |-Text
+        |
+        |- Image
