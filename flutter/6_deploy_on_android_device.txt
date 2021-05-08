@@ -1,0 +1,12 @@
+A. Prepare
+	- Android Studio
+	- USB cable
+B. Steps
+	1. Enable Developer mode on phone (Phone)
+		- Setting > About > Software Information > More > Build Number (click 4 times to enable Developer mode)
+		- Setting > Developer options(showed) > USB debugging (check) 
+	2. Connect USB Phone To PC
+		- Trust on Phone(Allow USB debugging) If Prompted
+	3. Run App from Android Studio
+		- Click Run button
+	
