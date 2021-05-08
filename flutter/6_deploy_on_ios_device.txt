@@ -1,0 +1,28 @@
+A. Prepare
+	- Apple ID
+	- IPhone/Ipad devicess
+	- Xcode
+	- USB cable
+B. Steps
+	1. Check iOS verion vs XCode version
+		  iOS version must >= 2 XCode version
+		  Ex: 
+		  	iOS = 12.2, Xcode = 10.2 -> OK
+		  	iOS = 13, Xcode = 11 -> OK
+
+	2. Install Homebrew
+	3. Install:
+		ideviceinstaller, ios-deploy & cocoapods
+	4. Open in Xcode 
+		ios / Runner.xcworkspace
+	5. Add Apple ID to Xcode
+		- Click Runner > Signing > Team > Add account...
+	6. Connect iOS to computer 
+		choice `Trust` on iOS
+	7.  Trust
+		- on Xcode: Just click run on Xcode
+		- on Iphone: Setting > General > Device Management > Apple_ID > Trust Apple_ID
+	8. Create unique bundle ID
+		Xcode: Runner > TARGETS > Runner > Identity > Bundle Identifiler:
+		`com.<apple_id>.AppName`
+	
