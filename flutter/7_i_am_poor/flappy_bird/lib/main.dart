@@ -24,17 +24,20 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                   flex: 2,
-                  fit: FlexFit.tight,
+                  fit: FlexFit
+                      .tight, // thay vì cho flexible chaỵ theo chiều cao của hình thì set cái này để ăn theo flex=2
                 ),
                 Flexible(
                   child: Image(
                     image: AssetImage(
                       'images/pipe.png',
                     ),
-                    fit: BoxFit.contain,
+                    fit: BoxFit
+                        .contain, // cho hình = size của flexible để render ra nhiều loại màn hình ko bị thiếu/dư phần đuôi của pipe
                   ),
                   flex: 2,
-                  fit: FlexFit.tight,
+                  fit: FlexFit
+                      .tight, // thay vì cho flexible chaỵ theo chiều cao của hình thì set cái này để ăn theo flex=2
                 ),
               ],
             ),
