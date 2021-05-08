@@ -1,1 +1,9 @@
 - Resource: https://github.com/dtvthethe/Flutter-Course-Resources
+
+- App icon generator:
+	https://appicon.co/
+
+- Icon Free:
+	https://icons8.com/illustrations
+	https://www.vecteezy.com/
+	https://www.canva.com
