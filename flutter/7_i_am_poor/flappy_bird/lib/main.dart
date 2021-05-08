@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
-            title: Text('Falppy Bird'),
+            title: Text('Flappy Bird'),
             backgroundColor: Colors.green[200],
           ),
           body: Center(
