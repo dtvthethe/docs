@@ -1,0 +1,3 @@
+- Hot reload: giữ lại state, nhanh hơn, chỉ chạy lại hàm build()
+
+- Hot restart: chạy lại hàm runApp(), set state về default, chạy lâu hơn hot reload
