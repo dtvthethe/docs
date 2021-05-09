@@ -7,3 +7,9 @@
 	https://icons8.com/illustrations
 	https://www.vecteezy.com/
 	https://www.canva.com
+- UI
+	+ SafeArea(): widget loại bỏ tai thỏ/ move xuống dưới top bar
+	+ Widget Inscpector: show debug grid UI, VSCode (Ctrl+Shift+P  >  Inspect Widget)
+	+ EdgeInsets. : CSS position
+	+ margin: khoảng cách bên ngoài
+	+ padding: khoảng cách bên trong
