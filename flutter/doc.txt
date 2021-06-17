@@ -1,5 +1,7 @@
 - Resource: https://github.com/dtvthethe/Flutter-Course-Resources
 
+- Flutter API: https://api.flutter.dev/
+
 - App icon generator:
 	https://appicon.co/
 
@@ -14,6 +16,9 @@
 	+ EdgeInsets. : CSS position
 	+ margin: khoảng cách bên ngoài
 	+ padding: khoảng cách bên trong
+	+ Card(): 1 div có border + box shadown
+	+ SizedBox(): A box with a specified size
+	+ Divider(): line 1 px
 	
 - Font:
 	https://fonts.google.com/
