@@ -1,0 +1,10 @@
+-| pages/
+---| settings/ --> same name with settings.vue
+------| profile.vue
+------| security.vue
+---| settings.vue
+
+
+<NuxtLink to="/settings/profile">Profile</NuxtLink>
+
+<NuxtChild /> --> to replace child component
