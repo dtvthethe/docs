@@ -1,0 +1,5 @@
+|--layouts
+|----error.vue ---> must be named `error`
+
+
+Any error occur it'll be open `error` layout
