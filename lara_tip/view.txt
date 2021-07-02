@@ -1,0 +1,27 @@
+- call other view:
+  @include('layouts.flash')
+
+- <x-alert>: https://laravel.com/docs/8.x/blade#components
+
+- template:
+  yield('nd')
+
+  + sub view:
+    @extend('template path')
+
+    @sextion('nd')
+    ....
+    @endsection
+
+- Route:
+  {{ route('route.name', $model->id) }}
+
+- Loop handle case empty
+  @forelse
+    ..
+  @empty
+    ..
+  @endforelse
+
+- Multiple input same name
+  <input name-"options[]" />    ->  return array

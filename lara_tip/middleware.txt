@@ -1,0 +1,13 @@
+->middleware('abc')->except('xx')/->only('yy')
+
+- Use in route:
+  Route::middleware(['first', 'second'])->group(function () {
+      Route...
+  });
+
+  Route::get('..')->middleware('abc');
+
+- Use in controller:
+  __contructor() {
+    $this->middleware('abc');
+  }

@@ -1,0 +1,9 @@
+- Create message:
+  $request->session()->flash('message', 'content')
+  redirect with message: redirect.txt
+
+- view check msg:
+  session()->has('message')
+
+- view get msg:
+  session()->get('message')

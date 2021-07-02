@@ -1,0 +1,9 @@
+- route with model
+  Route::get('/todos/{todo}/edit'); or '/todos/{todo:title}/edit' only pass `title` in view must pass to `->id`
+  https://laravel.com/docs/8.x/routing#customizing-the-default-key-name
+
+  + contoller:
+    public function edit(Todo $todo)
+      $todo->columns...
+
+  

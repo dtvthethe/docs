@@ -1,0 +1,9 @@
+- redirect back:
+  $request->redirectBack()
+
+- redirect with msg:
+  return redirect()->back()->with('message', 'content msg');
+
+- return route name:
+  return redirect(route('route.name'))->with...
+  

@@ -1,0 +1,14 @@
+- Save DB:
+  Todo::create($request->all())
+
+  in model define $fillable = ['title']
+
+- RelationShip: 1 User HasMany N Todo
+  + $user->todos: return collection
+  + $user->todos(): return RelatonShip HasMany
+
+  -> RelationShip can create new record
+  -> RelationShip can orderBy, where, ...
+
+- Collection -> toArray()
+- ->get() `Collection` -> toArray()
