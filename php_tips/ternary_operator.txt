@@ -1,3 +1,6 @@
+?? -> !isset() || is_null()   
+?: -> !isset() , is_null(), empty()
+
 - Ternary Operator
 (Condition) ? (Statement1) : (Statement2);
 
