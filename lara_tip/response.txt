@@ -1,0 +1,2 @@
+- Response code:
+	Response::NAME_OF_CODE

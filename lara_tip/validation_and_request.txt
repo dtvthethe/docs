@@ -24,3 +24,8 @@
 
 - Set value to Request:
   $request['key'] = value;
+
+- Validation maybe String or Aray, Ex:
+  + 'email' => 'required|email'
+  + 'email' => ['required', 'email']
+  

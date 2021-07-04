@@ -6,4 +6,13 @@
     public function edit(Todo $todo)
       $todo->columns...
 
-  
+- thay id bằng cột khác, trong model chỉ cần sử dụng fn `getRouteKeyName`:
+  public function getRouteKeyName()
+  {
+      return 'column name';
+  }
+
+- route resource
+  Route::resource(...) -> generate full 
+
+  Route::apiReource(...) -> generate methods pi not include `edit`, `crete`
