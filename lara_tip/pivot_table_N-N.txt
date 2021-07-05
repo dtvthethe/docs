@@ -1,10 +1,12 @@
 shops
 	– id
 	– name
+	belongsToMany product
 
 products
 	– id
 	– name
+	belongsToMany shop
 
 product_shop -> pivot table(alphabet, tên bảng là số ít, chứa _)
 	– product_id
