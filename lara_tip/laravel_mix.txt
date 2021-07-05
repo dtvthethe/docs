@@ -1,0 +1,3 @@
+- Mix js, css, csss ... to mix.js or min.css
+- add version file by hash string
+- file webpack.min.js in laravel project
