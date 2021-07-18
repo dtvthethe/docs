@@ -1,0 +1,1 @@
+Expanded là một widget giúp mở rộng không gian cho một widget con của Row hoặc Column theo trục chính (main axis)
