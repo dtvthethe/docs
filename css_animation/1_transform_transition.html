@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            body {
+                background-color: lightblue;
+                text-align: center;
+            }
+            
+            .wrapper {
+                width: 100%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            
+            img {
+                width: 20%
+            }
+            
+            .circle {
+                width: 100px;
+                padding: 50px 0px;
+                line-height: 0;
+                margin: 60px auto;
+                background-color: pink;
+                color: white;
+                border-radius: 50px;
+                cursor: pointer;
+/*                số giây thay đổi tất cả thuộc tính từ `.circle` sang `.circle:hover` trong 1s  */
+/*                transition: 1s; */
+                
+/*                số giây thay đổi từng thuộc tính cụ thể từ `.circle` sang `.circle:hover*/
+/*                transition: background-color 1s, transform 0.3s;*/
+                
+/*                sau 2s thì thực hiện transform trong vòng 0.3s*/
+/*                transition: background-color 1s, transform 0.3s 2s;*/
+                
+/*               tốc ddoooj chuyển đổi xem toc_do_chuyen_doi.gìf */
+                transition: background-color 1s, transform 0.3s 2s ease;
+            }
+            
+            .circle:hover {
+                background-color: salmon;
+                
+                transform: rotateZ(360deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <img src="imgs/cloud.png">
+            <div class="circle">Hover Me</div>
+        </div>
+        <script></script>
+    </body>
+</html>

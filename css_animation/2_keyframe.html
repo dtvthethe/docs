@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            body {
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                margin: 0;
+            }
+            
+            .sky {
+                position: relative;
+                height: 40%;
+                background-color: skyblue;
+            }
+            
+            .grass {
+                position: relative;
+                height: 30%;
+                background-color: seagreen;
+            }
+            
+            .road {
+                height: 30%;
+                position: relative;
+                background-color: dimgrey;
+                box-sizing: border-box;
+                border-top: 10px solid grey;
+                border-bottom: 10px solid grey;
+                width: 100%
+            }
+            
+            .lines {
+                box-sizing: border-box;
+                border: 5px dashed #fff;
+                height: 0px;
+                width: 100%;
+                position: absolute;
+                top: 45%
+            }
+            
+            
+/*            element to anime*/
+            .mario {
+                position: absolute;
+                top: -40px;
+                left: 0px;
+                animation-name: drive;
+                animation-duration: 3s;
+            }
+            
+/*            keyframe*/
+            @keyframes drive {
+                from {
+                    transform: translateX(0px);
+                }
+                
+                to {
+                    transform: translateX(500px)
+                }
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="sky"></div>
+        <div class="grass"></div>
+        <div class="road">
+            <div class="lines"></div>
+            <img class="mario" src="imgs/mario.png">
+        </div>
+        <script></script>
+    </body>
+</html>

@@ -4,8 +4,8 @@ NOTE:
 	- busybox: general multiple comand
 	- $ ls /bin/ -ls -> list all command can use on current device
 	- bridge: mac. dinh. dc. cac container ket noi vao mang. nay
-	- var/www : project web location 
-	- $ httpd -> active http server on port 80, to default `var/www/index.xx` file 
+	- var/www : project web location
+	- $ httpd -> active http server on port 80, to default `var/www/index.xx` file
 	- $ wget -O - <server ip> -> create a request to server
 	- 1 container co the ket noi nhieu mang
 	- 1 container co the co nhieu ports
@@ -25,34 +25,37 @@ NOTE:
 	- lenh move, copy file, create file
 
 IMAGE:
-	docker images  -> xem tất cả các images đang có 
+	docker images  -> xem tất cả các images đang có
 
 	docker search <keyword>
 
-	* docker pull <image name>[: verson -> if empty is lastest] -> pull image 
+	* docker pull <image name>[: verson -> if empty is lastest] -> pull image
 
-	docker image rm <image name | image id> -> remove image 
+	docker image rm <image name | image id> -> remove image
 	docker image rm <image name | image id> -f -> remove image if it used by container
+
+	docker rmi $(docker images -a -q) -> remove all images
 
 	docker run [params] <image name[:version]> -> -t : terminal run an image,-i input
 	* docker run -it [--name <container name>] [-h hostname] <image name[:version]>
 
-	* docker ps: xem tất cả các containers đang chạy 
+	* docker ps: xem tất cả các containers đang chạy
 	* docker ps -a: xem tất cả các containers dang có
 
 	docker start <comtainer name> -> start a container
 	* docker attach <comtainer name>  -> attach termial to container (way 1)
 	docker exec -it <comtainer name> bash  -> attach termial to container (way 2)
 	* Ctrl + P + Q : thoát terminal khỏi container nhưng vẫn giữ container chạy
-	
+
 	* docker container stop <container name> -> shutdown container (way1)
 	* exit -> shutdown current container (way2)
 
-	docker rm <container name> -> xóa container 
-	docker rm -f <container name> -> xóa container đang chạy 
+	docker rm <container name> -> xóa container
+	docker rm -f <container name> -> xóa container đang chạy
+	docker rm $(docker ps -a -f status=exited -q) -> remove all containers
 
 	docker exec <container name> <system commander> -> thực thi lệnh từ phía ngoài vào trong container
-	
+
 	* docker inspect <container name>  -> get container info
 	* params:
 		- -d: tao. docker va` chay. background luon
@@ -62,7 +65,7 @@ IMAGE:
 CONTAINER to IMAGE:
 	docker commit <container name> <save to image name>:<version> -> create container to image
 
-	docker save --output <filename>.tar <image name> -> save image to file 
+	docker save --output <filename>.tar <image name> -> save image to file
 
 	docker load -i <image file>.tar
 	docker tag <old image name> <new image name>:<version> -> set name + version to image loaded from file .tar
@@ -72,7 +75,8 @@ SHARE DATA FROM HOST TO CONTAINER:
 	* docker run -it -v <host directory path>:<container directory path> <id image> 
 	* docker run -it --name <new container name> --volumes-from <container name want to copy> <image name>:<version> 
 		-> create new a container map to same directory <container name want to copy>
-	- Volume:
+	
+  - Volume:
 	* docker volume ls -> list all disk
 	* docker volume create <disk name> -> create a disk
 	* docker volume inspect <disk name> -> get disk name info
@@ -87,7 +91,9 @@ SHARE DATA FROM HOST TO CONTAINER:
 		-> assign a disk to container (way 1)
 	*  docker run -it --v <disk name>:<map to directory on container> <image name>
 		-> assign a disk to container (way 2)
-		
+	* docker volume create --opt device=<directory on device> --opt type=none o=bind <disk name>
+		-> create a disk map to directory folder on computer
+
 NETWORK
 	* docker network ls -> list all network
 	* docker network inspect <network name> -> get a network info
@@ -96,14 +102,15 @@ NETWORK
 		-> create a container, this computer can access to this container
 		-> on this computer access to container: `localhost:<map to this computer port>` or `127.0.0.1:<map to this computer port>`
 	docker network create --driver bridge <bridge network name>  -> create a network
+
 	docker network rm <network name> -> delete a network
 	* docker run -it --name <container name> --network <network name> <image name> -> create a container set to a network
 	* docker network connect <network name> <container name> -> assign a network to container is running
 
 CREATE PHP SERVER:
-	1. Create a project folter 
+	1. Create a project folter
 	2. Pull php (php:7.3-fpm) (2)
-	3. Assign project folder to (2) 
+	3. Assign project folder to (2)
 	4. Pull httpd
 	5. lay' file http.conf tu` container ra may' ngoai`
 	6. thiet lap trong http.conf

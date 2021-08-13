@@ -1,0 +1,98 @@
+- sử dụng arrow function thay vì sử dụng function
+- rest parameter:
+  function f(x, t, ...a){}
+  f(1, 2, 'hi', true, 7)
+- spread operator:
+   var params = [ "hello", true, 7 ]
+   var other = [ 1, 2, ...params ] // [ 1, 2, "hello", true, 7
+
+   f(1, 2, ...params) === 9 -> pass vào hàm f
+
+   var str = "foo"
+   var chars = [ ...str ] // [ "f", "o", "o" ]
+
+- string template
+  var customer = { name: "Foo" }
+  var card = { amount: 7, product: "Bar", unitprice: 42 }
+  var message = `Hello ${customer.name}, want to buy ${card.amount} ${card.product} for
+    a total of ${card.amount * card.unitprice} bucks?`
+
+- method property:
+   obj = {
+     foo (a, b) { … },
+     bar (x, y) { … },
+     *quux (x, y) { … }
+   }  --> YES
+
+   obj = {
+     foo: function (a, b) { … },
+     bar: function (x, y) { … },
+   }; --> NO
+
+- Aray matching: pass data từ mảng ra biến một cách rất nhanh chóng và tiện lợi
+  var list = [1,2,3];
+  var [a, , b] = list; -> 1, 3
+
+- Object Matching, Deep Matching: pass data từ object ra biến một cách rất nhanh chóng và tiện lợi
+  var getObject = () => {
+    return {
+        name : "Vũ Thanh Tài",
+        option: {
+            age : 22,
+            hometown: "Nam Định",
+        }
+    };
+  }
+
+  var {name, option: { age, hometown } } = getObject();
+
+- Fail-Soft Destructuring
+  var list = [ 7, 42 ]
+  var [ a = 1, b = 2, c = 3, d ] = list
+  a === 7
+  b === 42
+  c === 3
+  d === undefined
+
+- Module:
+  export data; // data là những gì bạn muốn xuất ra cho các module khác có thể sử dụng. CÓ thể export nhiều data
+  import name from path;
+    // name: là biến bạn muốn gán để nhận dữ liệu trả về từ module đó.
+    // path: đường dẫn chứa module bạn cần import.
+
+  export default
+
+- class:
+  class Shape {
+    constructor (id, x, y) {
+      this.id = id this.move(x, y)
+    }
+
+    set employeeAge (age) { // phuong thức setter
+        this.age = age;
+    }
+    get employeeAge () { // phuong thức getter
+        return this.age;
+    }
+
+    move (x, y) {
+      this.x = x this.y = y
+      }
+    }
+
+    static defaultEmployee () {
+        return "Đây là phương thức defaultEmployee";
+    }
+  }
+
+    khởi tạo bằng từ khóa `new`
+
+- Class Inheritance:
+  sử dụng từ khóa `extends` và 'super` để gọi lớp cha
+
+- Sử dụng getter setter:
+  let shape = new Shape();
+  shape.employeeAge = 1;
+  shape.employeeAge;
+
+- Iterators là một bộ duyệt dùng để duyệt qua một mảng, collection
