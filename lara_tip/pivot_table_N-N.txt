@@ -1,0 +1,83 @@
+shops
+	– id
+	– name
+	belongsToMany product
+
+products
+	– id
+	– name
+	belongsToMany shop
+
+product_shop -> pivot table(alphabet, tên bảng là số ít, chứa _)
+	– product_id
+	– shop_id
+
+
+	Schema::create('product_shop', function (Blueprint $table) {
+        $table->id();
+        $table->unsignedBigInteger('product_id')->index();
+        $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+        $table->unsignedBigInteger('shop_id')->index();
+        $table->foreign('shop_id')->references('id')->on('shops')->onDelete('cascade');
+        $table->timestamps();
+    });
+
+
+---------
+
+attach() - thêm
+	$shop->products()->attach($productId);
+
+	$shop->products()->attach([
+	    $productId1,
+	    $productId2,
+	    $productId3
+	]);
+
+
+detach() - xóa
+	$shop->products()->detach($productId);
+
+	$shop->products()->detach([
+	    $productId1,
+	    $productId2,
+	    $productId3
+	]);
+
+	// xóa tất cả sản phẩm ra khỏi shop
+	$shop->products()->detach();
+
+
+sync() - đồng bộ
+
+	shop_id | product_id
+	--------------------
+	   1    |    1
+	--------------------
+	   1    |    2
+
+
+	$shop1->products()->sync([2, 3]) : save theo param truyền vào
+		- attach 3
+		- detach 1
+		- 2 keep
+
+	$shop1->products()->syncWithoutDetaching([2, 3]) : save theo param truyền vào nhưng ko xoá
+		- attach 3
+		- 1 keep -> vì without detach
+		- 2 keep
+
+
+toggle() - Bật tắt
+
+	shop_id | product_id
+	--------------------
+	   1    |    1
+	--------------------
+	   1    |    2
+
+	$shop1->products()->toggle([1, 2, 3]) : chỉ save cái chưa tồn tại
+		- attach 3
+		- deatch 1, 2
+
+

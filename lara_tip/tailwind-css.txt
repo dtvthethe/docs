@@ -1,0 +1,2 @@
+- min height:
+   min-h-screen -> minimun is fullscreen

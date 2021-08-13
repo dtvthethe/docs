@@ -1,0 +1,31 @@
+- validation in controller:
+  $request->validate([
+    'title' => 'required|max:255',
+  ]);
+
+
+- validation with msg:
+  $validator = Validator::make(
+    $request->all(),
+    [
+      'title' => 'required|max:255',
+    ],
+    [
+      'title.max' => 'aaa',
+    ],
+  );
+
+  if($validator->fails()) {
+    return rediect with error ()
+  }
+
+
+- Form validation:
+
+- Set value to Request:
+  $request['key'] = value;
+
+- Validation maybe String or Aray, Ex:
+  + 'email' => 'required|email'
+  + 'email' => ['required', 'email']
+  

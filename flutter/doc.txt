@@ -1,0 +1,30 @@
+- Resource: https://github.com/dtvthethe/Flutter-Course-Resources
+
+- Flutter API: https://api.flutter.dev/
+
+- App icon generator:
+	https://appicon.co/
+
+- Icon Free:
+	https://icons8.com/illustrations
+	https://www.vecteezy.com/
+	https://www.canva.com
+	
+- UI:
+	+ SafeArea(): widget loại bỏ tai thỏ/ move xuống dưới top bar
+	+ Widget Inscpector: show debug grid UI, VSCode (Ctrl+Shift+P  >  Inspect Widget)
+	+ EdgeInsets. : CSS position
+	+ margin: khoảng cách bên ngoài
+	+ padding: khoảng cách bên trong
+	+ Card(): 1 div có border + box shadown
+	+ SizedBox(): A box with a specified size
+	+ Divider(): line 1 px
+	
+- Font:
+	https://fonts.google.com/
+
+- Icon:
+	https://fonts.google.com/icons
+
+- Design material color:
+	https://www.materialpalette.com/

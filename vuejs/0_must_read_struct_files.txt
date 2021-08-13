@@ -1,0 +1,2 @@
+- resources/sass/app.scss -> to import li/package css
+- webpack.min.js -> gen verson file, create mix file

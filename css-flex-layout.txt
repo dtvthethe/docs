@@ -1,0 +1,18 @@
+- container: khung bên ngoài (1)
+- container-item: các nội dung bên trong (2)
+
+1/ container:
+  - flex-direction: bố trí (2) theo row/column
+  - flex-wrap: cho phép các (2) xuống dòng hay không
+  -> flex-flow: là cách viết tắt cho flex-direction và flex-wrap
+  - justify-content: cách bố trí (trái, phải, giữa, khoảng cách) cho các (2) theo trục ngang
+  - align-item: cách bố trí (trái, phải, giữa, khoảng cách) cho các (2) theo trục dọc
+
+2/ container-item:
+  * available spacing: khoảng trống còn lại để thực hiện phân phối khoảng trống khi thực hiện thay đổi kích thước (2)
+  - flex-basis: get(phải có css là width trước) hoặc set width của (2) trước khi thực hiện flex-grow và flex-shrink
+  - flex-grow (int): sử dụng tỷ lệ 1:1 để chiếm lấy available spacing, set các (2) bằng nhau thì width đc chia tỉ lệ bằng nhau
+  - flex-shrink: dùng khi các (2) tràn ra bên ngoài (1)
+  -> flex: (grow, shrink, basis) thay thế cho 3 thuộc tính trên
+  - order: thứ tự hiển thị trước sau cho từng (2)
+  

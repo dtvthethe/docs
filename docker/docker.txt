@@ -1,7 +1,7 @@
 NOTE:
 	- image: chỉ đọc không thể sửa đổi
 	- container: dc tao. tu` image
-	- easybox: general multiple comand
+	- busybox: general multiple comand
 	- $ ls /bin/ -ls -> list all command can use on current device
 	- bridge: mac. dinh. dc. cac container ket noi vao mang. nay
 	- var/www : project web location
@@ -10,6 +10,16 @@ NOTE:
 	- 1 container co the ket noi nhieu mang
 	- 1 container co the co nhieu ports
 	- -e <var name>=<var value> : thiet lap bien moi truong
+	- httpd: 
+		$ apt install httpd httpd-tools
+		$ cd \var\www
+		$ httpd 
+		-> start httpd server in directory `\var\www`
+		$ wget -> access to httpd server, Ex: wget 172.xxx
+	- config domain to host:  /etc/hosts
+	Ex: 127.0.0.1   example.com
+	- copy file from host to container:
+		`docker cp <host directory> <container ID, name>:<container directory>`
 	==========================
 	- fpm la gi?
 	- lenh move, copy file, create file
@@ -53,7 +63,7 @@ IMAGE:
 		- -e <var name>=<var value> , Ex: docker run ... -e var1=1 -e var2=2 ... , inside container: $ echo $var1
 
 CONTAINER to IMAGE:
-	docker commit <container name> <save to image name>:<version> -> convert container to image
+	docker commit <container name> <save to image name>:<version> -> create container to image
 
 	docker save --output <filename>.tar <image name> -> save image to file
 
@@ -61,18 +71,25 @@ CONTAINER to IMAGE:
 	docker tag <old image name> <new image name>:<version> -> set name + version to image loaded from file .tar
 
 SHARE DATA FROM HOST TO CONTAINER:
-	* docker run -it -v <host directory path>:<container directory path> <id image>
-
-	docker run -it --name <new container name> --volumes-from <container name want to copy> <image name>:<version>
-		-> create a container map to host directory path same a an exists container <container name want to copy>
+	- Share data:
+	* docker run -it -v <host directory path>:<container directory path> <id image> 
+	* docker run -it --name <new container name> --volumes-from <container name want to copy> <image name>:<version> 
+		-> create new a container map to same directory <container name want to copy>
+	
+  - Volume:
 	* docker volume ls -> list all disk
 	* docker volume create <disk name> -> create a disk
 	* docker volume inspect <disk name> -> get disk name info
 	* docker volume rm <disk name> -> delete a disk
-
-	docker run -it -name <container name> --mount source=<disk name>,target=<map to directory, Ex: /home/disk_abc> <image name>
+	- Create volume map to host folder:
+	* docker volume create --opt device=<directory on device> --opt type=none --opt o=bind <disk name>
+		-> create a disk map to directory folder on computer. 
+		-> Use param -v to mount: docker run -it -v <dick name>:<directory on container> <image name>
+	
+	- Create container mount with volumn:
+	docker run -it --name <container name> --mount source=<disk name>,target=<map to container directory, Ex: /home/disk_abc> <image name>
 		-> assign a disk to container (way 1)
-	* docker run -it -v <disk name>:<map to directory on container> <image name>
+	*  docker run -it --v <disk name>:<map to directory on container> <image name>
 		-> assign a disk to container (way 2)
 	* docker volume create --opt device=<directory on device> --opt type=none o=bind <disk name>
 		-> create a disk map to directory folder on computer
@@ -81,9 +98,11 @@ NETWORK
 	* docker network ls -> list all network
 	* docker network inspect <network name> -> get a network info
 	* docker run -it --name <container name> -p <map to this computer port>:<container port> <container name>
+		-> MAP NETWORK to host 
 		-> create a container, this computer can access to this container
-		-> on this computer access to container: `localhost:<map to this computer port>`, `127.0.0.1:<map to this computer port>`
-	docker network create --driver bridge <bridge network name>
+		-> on this computer access to container: `localhost:<map to this computer port>` or `127.0.0.1:<map to this computer port>`
+	docker network create --driver bridge <bridge network name>  -> create a network
+
 	docker network rm <network name> -> delete a network
 	* docker run -it --name <container name> --network <network name> <image name> -> create a container set to a network
 	* docker network connect <network name> <container name> -> assign a network to container is running
@@ -102,24 +121,38 @@ CREATE PHP SERVER:
 	11. tao thu muc tren may ngoai` de luu CSDL, de? khi xoa container thi CSDL ko bi xoa theo
 	12. run image (8) mysql vs cac bien moi truong, map db folder (11), map my.cnf (10)
 
+DOCKER FILE: `Dockerfile`
+	`Dockerfile là một file text, trong đó chứa các dòng chỉ thị để Docker đọc và chạy theo chỉ thị đó để cuối cùng bạn có một image mới theo nhu cầu`
+	-------------
+	FROM <image name>:<version>
 
-Dockerfile: dùng để build các image
-	FROM <từ image nào> [AS <alias name>]
-	[COPY <from> <to>]
-	RUN
-	[COPY <from> <to>]
-	CMD
-	...
+	RUN <linux cmd>
 
-	- FROM: Dùng để chỉ ra image được build từ image nào, VD: FROM ubuntu AS ub
-	- RUN: Dùng để chạy một lệnh nào đó khi build image:
-			FROM ubuntu
-			RUN apt-get update
-			RUN apt-get install curl -y
-	CMD: Lệnh CMD dùng để truyền một lệnh của Linux mỗi khi thực hiện khởi tạo một container từ image (image này được build từ Dockerfile)
+	WORKDIR <directory workspace, Ex: /var/www/html>
+	EXPOSE <port number, Ex: 80>
 
-	Build Image từ DOckerfile đã tạo:
-		$ docker build -t <set image name>:<set version> .
-		// dấu . cáo nghĩa là dockerfile ở thư mục hiện tại, sau khi chạy sẽ có 1 docker image đc tạo ra
+	ADD <from host directory, current directory `.`> <container directory> -> copy file from host to directory inside container.
 
-Dùng để build và run các container
+	ENTRYPOINT ["httpd"] -> service httpd start as soon as container created
+	CMD ["-D", "FOREGROUND"] -> parameter for "httpd"
+
+	-------------
+	docker build -t <name image'll create>:<version> -f Dockerfile .
+	-> dấu `.` ở cuối lệnh docker build ở trên, có nghĩa tìm file có tên Dockerfile ở thư mục hiện tại
+
+	-------------
+
+	+ FROM : mọi Docker file đều có chỉ thị này, chỉ định image cơ sở
+	+ COPY or ADD : sao chép dữ liệu
+	+ ENV : thiết lập biến môi trường
+	+ RUN : chạy các lệnh.
+	+ VOLUME : gắn ổ đĩa, thư mục
+	+ USER : user
+	+ WORKDIR : thư mục làm việc
+	+ EXPOSE : thiết lập cổng
+
+COPY FILE
+- From local to docker:
+	docker cp <local_path> <container_name>:<destination path>
+- From docker to local:
+	docker cp <container_name>:<destination path> <local_path>

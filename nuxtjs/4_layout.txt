@@ -1,0 +1,12 @@
+to replace content:
+<Nuxt />
+
+|--layouts
+|----my_layout.vue --> <Nuxt />
+|--pages
+|----setting.vue
+
+setting.vue:
+export default {
+  layout: 'my_layout',
+}

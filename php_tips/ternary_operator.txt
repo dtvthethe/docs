@@ -1,0 +1,18 @@
+?? -> !isset() || is_null()   
+?: -> !isset() , is_null(), empty()
+
+- Ternary Operator
+(Condition) ? (Statement1) : (Statement2);
+
+- Ternary shorthand (Elvis operator): check == true 
+* TH gia tri == 0 => false
+expression1 ?: expression2
+	Ex: $val = $_GET['user'] ?: 'default'; 
+	<=> $val = isset($_GET['user']) ? $_GET['user'] : 'default';
+
+- Null Coalescing Operator: check `isset()` && NULL 
+* TH gia tri == 0 => true
+(Condition) ? (Statement1) ? (Statement2);
+	Ex: $user= $_GET['user'] ?? 'nobody';
+	<=> $user= isset($_GET['user']) ? $_GET['user'] : 'nobody';
+  

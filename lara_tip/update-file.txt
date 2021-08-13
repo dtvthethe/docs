@@ -1,0 +1,16 @@
+- Check file
+  $request->hasFile('input file name')
+
+- Save file local
+  $request->image->store('path', 's3 or public');
+
+- Save file to other drive
+  $request->image->storeAs('path', 'file name', 's3 or public')
+
+- get image
+  $ php artisan storage:link
+  asset('/storage/images' . Auth::user()->avatatar)
+
+- delete file
+  Storage::delete('path file or array of path file');
+  Storage::disk('s3')->delete('path/file.jpg');

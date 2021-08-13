@@ -7,16 +7,23 @@
   $ sudo apt-get update
 
   $ sudo apt-get install mysql-server
+  
+  -------------Ubuntu > 16----------------------
+  $ mysql -u <user> - h <host> -p
+  $ sudo mysql ---> to access mysql server
 
 3. Cài đặt server side script
 
   $ sudo apt-get update
-  $ sudo apt-get install python-software-properties
+  $ sudo apt-get install software-properties-common
+      or: sudo apt-get install python-software-properties
+    
   $ sudo add-apt-repository ppa:ondrej/php
-        |-> if doesn't work : sudo apt-get install software-properties-common
+      or: LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
   $ sudo apt-get update
   $ sudo apt-get install php
-  $ sudo apt-get install php-pear php-curl php-dev php-gd php-mbstring php-zip php-mysql php-xml
+  $ sudo apt-get install php-fpm php-pear php-curl php-dev php-gd php-mbstring php-zip php-mysql php-xml php-cli
+  // ==> php-pear -> no version
   
   This command will install additional packages:
   `libapache2-mod-php7.2
@@ -43,7 +50,7 @@
 
   $ sudo apt-get update
 
-  $ sudo apt-get install curl php-cli php-mbstring git unzip
+  $ sudo apt-get install curl git unzip
 
   $ cd ~
 
@@ -96,6 +103,9 @@
 
 6. Switch PHP version:
   sudo update-alternatives --config php
+  
+7. Downgrade composer version on Windows:
+   $ composer self-update --1
 
 Tài liệu tham khảo:
 

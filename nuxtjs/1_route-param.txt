@@ -1,0 +1,18 @@
+-| pages/
+---| index.vue
+---| posts.vue
+---| posts/
+-----| _id.vue
+
+/               ~/pages/index.vue
+/posts          ~/pages/posts.vue
+/posts/id      ~/pages/posts/_id.vue
+
+
+<NuxtLink to="/" >
+
+- go to link:
+this.$router.push('..')
+
+- Get param `id`:
+$route.params.id

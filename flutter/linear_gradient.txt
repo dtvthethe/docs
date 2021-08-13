@@ -1,0 +1,12 @@
+LinearGradient: hiển thị dải màu background
+
+Container(
+  decoration: const BoxDecoration(
+    gradient: LinearGradient( // <-------
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight
+      colors: <Color>[màu 1, màu 2, màu 3....]
+      stops: [tỉ lệ diện tích màu 1, tỉ lệ diện tích màu 2, tỉ lệ diện tích màu 3....]
+    ),
+  ),
+);

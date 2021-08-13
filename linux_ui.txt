@@ -1,0 +1,40 @@
+I> UBuntu
+1. Make `Show apps` to left 
+- update position icon 'Show apps' to left : $ gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+
+2. Change icon `Show apps`
+- updte icon 'Show apps': 
+  + downliad a .svg icon any size it will be auto resize  
+  + $ sudo cp -p /usr/share/icons/Adwaita/scalable/actions/view-app-grid-symbolic.svg /usr/share/icons/Adwaita/scalable/actions/view-app-grid-symbolic.svg.bak --> backup icon
+  + $ sudo cp <file name>.svg /usr/share/icons/Adwaita/scalable/actions/view-app-grid-symbolic.svg -> copy new icon
+  + $ cd /usr/share/icons && sudo gtk-update-icon-cache Adwaita --> refresh cache
+  + restore backup: $ sudo cp -p /usr/share/icons/Adwaita/scalable/actions/view-app-grid-symbolic.svg.bak /usr/share/icons/Adwaita/scalable/actions/view-app-grid-symbolic.svg
+
+3. make task bar opacity like Windows 10:
+ + gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
+ + gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.1
+ + reset : 
+   $ settings reset org.gnome.shell.extensions.dash-to-dock background-opacity
+   $ gsettings reset org.gnome.shell.extensions.dash-to-dock background-opacity
+   
+   
+4. Install Windows font:
+
+sudo mkdir -p /usr/share/fonts/truetype/msttcorefonts/
+cd /usr/share/fonts/truetype/msttcorefonts/
+sudo wget -q https://github.com/martinring/clide/blob/master/doc/fonts/segoeui.ttf?raw=true -O segoeui.ttf # regular
+sudo wget -q https://github.com/martinring/clide/blob/master/doc/fonts/segoeuib.ttf?raw=true -O segoeuib.ttf # bold
+sudo wget -q https://github.com/martinring/clide/blob/master/doc/fonts/segoeuib.ttf?raw=true -O segoeuii.ttf # italic
+sudo wget -q https://github.com/martinring/clide/blob/master/doc/fonts/segoeuiz.ttf?raw=true -O segoeuiz.ttf # bold italic
+sudo wget -q https://github.com/martinring/clide/blob/master/doc/fonts/segoeuil.ttf?raw=true -O segoeuil.ttf # light
+sudo wget -q https://github.com/martinring/clide/blob/master/doc/fonts/seguili.ttf?raw=true -O seguili.ttf # light italic
+sudo wget -q https://github.com/martinring/clide/blob/master/doc/fonts/segoeuisl.ttf?raw=true -O segoeuisl.ttf # semilight
+sudo wget -q https://github.com/martinring/clide/blob/master/doc/fonts/seguisli.ttf?raw=true -O seguisli.ttf # semilight italic
+sudo wget -q https://github.com/martinring/clide/blob/master/doc/fonts/seguisb.ttf?raw=true -O seguisb.ttf # semibold
+sudo wget -q https://github.com/martinring/clide/blob/master/doc/fonts/seguisbi.ttf?raw=true -O seguisbi.ttf # semibold italic
+fc-cache -f /usr/share/fonts/truetype/msttcorefonts/
+
+II> Xubuntu
+
+
+https://wallpaperhub.app/wallpapers/1534

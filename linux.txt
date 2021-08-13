@@ -24,3 +24,5 @@
 
 - Lubuntu screenshot app:
   sudo apt-get install gnome-screenshot
+- Linux kill port:
+  sudo kill -9 `sudo lsof -t -i:9001`
