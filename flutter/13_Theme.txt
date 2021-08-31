@@ -1,0 +1,3 @@
+- Sử dụng copyWith()  `ThemeData.dark().copyWith(...)` để define riêng từng color theo ý muốn
+- Theme(child: child, data: ThemeData): tạo style riêng cho 1 widget ko bị ảnh hưởng bởi theme chung
+- Hex color: Color(0xFF0A0E21): 0xFF -> A, 0A -> R, 0E -> G, 21 -> B
