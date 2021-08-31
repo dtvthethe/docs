@@ -1,0 +1,8 @@
+- Formular:
+
+  class A extends StatefulWidget {
+    @override
+    _A createState() => _A();
+  }
+
+  class _A extends State<A> {}
