@@ -1,4 +1,6 @@
 - Resource: https://github.com/dtvthethe/Flutter-Course-Resources
+	+ BMI calculator: https://github.com/dtvthethe/flutter_bmi_calculator
+	+ Spotify: https://github.com/dtvthethe/flutter_spotify
 
 - Flutter API: https://api.flutter.dev/
 
