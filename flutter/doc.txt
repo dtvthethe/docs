@@ -1,3 +1,4 @@
+- Double: number of digits after `.`: (double value).toStringAsFixed(number of digits); 
 - Resource: https://github.com/dtvthethe/Flutter-Course-Resources
 	+ BMI calculator: https://github.com/dtvthethe/flutter_bmi_calculator
 	+ Spotify: https://github.com/dtvthethe/flutter_spotify
