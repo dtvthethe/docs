@@ -1,0 +1,13 @@
+- call a function `async` don't need `await` keyword -> if you need run this function is async
+- `await`: wait until funtion done -> if you need run this function is async
+
+Duration d = Duration(seconds: 3);
+
+- Sleep
+   sleep(d);
+
+- Future delay support for Async
+   Future.delayed(d, (){
+      // TODO: after 3 second
+   })
+   return value here
