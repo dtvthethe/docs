@@ -1,0 +1,5 @@
+- Dart language chetsheet: https://dart.dev/codelabs/dart-cheatsheet
+- Null Aware Operator
+  somethingVal ?? defaultValue
+  
+- Double: number of digits after `.`: (double value).toStringAsFixed(number of digits);
