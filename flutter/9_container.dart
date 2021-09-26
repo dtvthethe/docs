@@ -7,6 +7,8 @@ Container:
         .symmetric(): set vertical & horizontal
         .fromLTRB()
         .all(): set all to value
+        
+    - decoration: BoxDecoration -> border radius, border color, ....
 
 */
 
