@@ -1,0 +1,44 @@
+- Check light/dark theme:
+    MediaQuery.of(context).platformBrightness == Brightness.light
+- Custom theme:
+    Theme.of(context).textTheme.bodyText1!.copyWith
+- Create space
+    Spacer(), 
+    Spacer(flex: 2),
+- Custom Button
+    extends MaterialButton
+- Disable back button top navigation bar
+    AppBar
+        automaticallyImplyLeading: false
+- Add action top navigation bar (icon at right, Ex: call btn, video call btn...)
+    AppBar 
+        actions [
+            Widget...
+        ]
+
+- Navigator push
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => XScreen(),
+        ),
+      ),
+    )
+
+- InkWell: Widget update color at pointer responds to touch, https://api.flutter.dev/flutter/material/InkWell-class.html
+
+- Circle pointer online, Stack use Positioned to show poiner online where poiner online of a Stack is positioned
+    Positioned
+- button to redirect back:
+    BackButton
+
+- Create a shape:
+    Container
+        decoration
+
+- Text field format remove border bottom
+    child: TextField(
+        decoration: InputDecoration(
+          border: InputBorder.none,
+        ),
+      ),
