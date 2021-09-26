@@ -1,0 +1,3 @@
+TextField
+    obsecureText: set password type
+    keyboadType: show keyboad layout
