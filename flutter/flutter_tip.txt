@@ -35,6 +35,9 @@
 - Create a shape:
     Container
         decoration
+        
+    Material
+        borderRadius, shape, type : https://api.flutter.dev/flutter/material/Material-class.html
 
 - Text field format remove border bottom
     child: TextField(
