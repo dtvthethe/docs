@@ -1,0 +1,13 @@
+- Android: do all step just skip `Sync` step
+- iOS: Only copy .split file to project and done, run cmd u can ignore
+
+- Install
+    firebase_core
+    firebase_auth
+    file_store
+
+    update cocoapod to newest version: `pod repo update` (Maybe after run this, system require install cocoapods)
+
+- to enable user create: in firebase > develop > authentication > sign-in method tab > enable item u want to save.
+
+- doc to use: https://firebase.flutter.dev/docs/overview/
