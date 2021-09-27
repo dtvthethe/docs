@@ -1,0 +1,34 @@
+Hero: animation on push-route, Ex: a -> A
+
+Hero(tag: 'key_id', child:<widget>)
+
+
+Custom animation:
+- provider ticker: return value from x to y in a duration . Pass `vsync: this`
+    + SingleTickerProviderStateMixin for single ticket
+    + TickerProviderStateMixin for multiple ticket
+
+- AnimationController: default range [from 0.0 to 1.0] in a time
+    + Play an animation: forward, reverse, stop 
+    + Set the animation to a specific value
+    + Define the `upperBound` and `lowerBound` values of an animation
+    + Create a `fling` animation effect using a physics simulation.
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(
+        seconds: 3,
+      ),
+    );
+
+- CurvedAnimation
+    Curves: https://api.flutter.dev/flutter/animation/Curves-class.html
+
+    _curvedAnimation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.bounceInOut,
+    );
+
+- Tween: Custom from x to y
+    ColorTween(begin: Colors.yellowAccent, end: Colors.orangeAccent)
+            .animate(_animationController);
