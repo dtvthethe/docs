@@ -1,0 +1,28 @@
+const vs final
+- const: phải đc gán giá trị, sẽ bị lỗi lúc combine
+- final: có thể gán 1 biến, sẽ bị lỗi lúc runtime
+
+var vs dynamic
+- var: sẽ xác định kiểu dữ liệu lần đầu tiên đc gán, nếu lần tiếp theo gán kiểu dữ liệu khác sẽ bị lỗi
+- var vs dynamic: có thể gán các kiểu dữ liệu khác nhau mà ko bị lỗi
+
+list vs set vs map
+- list: [] có thể gán GenenicType, sử dụng Object hoặc dynamic để chứa đc nhiều kiểu dữ liệu
+- set: {} tập hợp câc giá trị unique 
+- map: key - value
+
+getter vs setter
+- getter: double get right => left + width;
+- setter: set right(double value) => left = value;
+
+exception
+- on OutOfLlamasException catch (e) {...}
+
+mixin: 
+- ko co contructor
+- `with`
+- chứa các module
+
+interface
+- abstract class ...
+- các hàm ko nên có thân hàm
