@@ -1,0 +1,26 @@
+Phân biệt StateLess, Stateful
+
+  - Điểm chung:
+    + mọi data trong 2 thằng này đều phải là immutable (ko đc update: final/const), nếu muốn mutable thì qua bên class _State
+  - StateLess
+    + co có widget
+    + ko co ham setState()
+    + ko the tu rebuild ma phải nhờ cha là Stateful để update UI
+  - Stateful
+    + co widget
+    + co thể chủ động update UI bằng cách gọi setState()
+
+
+BuildContext
+  - BuildContext là một tham chiếu (reference) đến cái vị trí của widget (widget's location) trong widget tree
+  - mỗi Widget đều có 1 BuildContext đại diện cho vị trí của chính Widget đó trên widget tree
+
+
+InheritedWidget
+  - nơi lưu trữ data và cung cấp data cho cả widget tree phía dưới nó
+  - vị trí của InheritedWidget:
+    + App-scoped: Vị trí root của App, cho tất cả widget trong toàn App đều truy cập được, giống như cách Theme đang làm, hoặc nếu bạn biết widget MediaQuery thì nó cũng là App-scoped InheritedWidget.
+    + Page-scoped: Vị trí root của Page, Page ở đây đại diện cho 1 màn hình ấy, 1 App có thể có nhiều màn hình (nhiều Page). Như trong đoạn code ví dụ ở trên thì widget MyInheritedWidget của mình là một Page-scoped InheritedWidget.
+
+  - Hàm updateShouldNotify được gọi sau khi InheritedWidget rebuild và truyền vào 1 argument là InheritedWidget trước khi rebuild
+  - widget phụ thuộc (widget sử dụng MyInheritedWidget.of) sẽ bị rebuild nêú return là true
