@@ -45,3 +45,4 @@
           border: InputBorder.none,
         ),
       ),
+- Fix lỗi ko đủ ko gian hiển thị: sử dụng Expand
