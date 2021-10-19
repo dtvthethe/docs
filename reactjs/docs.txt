@@ -1,0 +1,3 @@
+Cũng giống như widget flutter trong react phân ra 2 loại:
+- Container (stateful): tập trung vào quản lí dữ liệu nhưng ko thể show ra UI, muốn show ra UI thì nhờ Presentational Component
+- Presentational Component (stateless): ko biết dữ liệu là gì chỉ biết show ra màn hình, nhận data từ Container
