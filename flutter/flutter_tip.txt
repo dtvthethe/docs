@@ -29,6 +29,7 @@
 
 - Circle pointer online, Stack use Positioned to show poiner online where poiner online of a Stack is positioned
     Positioned
+- Stack các children bên trong mỗi child nên sử  vùng với `Positioned` để hiển thị vị trí trên stack
 - button to redirect back:
     BackButton
 
