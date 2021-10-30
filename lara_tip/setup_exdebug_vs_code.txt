@@ -1,0 +1,24 @@
+- xem vị trí các file cấu hình:
+    php --ini
+- cài đặt xdebug
+    pecl install xdebug
+- sửa file php.ini
+    zend_extension="xdebug.so"
+
+    // có thể ko cần
+    [xdebug]
+    xdebug.remote_enable=1
+    xdebug.remote_autostart=1
+    xdebug.mode=debug
+    xdebug.log=/tmp/xdebug.log
+    xdebug.client_port=9003 // để 9003 sang bên config cuar VSCode sẽ config vào port này (1)
+- chạy xem có xdebug chưa:
+    phpinfo();
+
+- cài đặt chrome extension: xdebug-helper
+- cài đặt PHP Debug trên VSCode
+- config VSCode:
+    Add 2 item là: Listen for XDebug, Launch currently open script // -> cả 2 cái này đều dùng port 9003 (1)
+
+- chạy project port bình thường: 80, 8000 ...
+- đặt debug point
