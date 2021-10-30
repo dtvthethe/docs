@@ -1,0 +1,23 @@
+Iterable
+    - là 1 loại collection
+    - List, Set, Queue đều là iterable
+    - ngoài vòng lặp nó cung cấp nhiều func để tương tác VD: map, where, fold, expand
+    - where return Iterable `(1, 2, 3) ngoặc tròn` nếu muốn kiểu List thì `.toList()` -> phải lặp thêm 1 lần nữa để tạo list => nặng
+
+Map ko phải Iterable
+    - maps có các thuộc tính keys (iterable) và values (iterable). Chỉ nên lặp qua keys, values
+
+Iterator
+    - iterable ko biết cách lặp qua các element 
+    - iterable có một iterator và nhiệm vụ của iterator là di chuyển tuần tự qua tất cả các element của iterableIterable
+    - là 1 loại collection
+    - List, Set, Queue đều là iterable
+    - ngoài vòng lặp nó cung cấp nhiều func để tương tác VD: map, where, fold, expand
+    - where return Iterable `(1, 2, 3) ngoặc tròn` nếu muốn kiểu List thì `.toList()` -> phải lặp thêm 1 lần nữa để tạo list => nặng
+
+Map ko phải Iterable
+    - maps có các thuộc tính keys (iterable) và values (iterable). Chỉ nên lặp qua keys, values
+
+Iterator
+    - iterable ko biết cách lặp qua các element 
+    - iterable có một iterator và nhiệm vụ của iterator là di chuyển tuần tự qua tất cả các element của iterable
