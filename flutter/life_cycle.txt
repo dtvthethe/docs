@@ -1,0 +1,29 @@
+State life cycle
+
+	initState
+	- được gọi khi new Widget
+	- được gọi 1 lần duy nhất sau khi new Widget
+	- khi overwrite phải gọi super.initState();
+
+
+	didChangeDependencies
+	- được gọi khi dependency của state object thay đổi
+
+	didUpdateWidget
+	- được gọi khi có sự thay đổi cấu trúc của widget (widget configuration change)
+	- build() sẽ được gọi sau khi chạy xong didUpdateWidget
+
+	dispose
+	- được gọi sau khi bị remove ra khỏi widget tree
+
+InheritedWidget
+	updateShouldNotify(): Nếu widget này bị rebuild thì có thông báo cho các widget đc inherit từ nó hay ko
+
+
+????
+BUildContext?
+	ParentWidget.of(context).<resource var/method>
+
+InheritedWidget
+
+bai 6 vd ve statelesswidget : co thay doi mau dc ko
