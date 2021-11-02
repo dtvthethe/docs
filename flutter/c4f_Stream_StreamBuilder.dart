@@ -122,3 +122,54 @@ void main(List<String> arguments) {
 
 
 ///////////////////StreamBuilder: ko cần setData() vẫn tự upate UI, dùng đc vs StateLessWidget////////////////////////
+
+class MyCounter extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    print('build UI.');
+    // phaỉ tạo ra 1 StreamController để add vô, vì theo í kiến cá nhân thì ko nên controll cái
+    // controller chính đó vì TH nếu có nhiều observer cùng lắng nghe mà controll cái
+    // subject chính đó thì các obsẻver khác cũng sẽ bị ảnh hưởng
+    var _streamController = StreamController<int>();
+    myStream().listen((event) {
+      if (event == 9) {
+        _streamController.close();
+      }
+
+      _streamController.add(event);
+    });
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('hihi'),
+      ),
+      body: Center(
+        child: StreamBuilder(
+          stream: _streamController.stream,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return Text('Error.');
+            }
+
+            switch (snapshot.connectionState) {
+              case ConnectionState.none:
+                return Text('None.');
+              case ConnectionState.waiting:
+                return Text('Waiting.');
+              case ConnectionState.done:
+                return Text('Done.');
+              case ConnectionState.active:
+                return Text('Active: ${snapshot.data}');
+              default:
+                return Text('Default.');
+            }
+          },
+        ),
+      ),
+    );
+  }
+}
+
+Stream<int> myStream() {
+  return Stream<int>.periodic(Duration(seconds: 1), (val) => val + 1).take(10);
+}
