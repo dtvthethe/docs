@@ -7,11 +7,16 @@
 
     // có thể ko cần
     [xdebug]
-    xdebug.remote_enable=1
-    xdebug.remote_autostart=1
-    xdebug.mode=debug
-    xdebug.log=/tmp/xdebug.log
-    xdebug.client_port=9003 // để 9003 sang bên config cuar VSCode sẽ config vào port này (1)
+        ; xdebug.remote_enable=1 // ver 3 ko can
+        ; xdebug.remote_autostart=1 // ver 3 ko can
+        xdebug.mode=debug
+        xdebug.log=/tmp/xdebug.log
+        xdebug.client_port=9003 // để 9003 sang bên config cuar VSCode sẽ config vào port này (1)
+        xdebug.client_host=127.0.0.1
+        xdebug.start_with_request=yes
+        xdebug.idekey=VSCODE
+        xdebug.discover_client_host=false
+        xdebug.var_display_max_depth=1000 // để load ra các item trong collection đầy đủ hơn
 - chạy xem có xdebug chưa:
     phpinfo();
 
