@@ -16,6 +16,7 @@
         xdebug.start_with_request=yes
         xdebug.idekey=VSCODE
         xdebug.discover_client_host=false
+        xdebug.var_display_max_depth=1000 // để load ra các item trong collection đầy đủ hơn
 - chạy xem có xdebug chưa:
     phpinfo();
 
