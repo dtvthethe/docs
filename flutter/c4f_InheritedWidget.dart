@@ -1,3 +1,9 @@
+// Cốt lõi là: tạo data để wg con truy cập và tạo root wg 
+// 1. Tạo InheritedWidget
+//  1.1 Tạo biến để các wg con truy cập
+//  1.2 Tạo static of() để các wg con truy cập
+// 2. phải truyền wg là cha của các wg (coi như là root) vào InheritedWidget
+// 3. các wg chỉ cần .of là dùng đc
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,6 +28,7 @@ class MyApp extends StatelessWidget {
 class MyData extends InheritedWidget {
   MyData({required Widget child, required this.chiSo}) : super(child: child);
 
+  // biến đc truy cập
   final int chiSo;
 
   @override
@@ -29,6 +36,7 @@ class MyData extends InheritedWidget {
     return true;
   }
 
+  // Để wg con gọi .of(context).<tài nguyên trong InheritedWidget>
   static MyData of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<MyData>()!;
   }
