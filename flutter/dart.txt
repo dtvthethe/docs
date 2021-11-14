@@ -1,6 +1,6 @@
 const vs final
 - const: phải đc gán giá trị, sẽ bị lỗi lúc combine
-- final: có thể gán 1 biến, sẽ bị lỗi lúc runtime
+- final: có thể gán 1 biến, sẽ bị lỗi lúc runtime khi lần đầu chạy phải có giá trị, ko thể gán giá trị lần 2 (chỉ dc 1 lần)
 
 var vs dynamic
 - var: sẽ xác định kiểu dữ liệu lần đầu tiên đc gán, nếu lần tiếp theo gán kiểu dữ liệu khác sẽ bị lỗi
