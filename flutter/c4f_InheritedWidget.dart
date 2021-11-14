@@ -1,3 +1,4 @@
+// Cốt lõi là: tạo data để wg con truy cập và tạo root wg 
 // 1. Tạo InheritedWidget
 //  1.1 Tạo biến để các wg con truy cập
 //  1.2 Tạo static of() để các wg con truy cập
