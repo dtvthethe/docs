@@ -1,0 +1,6 @@
+- Là gán biến cho phần tử trong array
+- Chú ý: phải khai báo biến nhận trong dấu [] vì đây là array
+
+	let [first, second]  = [1, 2];
+	console.log(first); // outputs 1
+	console.log(second); // outputs 2

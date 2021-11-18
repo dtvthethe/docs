@@ -1,0 +1,27 @@
+- pt khởi tạo là `constructor()`
+- mạc định access modifier là PUBLIC
+- có 3 loại access modifier: public, protected, private
+- cách nhớ get, set: get/set + tên biến -> lấy cái gì đó từ <tên biến>, set cái gì đó cho <tên biến>
+- biến có thể null, chỉ cần thêm dấu `?` vào tên biến: `private _name?: string;` 
+- FUNCTION TRONG CLASS KO DC KHAI BAO ONE LINE VI BEN NGOAI GOI KO CHAY DC
+
+	class Car {
+		private _name:string;
+
+		constructor(name: string) {
+			this._name = name;
+		}
+
+		get name(): string {
+			return this._name;
+		}
+
+		set name(name: string ){ // void thì ko cần khai báo loại trả về
+			this._name = name;
+		}
+	}
+
+	let c = new Car('Pi');
+	console.log(c.name); // Pi
+	c.name = 'Audi';
+	console.log(c.name); // Audi

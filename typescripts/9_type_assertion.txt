@@ -1,0 +1,10 @@
+- ép kiểu
+- Sử dụng từ khóa `as`
+	let someValue: unknown = "this is a string";
+	let strLength: number = (someValue as string).length;
+
+
+
+- Sử dụng “angle-bracket” 
+	let someValue: unknown = "this is a string";
+	let strLength: number = (<string>someValue).length;

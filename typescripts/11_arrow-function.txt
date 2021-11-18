@@ -1,0 +1,5 @@
+-  In class
+	display = () => console.log(this.empCode +' ' + this.empName)
+
+- Arrow function
+	let Print = () => console.log("Hello TypeScript");

@@ -1,0 +1,23 @@
+- Là gán biến cho phần tử trong object
+- Chú ý: phải khai báo biến nhận trong dấu {} vì đây là object
+
+	let { aa, bb } = {
+	  a: "foo",
+	  b: 12,
+	  c: "bar",
+	};
+
+	// aa = "foo"
+	// bb = 12
+
+
+- Có thể tạo alias cho biến:
+
+	let { aa: varA, bb: varB } = {
+	  a: "foo",
+	  b: 12,
+	  c: "bar",
+	};
+
+	// varA = "foo"
+	// varB = 12
