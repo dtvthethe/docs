@@ -1,0 +1,16 @@
+Array vs Set 
+- Cả 2 đều loop đc
+- Array chứa các danh sách các giá trị
+- Set chứa tập hợp các giá trị ko bị lặp 
+
+- Array:
+  let arr1:Array<string> = ['a', 'b', 'c'];
+  let arr2:string[] = ['a', 'b', 'c'];
+  console.log(arr1); // ["a", "b", "c"] 
+  console.log(arr2); // ["a", "b", "c"] 
+
+- Set: phải có từ khóa `new Set...`
+  let se1:Set<number> = new Set<number>([1, 2, 3]);
+  let se2:Set<number> = new Set([1, 2, 3, 2]);
+  console.log(se1); // Set (3) {1, 2, 3} 
+  console.log(se2); // Set (3) {1, 2, 3} 
