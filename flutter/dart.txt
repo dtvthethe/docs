@@ -1,3 +1,5 @@
+Dart là đơn kế thừa
+
 const vs final
 - const: phải đc gán giá trị, sẽ bị lỗi lúc combine
 - final: có thể gán 1 biến, sẽ bị lỗi lúc runtime khi lần đầu chạy phải có giá trị, ko thể gán giá trị lần 2 (chỉ dc 1 lần)
@@ -15,14 +17,39 @@ getter vs setter
 - getter: double get right => left + width;
 - setter: set right(double value) => left = value;
 
+List vs Set 
+- Cả 2 đều kế thừa từ Iterable
+- Cả 2 đều loop đc
+- List chứa các danh sách các giá trị
+- Set chứa tập hợp các giá trị ko bị lặp 
+- List: List<T>
+- Set: Set<T>
+
 exception
 - on OutOfLlamasException catch (e) {...}
 
 mixin: 
 - ko co contructor
-- `with`
+- sử dụng từ khóa `mixin` để tạo mixin
+- sử dụng `with` để gọi.
 - chứa các module
 
 interface
-- abstract class ...
-- các hàm ko nên có thân hàm
+- có thể chưa property và method.
+- method ko đc định nghĩa
+- trong Dart ko có từ khóa `interface` sử dụng class để khai báo thay cho interrfac, khác biệt vs classs là hàm ko đc định nghĩa
+- sử dụng từ khóa `implements` để gọi interface
+
+Abstract class
+- tạo abstract class thì dùng từ khóa `abstract class Abc`
+- function abtract ko cần từ khóa `abstract` chỉ cần ko định nghĩa thân hàm là đc
+- gọi abstract bằng từ khóa `extends`
+
+
+Arrow function
+- Ko giống TS ở chỗ là sau tên hàm ko có dấu `=`
+
+  String greeting(String name) => 'Hello, $name!';
+  main() {
+      print(greeting('Wallace'));
+  }
