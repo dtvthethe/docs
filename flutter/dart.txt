@@ -17,6 +17,14 @@ getter vs setter
 - getter: double get right => left + width;
 - setter: set right(double value) => left = value;
 
+List vs Set 
+- Cả 2 đều kế thừa từ Iterable
+- Cả 2 đều loop đc
+- List chứa các danh sách các giá trị
+- Set chứa tập hợp các giá trị ko bị lặp 
+- List: List<T>
+- Set: Set<T>
+
 exception
 - on OutOfLlamasException catch (e) {...}
 
