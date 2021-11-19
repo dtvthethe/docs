@@ -1,10 +1,4 @@
-? `with`: mixin 
-? arrow function
-? date time
-? abstract/interface khai bao
-? abstract/interface cach dung
-
-khoi tao trong Dart ko can tu khoa `new`
+- Khoi tao trong Dart ko can tu khoa `new`
 
 - Resource: https://github.com/dtvthethe/Flutter-Course-Resources
 	+ BMI calculator: https://github.com/dtvthethe/flutter_bmi_calculator
