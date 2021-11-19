@@ -1,0 +1,5 @@
+enum Color {Red, Green, Blue};
+let c: Color = Color.Green;
+
+enum Color {Red = 100, Green, Blue}; // Green, Blue tự động lần lượt là 101, 102
+let c: Color = Color.Green;

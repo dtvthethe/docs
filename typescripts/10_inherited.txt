@@ -1,0 +1,8 @@
+- sử dụng từ khóa `extends` để kế thừa
+- trong TS là đơn kế thừa
+- sử dụng từ khóa `implement` để implement các interface
+- trong TS có thể implement nhiều interface
+- sử dụng từ khóa `super` để gọi đến tài nguyêm lớp cơ sở
+
+
+* Xem ví dụ trong file: ex_oop.ts

@@ -1,0 +1,5 @@
+- có 3 loại access nodifier trong TS: public, protected, private
+- trong class mạc định ko có access nodifier là public
+- sử dụng từ khóa get/set để truy cập các biến private:
+	set bienA = (val) => <gán biến ở đây>
+	get bienA:<type> => bienA

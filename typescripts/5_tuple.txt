@@ -1,0 +1,15 @@
+- Là khai báo mảng với các giá trị có kiểu dữ liệu đã biết trước
+- Phải khai báo trong dấu []
+- Phải định nghĩa trước kiểu dữ liệu cho từng element, có bao nhiêu element thì định nghĩa chừng đó 
+- Truy cập bằng chỉ số index như array
+	let x: [string, number];
+	let person: [number, string, boolean] = [1, "Steve", true];
+
+	x = ["hello", 10]; // OK
+	x = [10, "hello"]; // Error
+	x[3] = "world"; // Error
+
+	console.log(x[0].substring(1)); // OK
+ 
+	console.log(x[1].substring(1)); // Error
+

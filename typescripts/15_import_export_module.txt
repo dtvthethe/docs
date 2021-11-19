@@ -1,0 +1,44 @@
+- từ khóa `export` dùng để export đơn lẻ 1 biến/ function/ class ra bên ngoài
+- với từ khóa `export` thì lúc import có thể set alias với tên khác `as` trong {}
+- từ khóa `export default` dùng để export mạc định và 1 file .js chỉ có 1  `export default`
+- với từ khóa `export default` thì lúc import ko cần tên biến/ function/ class trong {} cũng đc
+- sử dụng từ khóa `import .. from ...` để import file
+
+
+	moduleA.js
+		export let a:number = 1;
+		export let b:number = 1;
+
+		export function func1() {
+			// TODO
+		}
+
+		export class Abc {
+			constructor() {
+				// TODO
+			}
+
+			show() {
+				// TODO
+			}
+		}
+
+	moduleC.js
+		let a:number = 1;
+		let b:number = 1;
+		export {a, b} 
+
+	moduleD.js
+		a:number = 1;
+		export default a;
+
+
+
+
+
+	moduleB.js
+		import {a as aa, b as bb, func1, Abc} from './moduleA.js';
+
+
+	moduleF.js
+		import {default as aa} from './moduleD.js';

@@ -1,0 +1,6 @@
+interface IAbc {
+	[index: number]: string; // index là chỉ số index trong array, string là kiểu dữ liệu của phần từ
+}
+
+let abc: IAbc[] = ['a', 'b', 'c'];
+console.log(abc); //output ["a", "b", "c"] 

@@ -1,0 +1,14 @@
+Install:
+	- VSCode
+	- nodejs
+	- `npm install typescript -g`
+	- write code .ts and complie to .js file
+
+package.json
+	- install `lite-server`
+	- tạo lệnh `start` để chạy chạy lite-sserver VD: `npm start` thì trong phần `scripts`:
+		```
+		"scripts": {
+			"start": "lite-server"
+		}
+		```

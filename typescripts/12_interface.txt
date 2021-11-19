@@ -1,0 +1,24 @@
+- 1 class cos thể implement nhiều interface
+- để 1 property ko bị required implement thì dùng dấu `?` sau tên biến
+
+	interface IAir {
+		name: string;
+		brand?: string; // <--- class implement có/ ko có property này cũng dc
+	}
+
+- có thể dùng làm kiểu dữ liệu
+
+	let airpod: IAir = { // <---- làm kiểu dữ liệu
+		name: 'Apple Airpod',
+	}
+
+
+	class earPhone {
+		airPods: IAir[]; // <---- làm kiểu dữ liệu
+
+		constructor(airPods: IAir[]){ // <---- làm kiểu dữ liệu
+			this.airPods = airPods;
+		}
+	}
+
+* Xem ví dụ trong file: ex_oop.ts

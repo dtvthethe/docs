@@ -1,0 +1,19 @@
+- là class có chứa pt abstrac;
+- pt abstract ko có thân hàm
+- class phải chứa từ khóa `abstract`
+- method phải chứa từ khóa `abstract`
+- sử dụng từ khóa `extends` để kế thừa abstrac class
+
+	abstract class Laptop { // <--- abstract class
+		// các method, property bình thường khác
+
+		abstract shipset(): void; // <--- abstract method
+	}
+
+	class Macbook extends Laptop {
+		shipset(): void {
+			// TODO
+		}
+	}
+
+* Xem ví dụ trong file: ex_oop.ts

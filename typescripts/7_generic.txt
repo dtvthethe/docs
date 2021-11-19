@@ -1,0 +1,50 @@
+- Là kiểu dữ liệu chúng ta truyền vào component
+- Cách dùng với function
+	function showInfo<T>(x: T): T{
+		return x;
+	}
+
+	showInfo<boolean>(true); // return type: boolean, value: true
+
+
+
+
+
+- cách dùng với array cũng đơn giản: `a: T[]`
+	class Hi {
+		static showInfo<T>(a: T[]): void {
+			console.log(a);
+		}
+	}
+
+	Hi.showInfo<number>([1, 2, 3]); // 1, 2, 3
+
+
+
+
+
+- Cách dùng với class 
+	class Car<A, B, C> {
+		private _id:A;
+		private _name:B;
+		private _price:C;
+
+		constructor(id: A, name: B, price: C) {
+			this._id = id;
+			this._name = name;
+			this._price = price;
+		}
+
+		print() {
+			const str:string = `ID = ${this._id}, Name = ${this._name}, Price = ${this._price}`;
+			console.log(str);
+		}
+	}
+
+	// number, string, number
+	let c1 = new Car<number, string, number>(1, 'Audi', 20);
+	c1.print(); // "ID = 1, Name = Audi, Price = 20" 
+
+	// string, string, boolean
+	let c2 = new Car<string, string, boolean>('CAR01', 'Ford', true);
+	c2.print(); // "ID = CAR01, Name = Ford, Price = true"

@@ -1,0 +1,9 @@
+- phải là tham số sau cùng để ko bị nhầm khi truyền vào 
+- là tham số có dấu `...`
+- VD:  `...names` là rest parameter
+	function Greet(greeting: string, ...names: string[]) {
+	    return greeting + " " + names.join(", ") + "!";
+	}
+
+	Greet("Hello", "Steve", "Bill"); // returns "Hello Steve, Bill!"
+	Greet("Hello");// returns "Hello !"
