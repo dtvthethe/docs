@@ -53,3 +53,28 @@ Arrow function
   main() {
       print(greeting('Wallace'));
   }
+  
+Class
+- Khai báo class vs property là private thì phải tạo property.
+  class Employee {
+    String? _name;
+
+    Employee({String? name}) {
+      this._name = name;
+    }
+
+    String? get name => this._name;
+    set name(String? name) => this._name = name;
+  }
+
+  Employee a = Employee(name: 'abc');
+
+- Khai baos class vs property là pulic 
+  class Student {
+    Student({String? name}); // ko cần `this` vì chỗ này là khởi tạo
+
+    String? get name => this.name;
+    set name(String? name) => this.name = name;
+  }
+
+  Student b = Student(name: 'abc');
