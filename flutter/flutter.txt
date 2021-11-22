@@ -24,3 +24,7 @@ InheritedWidget
 
   - Hàm updateShouldNotify được gọi sau khi InheritedWidget rebuild và truyền vào 1 argument là InheritedWidget trước khi rebuild
   - widget phụ thuộc (widget sử dụng MyInheritedWidget.of) sẽ bị rebuild nêú return là true
+
+Listenable
+  - Lắng nghe sự thay đổi trong object và sẽ có tương tác vs các wg con
+  - class này là của Flutter
