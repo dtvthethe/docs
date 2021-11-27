@@ -8,6 +8,10 @@ var vs dynamic
 - var: sẽ xác định kiểu dữ liệu lần đầu tiên đc gán, nếu lần tiếp theo gán kiểu dữ liệu khác sẽ bị lỗi
 - var vs dynamic: có thể gán các kiểu dữ liệu khác nhau mà ko bị lỗi
 
+late
+- gán muộn gán, trễ giá trị 
+- nếu khởi tạo lúc đầu thì sẽ ko cho null nhưng nếu add thên `late` thì có nghĩa là sẽ gán biến cho nó sau.
+
 list vs set vs map
 - list: [] có thể gán GenenicType, sử dụng Object hoặc dynamic để chứa đc nhiều kiểu dữ liệu
 - set: {} tập hợp câc giá trị unique 
@@ -53,3 +57,28 @@ Arrow function
   main() {
       print(greeting('Wallace'));
   }
+  
+Class
+- Khai báo class vs property là private thì phải tạo property.
+  class Employee {
+    String? _name;
+
+    Employee({String? name}) {
+      this._name = name;
+    }
+
+    String? get name => this._name;
+    set name(String? name) => this._name = name;
+  }
+
+  Employee a = Employee(name: 'abc');
+
+- Khai baos class vs property là pulic 
+  class Student {
+    Student({String? name}); // ko cần `this` vì chỗ này là khởi tạo
+
+    String? get name => this.name;
+    set name(String? name) => this.name = name;
+  }
+
+  Student b = Student(name: 'abc');
