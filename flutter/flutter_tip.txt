@@ -47,3 +47,28 @@
         ),
       ),
 - Fix lỗi ko đủ ko gian hiển thị: sử dụng Expand
+
+- Tạo textbox có text hint, có icon search, lấy text đã nhập
+    TextFormField(
+      decoration: InputDecoration(
+        suffixIcon: Icon(Icons.search),
+        hintText: 'Search course...',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+        ),
+      ),
+      controller: _inputController,
+    );
+
+    @override
+    void dispose() {
+        _inputController.dispose();
+        super.dispose();
+    }
+
+    trong các method initState() hay didChangeDependencies():
+        TextEditingController _inputController = TextEditingController();
+        
+        _inputController.addListener(() {
+            print(_inputController.text);
+        });

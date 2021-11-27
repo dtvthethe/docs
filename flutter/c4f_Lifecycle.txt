@@ -1,0 +1,70 @@
+[setState] : là khi có state đc update
+[didUpdateConfig]: Khi wg tree có update config về UI
+
+
+                      (created)
+                          |
+                          v
+                     [initState]
+                     	  |
+                     	  v
+        -------------->(dirty)<------------
+        |                 |               |
+        v                 v               v
+  [didUpdateConfig]    [build]        [setState]
+        ^                 |               ^
+        |                 v               |
+        |--------------(clean)------------|
+                          |
+                          v
+                      [dispose]
+                          |
+                          v
+                       (defunct)
+
+- createState
+- initState
+- didChangeDependencies
+- didUpdateWidget
+- build
+- dispose
+
+initState:
+	- đc gọi khi ms khởi tạo, new WG
+	- Khi state object đc tạo
+	- khi override method thì phải luôn đi kèm super.initState()
+
+didChangeDependencies:
+	- dc gọi khi dependency của state object bị thay đổi
+	VD: State object tham chiếu đến 1 inheritedWG khi inheritedWG có sự thay đổi thì State object sẽ 
+	nhận đc thông báo. Trong TH này inheritedWG là 1 dependency của state object
+
+didUpdateWidget:
+	- đc gọi khi có sự thay đổi về cấu trúc wg, keyword google `widget configuration changes`
+	- build() sẽ đc gọi ngay sau phương thức này
+
+dispose:
+	- bị gọi khi wg bị remove ra khỏi wg tree
+
+Thứ tự khi chạy sẽ là:
+	1. initState
+	2. didChangeDependencies
+	3. build
+	4. didUpdateWidget
+	5. build
+
+Khi gọi hàm setState
+	1. buil
+
+? Khi gọi hàm setState mà key của wg cũ giống key wg mới
+	1. didUpdateWidget
+	2. buil
+
+? Khi gọi hàm setState mà key của wg cũ khác key wg mới
+	1. buil : vì nó tìm ko ra cái wg có key mới này nên nó ko biết phải đi update cái cũ mà nó sẽ tạo ra cái wg mới
+
+Khi dùng với inheritedWG
+	1. didChangeDependencies
+
+Khi chuyển màn hình `Navigator`
+	màn cũ: dispose

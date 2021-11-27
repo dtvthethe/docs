@@ -1,3 +1,4 @@
+InheritedWG: là 1 wg truyền data đến các level wg con cháu `tên inheritedWg.of` để truy cập
 // Cốt lõi là: tạo data để wg con truy cập và tạo root wg 
 // 1. Tạo InheritedWidget
 //  1.1 Tạo biến để các wg con truy cập
