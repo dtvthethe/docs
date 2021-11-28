@@ -1,3 +1,4 @@
+BLoC: Chỉ là 1 design pattern, tách biệt UI vs logic code
 Cơ bản thì BLoC tách biệt xử lý UI và Logic ở 2 nơi
 BLoC là nơi xử lý nghiệp vụ
 BLoC giao tiếp với UI thông qua Stream
