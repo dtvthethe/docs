@@ -28,3 +28,15 @@ InheritedWidget
 Listenable
   - Lắng nghe sự thay đổi trong object và sẽ có tương tác vs các wg con
   - class này là của Flutter
+
+Shared Preferences:
+   - Cache dữ liệu
+   - Lưu dữ liệu trên máy để lần sau ko phải setting lại
+   - Lưu dưới dạng key – value dưới dạng file .xml
+   - Có thể thiết lập là `private` để các app ko access vào đc.
+   - Sử dụng thư viện shared_preferences
+   - Trên iOS/Mac sẽ bị 1 lỗi `Mising pluginException: No implement found getAll() on chanel flutter...`:
+     + cd vào ios
+     + run: flutter clean
+     + run: pod install
+     + chạy lại app
