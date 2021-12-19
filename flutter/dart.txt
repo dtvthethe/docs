@@ -85,9 +85,18 @@ Class
 
 - Overload constructor()
   Person(...)
-  factory Person.init(...) // có thể ko cần `factory`
-  factory Person.foo(...) // có thể ko cần `factory`
+  factory Person.init(...) // `factory` nếu có return
+  factory Person.foo(...) // `factory` nếu có return
 
 - cách dùng from trong List
   List<Product>.from(jsonData['products']
         .map((productJson) => Product.parseJson(productJson)));
+
+- Singleton: Ko bị tạo lại đối tượng mới
+  class A {
+    static DataBase _db;
+    
+    A._internal();
+    static final A instance = A._internal(); // khi dùng gọi `A.instance`
+  }
+
