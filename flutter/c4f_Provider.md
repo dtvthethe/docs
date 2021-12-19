@@ -11,11 +11,10 @@ Sự khác biệt khi gọi bằng `Consumer` và `Provider.of<T>`:
 - `Consumer` Khi truyền wg vào để tránh rebuil thì <b>ko bị</b> rebuild lại khi Provider có update data
 - `Provider.of<T>` Khi truyền wg vào để tránh rebuil thì <b>bị</b> rebuild lại khi Provider có update data
 - Sử dụng `.value` khi nào:
-
-	<i>Lưu ý thêm: hãy sử dụng value() constructor nếu bạn đang đính kèm provider của mình ở đâu đó bên dưới trong widget tree. Không sử dụng phương pháp tiếp cận value() constructor này nếu bạn đang đính kèm các provider của mình trong  main.dart.‌‌</i>
+Khi muốn các child dùng đc các giá trị là 1 value/object hoặc là kết quả của Provider đã có ở trên
 - Cách khởi tạo bằng `constructor()` và `.value`
   -  `constructor()`: dùng constructor khởi tạo state object khi object đó là mới hoàn toàn. (1) 
-  -  `.value`: còn trong trường hợp có state object đã xử lý trước đó rồi (1) mà muốn sử dụng lại thì dùng `.value`
+  -  `.value`: còn trong trường hợp có state object đã xử lý trước đó rồi (1) mà muốn sử dụng lại thì dùng `.value` hoặc là 1 value/object
 - `watch` vs `read`:
 	- context.watch<CounterSign>(): dùng để lấy biến nếu có thay đổi lập tức sẽ đc thông báo
 	- context.read<CounterSign>(): thường dùng để gọi hàm.
@@ -37,6 +36,11 @@ Sự khác biệt khi gọi bằng `Consumer` và `Provider.of<T>`:
 - Listenable: lắng nghe sự thay đổi trong object và sẽ có tương tác vs các wg con, <b>class này là của Flutter</b>
 - <s>Dùng `ChangeNotifierProvider.value(..)` để tạo vì có data đc thay đổi bên trong</s>
 - trong Model sử dụng `notifyListeners()` từ mixin `ChangeNotifier` để thông báo có sự update
+
+<h2>Multiple Provider</h2>
+
+- 1 App có thể có nhiều State Object
+- Sử dunj Multiple Provider để các wg child dùng đc State Object
 
 <h2>Proxy Provider</h2>
 
