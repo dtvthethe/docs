@@ -1,0 +1,3 @@
+Swagger:
+ - Annotation: https://zircote.github.io/swagger-php/Getting-started.html
+ - cmd: php artisan l5-swagger:generate
