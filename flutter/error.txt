@@ -1,0 +1,3 @@
+- Flutter Firebase: 
+	Unhandle Exception: ServiceBingding.defaultBinaryMessenger was accessed before the binding was initialized...
+	-> copy `WidgetsFlutterBingding.ensureInitialized();` to main()

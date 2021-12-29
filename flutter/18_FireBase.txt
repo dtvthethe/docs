@@ -1,13 +1,32 @@
-- Android: do all step just skip `Sync` step
-- iOS: Only copy .split file to project and done, run cmd u can ignore
+Create Firebase Project
 
-- Install
+Register Android app:
+    - copy applicationId `android/app/build.gradle` past to `Android package name`
+    - Input nickname App
+    - register app btn click
+    - download config file .json
+    - copy .json to `android/app`
+    - copy `classpath` (below download .json btn) to `android/build.gradle`
+    - copy `apply plugin` (below download .json btn) to `android/app/build.gradle`
+    - run `flutter pub get`
+
+Register iOS app: 
+    - copy bundle Identify to `iOS bundle ID`
+    - Input nickname App
+    - register app btn click
+    - download config file .plist
+    - Copy to `Runner` folder
+
+Install packages in pubspec.yaml
     firebase_core
+    firebase_database
+
     firebase_auth
-    file_store
+    file_store -> dont need
 
     update cocoapod to newest version: `pod repo update` (Maybe after run this, system require install cocoapods)
 
 - to enable user create: in firebase > develop > authentication > sign-in method tab > enable item u want to save.
 
 - doc to use: https://firebase.flutter.dev/docs/overview/
+
