@@ -14,7 +14,7 @@ Step 1: setting login ssh by password:
 	passwd <user>
 	service ssh restart
 
-	connect ssh to server: `ssh <user>@<server ip>`
+	connect ssh to server: `ssh <user>@<server ip>` -p <port number>
 
 => When first login u should save IP/server name with hostklnow id. (1) 
 Step 2: setting login ssh by public key:
