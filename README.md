@@ -6,3 +6,4 @@ List of reference repo:
 - PHP and Laravel best practice: https://www.codegrepper.com/code-examples/php
 - ReactJS: https://github.com/dtvthethe/dont_delete_reactjs
 - Dart package example: https://github.com/dtvthethe/my_first_dart_library
+- Nuxt JS: https://github.com/dtvthethe/nuxtjs
