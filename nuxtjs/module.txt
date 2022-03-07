@@ -1,0 +1,3 @@
+- Ko phải là các thư viênj
+- Nó giống như là các chức năng cải tiến đc build/extend trên 1 thư viện khác, VD: module axios của nuxt nó có thêm nhiều tính năng hơn axios core
+- Đc gọi khi khởi động Nuxt (chạy đầu tiên nhất)

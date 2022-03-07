@@ -1,0 +1,19 @@
+https://github.com/dtvthethe/nuxtjs/pull/2
+
+bc1:
+	- Khai báo tên cấu trúc thư mục để tạo nested
+	- Tên của file .vue và thư mục phải giống nhau, VD:
+		users.vue
+		/users
+			/_id
+				index.vue
+				settings.vue
+
+bc2:
+	- users.vue
+		đặt component `<NuxtChild />` ở vị trí muốn các page khác render ra ở đây
+
+
+bc3:
+	- index.vue, settings.vue : khai báo nội dung bên trong 1 cách bình thường
+

@@ -1,1 +1,10 @@
-demo: https://github.com/dtvthethe/nuxtjs
+- Demo: https://github.com/dtvthethe/nuxtjs
+
+- Kiểm tra đang chạy SSR hay CSR: `process.server`
+
+- trong nested route: khi đã khai báo trong file .vue cha thì các file trong thư mục con ko cần phải định nghĩa lại: https://github.com/dtvthethe/nuxtjs/pull/5/commits/d7c05169e526be4b01a8795bcb0c991f5688851a
+
+- Redirect to other page
+	context.redirect('/')
+	or 
+	redirect('https://vuejs.org')

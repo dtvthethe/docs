@@ -1,0 +1,2 @@
+
+Loại này chỉ chạy phía SSR ko chạy bên CSR

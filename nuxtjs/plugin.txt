@@ -1,0 +1,18 @@
+- Sử dụng các plugin bên ngoài
+- Cũng chạy tước lúc boot nhưng sau module
+- Khi các chức năng của các plugin đã đủ dùng ko có nhu cầu nhiều về custom trong plugin đó thì dùng cái này. Ngược lại nếu cần custom hay mở rộng về plugin thì nên qua bên module
+- Xem thêm: https://nuxtjs.org/docs/directory-structure/plugins
+
+- thường thì các thư viện pulgin/module sẽ đều khai báo biến global `$`
+
+- Có các plugin chỉ support cho phía CSR nên có thể SSR bị lỗi, fix bằng cách chỉ rõ `mode` đc chạy ở đâu, VD:
+	plugins: [
+	    { src: '~/plugins/both-sides.js' },
+	    { src: '~/plugins/client-only.js', mode: 'client' },
+	    { src: '~/plugins/server-only.js', mode: 'server' }
+	  ] 
+
+- Cách add biến global
+	+ Sử dụng plugin: https://nuxtjs.org/docs/directory-structure/plugins
+	+ Sử dụng biến inject
+	https://github.com/dtvthethe/nuxtjs/pull/6/commits/0dc9e17677874d82fb8f698d48315138c6895a1d

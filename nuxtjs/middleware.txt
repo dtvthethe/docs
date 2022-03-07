@@ -1,0 +1,13 @@
+https://github.com/dtvthethe/nuxtjs/pull/5
+
+Sẽ chạy trước khi render page hay layout
+
+Loại này sẽ chạy cả phía SSR và CSR
+
+Thứ tự ưu tiên thực hiện middleware
+	1. nuxt.config.json (thứ tự sắp xếp cái nào trước)
+	2. layout
+	3. page
+
+Xem thêm: https://nuxtjs.org/docs/directory-structure/middleware#middleware-directory
+
