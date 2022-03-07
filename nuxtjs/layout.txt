@@ -1,0 +1,21 @@
+https://github.com/dtvthethe/nuxtjs/pull/3/files
+
+bc1:
+	- Tạo thư muc `layouts`
+	- tại các file template .vue
+
+bc2:
+	- Thêm `<Nuxt />` vào những chỗ nào muốn page đc render ra
+
+
+bc3:
+	- ở những page nào muốn dùng layout nào thì khai báo:
+		export default {
+		  layout: 'green' // tên của file trong bc 1 ko cần .vue
+		}
+
+
+Layout cho mobile hay desktop
+	- Check bằng reqquest để xem user dungd thiết bị gì, cách phát hiện có phải là mobile hay ko:
+		+ Khi load bằng SSR thì lấy theo cách này: context.req.headers['user-agent']
+    	+ Khi load bằng CSR thì lấy theo cách này: navigator.userAgent

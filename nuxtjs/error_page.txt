@@ -1,0 +1,6 @@
+
+Tên bắt buộc phải là `layouts/error.vue`: https://nuxtjs.org/docs/directory-structure/layouts#error-page
+
+Có thể tùy chỉnh layout tùy thích
+ 
+Sẽ tự động bay đến trang này nếu có lỗi

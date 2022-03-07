@@ -1,0 +1,5 @@
+Thêm hiệu ứng đẹp
+Kết hợp css để thêm hiệu ứng
+
+https://nuxtjs.org/docs/features/transitions#transitions
+https://vuejs.org/guide/built-ins/transition.html

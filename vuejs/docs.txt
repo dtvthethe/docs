@@ -1,0 +1,130 @@
+- Display default if null
+	{{ var || 'Default' }}
+
+- Directive
+	Là cái attribute bắt đầu bằng v-, VD: v-on, v-if, v-for, v-model ....
+
+- Modifiler
+	Là các thuộc tính sau directive phân cách bằng dấu `.` VD:
+	@keyup.enter="..." // --> enter là modifier
+
+- Binding:
+	v-bind:id="data_var"
+	or
+	:id="data_var"
+
+- Event:
+	v-on:click="function_name"
+	or
+	@click="function_name"
+
+	xem thêm: https://vuejs.org/guide/essentials/event-handling.html#key-modifiers
+
+	Demo: https://github.com/dtvthethe/vuejs/pull/3/files
+
+- Form binding:
+	<input :value="data_var" @input="function_name">
+	or
+	<input v-model="text">
+
+	VD: https://github.com/dtvthethe/vuejs/pull/4/commits/a6e4de20b2e34e7232c8e0255bb58724b3e49db3
+
+	or
+
+	https://github.com/dtvthethe/vuejs/pull/4/commits/ee82ad9e693c70a5e1057e2abf6ec47372a31ce4 (v-model)
+
+- Condition:
+	v-if: render leen UI
+	v-show: vãn render nhưng phụ thuộc style là display
+
+- Remove item in list
+	Gán lại `list = list.filter(ko lấy giá trị remove)` là đc
+
+
+- CSS class by condition:
+	+ style class `.done{....}`
+	+ <span :class="{'done-text' : todo.done}">.....</span> // class `done-text` chỉ đc show nếu `todo.done` là true
+
+
+- Computed
+	+ Là thuộc tính được tính toán
+	+ ko gọi đc bằng `fnc_name()` chỉ cần gọi tên hàm `fnc_name`
+	+ ko đc truyền vào param
+	+ thực hiện các biến đổi nếu bất kì data dependency nào bị thay đổi
+	+ sẽ đc tính toán lần đầu, còn lần sau sẽ ko tính toán nữa vì đã đc lưu trong cache
+	+ dùng tên function của computed gọi ra lâý data như bình thường
+	+ Getter/Setter
+			computed : {
+		        convertToUpper: {
+		            get : function () {
+		                return this.name.toUpperCase();
+		            },
+		            set: function (name) {
+		                this.name = name;
+		            }
+		        }
+		    }
+	+ Ex: https://github.com/dtvthethe/vuejs/pull/7
+
+- Watchers
+	+ Theo dõi thay đổi của data và thực hiện hành động
+	+ tên watch phải trùng vs tên data cần theo dõi
+
+
+- VueJS Lifecycle
+	+ là vòng đời của vue từ khi khởi tạo đén khi bị hủy
+	+ Có 4 giao đoạn:
+		1. init 1 đối tượng Vue
+		2. Gán vào DOM
+		3. Update DOM khi update data
+		4. Hủy instance
+
+	1. init 1 đối tượng Vue
+		- beforeCreate(): đc chạy khi khởi tạo 1 instance (data, event chưa đc thiết lập)
+		- created(): đc chạy khi data, event đã đc thiết lập
+
+
+	2. Gán vào DOM
+		- beforeMount(): đã có data,event và chạy trước khi đc gán vào DOM (chưa truy cập đc các element trong DOM)
+		- mounted(): có thể truy cạp các element (đã đc gán vào DOM)
+
+	3. Update DOM khi update data
+		- beforeUpdate(): trước khi render ra màn hình
+		- updated(): chạy ngay sau beforeUpdate() khi data đã đc thay đổi
+
+	4. Hủy instance
+		- beforeDestroy(): trc khi instance bị hủy (xóa tài nguyên, dọn dẹp các component)
+		- destroyed(): Mọi thành phần đã bị hủy
+
+
+- Template Refs
+	+ thao tác với các element trên UI
+	+ Chỉ có tác dụng khi UI đã render, cụ thể là trong mounted()
+	+ bc1: `<p ref="p">hello</p>`
+	+ bc2: `this.$refs.p`
+
+
+
+- Emit
+	+ Ở child component gọi đến method của parent component
+	+ Parent
+		methods: {
+			parentMethod(msg) {
+				...
+			}
+		}
+
+		<Child @parent-method="parentMethod" />
+
+	+ Child
+		emits: ["parentMethod"],
+		methods: {
+			btnClick() {
+				this.$emit('parentMethod', 'abc');
+			}
+		},
+
+- Slot
+	+ 
+
+
