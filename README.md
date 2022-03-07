@@ -7,4 +7,4 @@ List of reference repo:
 - ReactJS: https://github.com/dtvthethe/dont_delete_reactjs
 - Dart package example: https://github.com/dtvthethe/my_first_dart_library
 - Nuxt JS: https://github.com/dtvthethe/nuxtjs
-- Vue JS: https://github.com/dtvthethe/vuejs
+- Vue JS + VueX: https://github.com/dtvthethe/vuejs
