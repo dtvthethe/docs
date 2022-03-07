@@ -1,0 +1,18 @@
+- mapMutations() trong method
+
+- Giong method
+- Mutation la sync (dong bo)
+- Co 2 cach de commit
+	Cach 1:
+		store.commit('increment', 10)
+
+	Cach 2 sử dụng payload:
+		store.commit({
+		  type: 'increment', // `type` la tham so mac dinh
+		  amount: 10
+		})
+
+	=> gọi mutation bằng cách: 
+		store.commit('increment', 10)
+
+https://github.com/dtvthethe/vuejs/pull/15
