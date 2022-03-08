@@ -1,0 +1,6 @@
+- USB: >= 16Gb
+- Download from Apple Store file name `Install macOS ....` in Applications folder
+- Right click on Install > Show Package Contents > Contents > Resources.
+- Open Terminal:
+	sudo <drag and drop `createinstallmedia` file> --volume <drag and drop usb>
+- Pess `y`
