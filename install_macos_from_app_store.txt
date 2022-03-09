@@ -1,6 +1,15 @@
 - USB: >= 16Gb
+- open Disk Utility > View > `Show All Devices` > Select USB > Erase > Format='Mac OS Extend (Journaled)' > Erase
+
 - Download from Apple Store file name `Install macOS ....` in Applications folder
+
 - Right click on Install > Show Package Contents > Contents > Resources.
 - Open Terminal:
 	sudo <drag and drop `createinstallmedia` file> --volume <drag and drop usb>
+
+	drag and drop usb: Go > Computer > Drag usb to terminal
+
+	Ex:
+	sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia --volume /Volumes/os
 - Pess `y`
+- Pess `Command + R` to Show boot screen
