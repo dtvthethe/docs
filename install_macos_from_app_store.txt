@@ -1,5 +1,5 @@
 - USB: >= 16Gb
-- open Disk Utility > View > `Show All Devices` > Select USB > Erase > Format='Mac OS Extend (Journaled)' > Erase
+- open Disk Utility > View > `Show All Devices` > Select USB > Erase > Format='Mac OS Extend (Journaled)', Scheme = 'GUID Partition Map' > Erase
 
 - Download from Apple Store file name `Install macOS ....` in Applications folder
 
