@@ -1,0 +1,43 @@
+- mapActions() trong methods
+- Cung giong method giogng mutation
+- Co kha nang xu ly async (bat dong bo)
+- Khac biet Action vs Mutation
+	Action:
+		+ Action có thể xử lý các action bất đồng bộ async
+		+ thay vì thay đổi trực tiếp  data trong state nó sẽ đi commit cái mutation
+- Tham số của action là 1 context, và trong context có đủ: state, commit, getter, dispatch, mutation....., VD:
+	actions: {
+	  increment ({ commit }) { // dối tượng conext chứa nhiều đối tượng khác
+	    commit('increment')
+	  }
+	}
+
+- Gọi action bằng cách:
+	store.dispatch('increment')
+
+- Cũng có thể gọi bằng cách sử dụng payload
+
+	// dispatch with a payload
+	store.dispatch('incrementAsync', {
+	  amount: 10
+	})
+
+	// dispatch with an object
+	store.dispatch({
+	  type: 'incrementAsync',
+	  amount: 10
+	})
+
+- Dispatch 1 action khác
+
+	actions: {
+	  actionA ({ commit }) {} //--> return Promisse
+
+
+	  actionB ({ dispatch, commit }) {
+	    return dispatch('actionA').then(() => {
+	      commit('someOtherMutation')
+	    })
+	  }
+	}
+- Khi thực hiện bất đồng bộ/ đồng bộ thì có thể sử dụng các keywork như `async / await`

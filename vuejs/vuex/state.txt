@@ -1,0 +1,25 @@
+Xem PR: https://github.com/dtvthethe/vuejs/pull/13
+doc: https://vuex.vuejs.org/guide/state.html
+Cách khai báo sử dụng trong Vuex: 
+
+- truy cap state:
+	this.$store.state.<var>
+
+	mapState trong computed
+
+- truy cap state trong mapState:
+	+ khai bao function mapState
+	+ các func sẽ nhận tham số state đầu tiên là `state`
+
+	computed: mapState({
+	    // arrow functions can make the code very succinct!
+	    count: state => state.count, // tham so  1 la state
+
+	    // passing the string value 'count' is same as `state => state.count`
+	    countAlias: 'count',
+
+	    // to access local state with `this`, a normal function must be used
+	    countPlusLocalState (state) {
+	      return state.count + this.localCount
+	    }
+	 })

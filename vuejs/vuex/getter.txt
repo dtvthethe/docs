@@ -1,0 +1,23 @@
+- truy cap getters:
+	this.$store.getters.<getter>
+
+	mapGetters trong computed
+
+- Giống như computed 
+- Nên dùng getter để quản lí 1 chỗ các thay đổi của data trong store
+- Giống như mapState các func trong getter cũng nhận tham số đầu tiên là `state` 
+- Tham số thứ 2 để tuy cập vào các getter khác
+
+getters: {
+  doneTodosCount (state, getters) { // tham so 1: state, tham so 2 getters
+    return getters.doneTodos.length
+  }
+}
+
+
+computed: {
+    ...mapGetters([
+      'doneTodosCount',
+      'anotherGetter',
+    ]),
+}
