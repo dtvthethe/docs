@@ -1,0 +1,7 @@
+- Check MDM:
+  `profiles status -type enrollment`
+  VD:
+  Enrolled via DEP: No
+  Hoặc:
+  MDM enrollment: No
+  -> thì máy ko bị dính
