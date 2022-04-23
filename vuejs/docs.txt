@@ -69,7 +69,54 @@
 - Watchers
 	+ Theo dõi thay đổi của data và thực hiện hành động
 	+ tên watch phải trùng vs tên data cần theo dõi
-
+	+ teen watch ccó thể trùng vs computed vì watch cũng có thể theo giõi computed
+	+ watch 1 object:
+		data() {
+		    return {
+			message: {
+				type: 'greeting',
+				text: 'How are you?'
+			}
+		    }
+		},
+		watch: {
+		    message: {
+			handler: function () {
+			    console.log('something changed')
+			},
+			deep: true
+		    }
+		}
+		
+		<div>Message type: {{ message.type }}</div>
+		<div>Message text: {{ message.text }}</div>
+	+ watch 1 property của 1 object
+		data() {
+		    return {
+			message: {
+				type: 'greeting',
+				text: 'How are you?'
+			}
+		    }
+		},
+		computed: {
+		    getType() {
+			return this.message.type
+		    },
+		    getText() {
+			return this.message.text
+		    }
+		},
+		watch: {
+		    getType() {
+			console.log('type changed')
+		    },
+		    getText() {
+			console.log('text changed')
+		    }
+		}
+	<div>Message type: {{ message.type }}</div>
+        <div>Message text: {{ message.text }}</div>
 
 - VueJS Lifecycle
 	+ là vòng đời của vue từ khi khởi tạo đén khi bị hủy
