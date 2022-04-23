@@ -47,6 +47,7 @@
 - CSS class by condition:
 	+ style class `.done{....}`
 	+ <span :class="{'done-text' : todo.done}">.....</span> // class `done-text` chỉ đc show nếu `todo.done` là true
+	+ :class có thể nhận vào là kiểu object VD: :class="a" // a = {'class-1': bool, 'class-2': bool}
 
 
 - Computed
