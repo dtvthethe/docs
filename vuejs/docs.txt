@@ -41,6 +41,8 @@
 - Remove item in list
 	Gán lại `list = list.filter(ko lấy giá trị remove)` là đc
 
+- Style
+	<p :style="borderColor: a ? 'red' : 'blue'"></p> // -> camelCase , JS object type
 
 - CSS class by condition:
 	+ style class `.done{....}`
