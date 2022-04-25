@@ -7,6 +7,7 @@
 - Modifiler
 	Là các thuộc tính sau directive phân cách bằng dấu `.` VD:
 	@keyup.enter="..." // --> enter là modifier
+	@submit:prevent="func nam" // -> submit form với prevent ko load lại trang
 
 - Binding:
 	v-bind:id="data_var"
@@ -40,10 +41,13 @@
 - Remove item in list
 	Gán lại `list = list.filter(ko lấy giá trị remove)` là đc
 
+- Style
+	<p :style="borderColor: a ? 'red' : 'blue'"></p> // -> camelCase , JS object type
 
 - CSS class by condition:
 	+ style class `.done{....}`
 	+ <span :class="{'done-text' : todo.done}">.....</span> // class `done-text` chỉ đc show nếu `todo.done` là true
+	+ :class có thể nhận vào là kiểu object VD: :class="a" // a = {'class-1': bool, 'class-2': bool}
 
 
 - Computed
@@ -170,6 +174,10 @@
 				this.$emit('parentMethod', 'abc');
 			}
 		},
+
+- Chỉ update lúc mới load app còn những lần sau thì sẽ ko thay đổi dữ liệu đang hiển thị
+	<p v-once>{{ counter }}</p> // data là data lúc mới load
+	<p>{{ counter }}</p> // data đc update khi có sự thay đổi
 
 - Slot
 	+ 
