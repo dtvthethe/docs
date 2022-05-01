@@ -1,0 +1,16 @@
+
+localtion xdebug.so:
+  /usr/local/lib/php/pecl/<year month...>/xdebug.so
+
+upddate php.ini:
+  sudo nano /usr/local/etc/php/7.4/php.ini
+
+  zend_extension = /usr/local/lib/php/pecl/<year month...>/xdebug.so
+  xdebug.mode = debug
+  xdebug.start_with_request = yes
+  xdebug.client_port = 9003
+
+check xdebug:
+  php -i | grep php.ini
+  // Configuration File (php.ini) Path => /usr/local/etc/php/7.4
+  // Loaded Configuration File => /usr/local/etc/php/7.4/php.ini
