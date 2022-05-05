@@ -12,6 +12,12 @@ product_shop -> pivot table(alphabet, tên bảng là số ít, chứa _)
 	– product_id
 	– shop_id
 
+belongsToMany(
+    Model muốn relation đến (1),
+    tên bảng pivot (product_shop) (2),
+    tên cột trong bảng pivot của (1),
+    tên cột trong bảng pivot của (2)
+);
 
 	Schema::create('product_shop', function (Blueprint $table) {
         $table->id();
@@ -34,6 +40,29 @@ attach() - thêm
 	    $productId3
 	]);
 
+thêm với các column khác
+$store = Store::find($store);
+// attach một
+$store->products()->attach($productId, [
+    'a' => 'value',
+    'b' => 'value',
+    'c' => 'value',
+]);
+
+// attach nhiều
+$store->products()->attach([
+    $productId1,
+    $productId2,
+    $productId3
+], [
+    'a' => 'value',
+    'b' => 'value',
+    'c' => 'value',
+]);
+
+
+
+
 
 detach() - xóa
 	$shop->products()->detach($productId);
@@ -48,7 +77,7 @@ detach() - xóa
 	$shop->products()->detach();
 
 
-sync() - đồng bộ
+sync() - đồng bộ, kết hợp attach và detach
 
 	shop_id | product_id
 	--------------------
@@ -57,7 +86,7 @@ sync() - đồng bộ
 	   1    |    2
 
 
-	$shop1->products()->sync([2, 3]) : save theo param truyền vào
+	$shop1->products()->sync([2, 3]) : save theo param truyền vào, có thì dữ lạu còn ko thì xoá
 		- attach 3
 		- detach 1
 		- 2 keep
@@ -68,7 +97,7 @@ sync() - đồng bộ
 		- 2 keep
 
 
-toggle() - Bật tắt
+toggle() - Bật tắt, có rooif thì xoá, chưa có thì attach
 
 	shop_id | product_id
 	--------------------
