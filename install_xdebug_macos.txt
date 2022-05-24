@@ -14,3 +14,8 @@ check xdebug:
   php -i | grep php.ini
   // Configuration File (php.ini) Path => /usr/local/etc/php/7.4
   // Loaded Configuration File => /usr/local/etc/php/7.4/php.ini
+
+
+restart php:
+
+    brew services php@7.4 restart
