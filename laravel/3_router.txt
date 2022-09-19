@@ -1,0 +1,37 @@
+- trước đây chưa có router thì sẽ phải sử dụng biểu thức regex trong:
+	apache: htaccess
+	nginx: config
+
+- hiện tại đã có router xử lý
+- các loại router trong Laravel:
+	+ web: khai báo trong routers/web.php
+	+ api: khai báo trong routers/api.php
+	+ command line/console: khai báo trong routers/console.php
+	+ broadcast/channel: khai báo trong routers/channel.php
+
+I/ WEB:
+	1/ Route:
+		Route::<method>(path, callback);
+
+		- có 8 loại: get, post, put, patch, delete, options, match
+		- thẻ <form> chỉ khai báo đc 2 loại là GET, POST muốn dùng các method khác thì:
+			{{ method_field('PUT') }}
+			<input type="hidden" name="_method" value="PUT">
+			@method('PUT')
+		- thẻ <form> phải có csrf
+			{{ csrf_field() }}
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			@csrf
+		- các route có thể khai báo trung tên nhưng nên khác method
+
+		Route::match(['get', 'post'], 'url', closure): match cùng 1 url cùng chung xử  nhưng khác method name
+
+		Route::any('url', closure): bất kì method nào cũng đc
+
+	2/ Khác
+		Route::redirect(url, url sẽ redirect đi, http status code)
+		Route::view(url, file view blade)
+		Route::prefix("prefix")->group(closure) : nhóm các url con lại thành 1 nhóm và có tiền tố ở url
+
+
+
