@@ -33,5 +33,33 @@ I/ WEB:
 		Route::view(url, file view blade)
 		Route::prefix("prefix")->group(closure) : nhóm các url con lại thành 1 nhóm và có tiền tố ở url
 
+	3/ Parameter
+		- parameter require
+			Route::get('/product/{id}', function($id))
+		- parameter optional
+			Route::get('/product/{id?}', function($id = null))
+		- regex parameter 1
+			Route::get('/product/{slug}-{id}', function($slug, $id) {})->where([
+				'slug' => '[a-z-]+',
+				'id' => '[0-9]+',
+			]);
+		- regex parameter 2
+			Route::get('/product/{slug}-{id}', function($slug, $id) {})
+				->where('slug', '.+')
+				->where('id', '\d+');
 
+	4/ Name
+		- ->name(route_name)
+		- gọi name
+			url('route_name', [parameter...])
+	5/ Middleware
+		- thường là apply cho group
+		- ->middleware('ten middleware dc define trong Http/Kernel.php')
+
+	6/ subdomain
+		- VD: ethereum.com có subdomain là course.ethereum.com
+		- Route::domain('<subdomain>.ethereum.com')->group(callback)
+
+	7/ Call to Controller
+		Route::get('home', [HomeController::class, 'index']);
 
