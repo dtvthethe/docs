@@ -18,4 +18,5 @@ check xdebug:
 
 restart php:
 
-    brew services php@7.4 restart
+    // brew services php@7.4 restart
+    brew services restart php@7.4
