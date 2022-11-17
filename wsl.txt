@@ -1,0 +1,8 @@
+- connect cmd to linux: winpty wsl
+- visual code: Remote Development
+- command start service:
+  sudo service nginx start
+  sudo service php7.4-fpm start
+  sudo service redis-server start
+  sudo service mysql start
+  mailcatcher
