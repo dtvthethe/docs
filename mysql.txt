@@ -13,3 +13,14 @@ mysqldump --single-transaction -u <user> -p <db name> > /home/xxxx/database-dump
 - Import DB:
 CREATE DATABASE newdatabase;
 mysql -u [username] -p newdatabase < [database name].sql
+
+- Update password/ Reset password/ can't access to mysql by password
+sudo mysql -u root
+USE mysql;
+SELECT User, Host, plugin FROM mysql.user; // root : auth_socket --> update to mysql_native_password
+UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+FLUSH PRIVILEGES;
+exit;
+sudo service mysql restart
+mysql_secure_installation
+mysql -u root -p
