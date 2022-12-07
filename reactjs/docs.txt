@@ -1,3 +1,36 @@
 Cũng giống như widget flutter trong react phân ra 2 loại:
 - Container (stateful): tập trung vào quản lí dữ liệu nhưng ko thể show ra UI, muốn show ra UI thì nhờ Presentational Component
 - Presentational Component (stateless): ko biết dữ liệu là gì chỉ biết show ra màn hình, nhận data từ Container
+
+- Create reactJs project:
+	npx create-react-app <app name>
+
+- Start project
+	npm start
+
+- Build 
+	npm run build
+
+- run test 
+	npm test // -> unit test
+-> có thể cấu hình các lệnh chạy trong package.json
+
+- React.StrictMode
+	+ kiểm tra code của mình có đúng chuẩn ko
+	+ có thể bỏ đi
+
+- reportWebVitals()
+	+ có thể bỏ
+
+- change port 3000
+	cách 1: package.json
+		"start" : "set PORT=3001 && react-scripts start"
+	cách 2: .env
+		PORT=3001
+
+- export default;
+	+ phải export thì khi import mới dùng đc
+
+- chừn biến vào JSX
+	+ let a = 100;
+	+ Car duoc xay dung tu class {a}

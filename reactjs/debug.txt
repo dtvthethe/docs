@@ -1,0 +1,6 @@
+- Chrome: React Developer Tool
+
+- VS Code:
+	+ ko cần cái exts chỉ cần click vào con bọ
+	+ Launch Chrome
+	+ Update lại port cho đúng // http://localhost:3001
