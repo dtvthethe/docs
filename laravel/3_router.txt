@@ -62,4 +62,12 @@ I/ WEB:
 
 	7/ Call to Controller
 		Route::get('home', [HomeController::class, 'index']);
+	
+	8/ Partial Resource Routes 
+		Route::resource('photos', PhotoController::class)->only([
+		    'index', 'show'
+		]);
 
+		Route::resource('photos', PhotoController::class)->except([
+		    'create', 'store', 'update', 'destroy'
+		]);
