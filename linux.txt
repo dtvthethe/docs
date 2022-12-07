@@ -26,3 +26,23 @@
   sudo apt-get install gnome-screenshot
 - Linux kill port:
   sudo kill -9 `sudo lsof -t -i:9001`
+
+- Install fcitx
+  1/ Install:
+    $ sudo apt-get update
+    $ sudo apt-get install fcitx-unikey
+    - Systems Tools->Fcitx
+    - click "+"
+    - remove "Only Show Curent Language" type "Unikey"
+    $ im-config -n fcitx
+    $ sudo apt-get update
+
+  2/ open "language support":
+    -  tu dong hien thi 1 popup cai dat fcitx
+    - keyboard input method system: fcitx
+
+  3/ logout and login again 
+
+  4/ setting switch between input methods
+    - open "Input method configuration"
+    - Trigger Input Method: <<< setting at the first btn>>>>
