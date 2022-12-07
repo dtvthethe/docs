@@ -1,0 +1,5 @@
+- là Js + XML (JS mở rộng)
+- babel là trình biên dịch sẽ compile jsx ra JS để browser hiểu
+- attibute trên tag của JSX viết theo kkiểu camelCase: className, onClick
+- khác vs html:
+	+ class: className

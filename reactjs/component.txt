@@ -1,0 +1,5 @@
+- Có 2 loại component
+	+ function component
+	+ class component
+- Component cũng là React Element
+- khi đc gọi trong  index.js nó sẽ chạy hàm render() của Component

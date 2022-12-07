@@ -1,0 +1,15 @@
+public
+	- chứa file hình ảnh, css, js, jquery boostrap
+	- bên ngoài có thể nhìn thấy
+
+src
+	- code dự án
+
+package.json
+	- tên app
+	- thông tin moulde, version
+	- setup command
+
+package-lock.json
+	- chứa các dependency đi kèm
+	- 
