@@ -1,0 +1,7 @@
+Redirect: https://laravel.com/docs/9.x/redirects
+	- return redirect()->route('profile', ['id' => 1]);
+	- return back()->withInput();
+  
+ resource:
+	- tạo ra route, controller mà ko cần define từng action hay route 1
+ 
