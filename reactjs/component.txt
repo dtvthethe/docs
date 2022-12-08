@@ -3,3 +3,13 @@
 	+ class component
 - Component cũng là React Element
 - khi đc gọi trong  index.js nó sẽ chạy hàm render() của Component
+
+- function component:
+	+ ko cần dùng `this`
+	+ ko lưu trữ/gọi đc state mà phải dùng hook
+
+- class component:
+	+ trong constructor của component nên gán props cho super()
+	+ super() thì gọi đến Component.constructor() -> super(props)
+	+ lúc này có thể gọi bằng this.props -> vì trong Component nó sẽ gán cho mình: { this.props = props }
+	+ có thể lưu trư đc state

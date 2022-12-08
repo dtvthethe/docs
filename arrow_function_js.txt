@@ -1,0 +1,25 @@
+Arrow function
+
+	const name = () => {
+		
+	}
+
+	=()=
+
+	=()=>
+
+	=()=>{}
+
+	- function thì nên là const: vì hàm là ko đc thay đổi, tránh gán lại bằng hàm/ value khác
+
+Closure function
+
+	.map((..) => {
+		//
+	})
+
+	()=>{}
+
+	=()=>{} // bỏ `=` phía trước
+
+	()=>{}

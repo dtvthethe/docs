@@ -1,3 +1,4 @@
 - $_SERVER['REQUEST_METHOD'] : lấy method đang request, nhưng nên cố gắng dùng Request vì các method như DELETE nó sẽ lấy ko chính xác: $request->method()
 
-
+Run:
+	php artisan serve
