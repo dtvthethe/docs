@@ -5,3 +5,6 @@ Redirect: https://laravel.com/docs/9.x/redirects
  resource:
 	- tạo ra route, controller mà ko cần define từng action hay route 1
  
+return view with pass param:
+	- return view()->with(<ten bien>, <gia tri>)// pass data sang view
+	- return view()->with(array)// pass array sang view
