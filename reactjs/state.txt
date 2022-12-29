@@ -1,0 +1,16 @@
+- lưu trữ trạng thái của component
+- có thể thay đổi giá trị đc
+- biến this.state nên là object {}
+	this.state = {
+		<value name>: data
+	}
+
+- lấy ra giá trị:
+	this.state.<value name>
+
+- set giá trị trong state:
+	this.setState({
+		<value name>: new value
+	});
+
+- khi thay đổi do hàm setState() thì hàm render() chạy lại và render lại, cái này liên quan đến DOM

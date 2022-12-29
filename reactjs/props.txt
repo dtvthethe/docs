@@ -1,0 +1,14 @@
+- props
+- Là 1 object chứa hết các attribute truyền vào, VD:
+	<Car size="2" color="red">
+		+ props.size
+		+ props.color
+- tên các attribute thế nào thì gọi ra như vậy
+	size="2" --> props.size
+
+- gán 1 biến vào attr:
+	const data = ['laptop', 'mobile'];
+	<PropExample list={data} /> // dùng dấu {}
+
+- props là read only
+

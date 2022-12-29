@@ -1,0 +1,7 @@
+npm install <package name>
+
+npm install -g <package name> // cai dat cho toan bo he thong
+
+npm install -g yarn // thay cho npm nhanh hon
+
+npm -g list // list package cai dat cho cho he thong
