@@ -1,0 +1,43 @@
+https://laravel.com/docs/9.x/requests
+
+1/ Function
+  Request $request
+  $request->all() // array
+  $request->path() // http://example.com/foo/bar -> foo/bar
+  $request->is() // is('admin/*') // pattern
+  $request->routeIs() //routeIs('admin.*') // route name
+  $request->url() // http://example.com/foo/bar?id=1 -> http://example.com/foo/bar
+  $request->fullUrl()// http://example.com/foo/bar?id=1 -> http://example.com/foo/bar?id=1
+  $request->method()// 
+  $request->isMethod() // isMethod('post')
+  $request->ip()
+  $request->server()
+  $request->header()
+    // header('X-Header-Name')
+    // header('X-Header-Name', 'default value')
+  $request->hasHeader()// hasHeader('X-Header-Name') -> boolean
+  $request->bearerToken()
+  $request->input() // get giá trị từ json
+    // input('name') // get name 
+    // input('name', 'default value')
+    // input('products.0.name')
+    // input('products.*.name')
+  $request->query()
+    // query('name')
+    // query('name', 'default vaule')
+  $request->name // ko phai function
+  
+  if ($request->has(['name', 'email'])) {
+    //
+  }
+
+  $request->whenHas('name', function ($input) {
+    //
+  });
+
+2/ Helper
+  request() // gọi hàm này có chức năng như Request
+  
+  
+  
+  
