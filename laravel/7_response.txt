@@ -1,0 +1,8 @@
+Response
+ApiResponse
+- response()->json(data.., 404)->header(..)
+
+- nên dùng helper: response() vì có nhiều chức năng hơn
+- nên dùng resspone để download file:
+  + để downloaf 1 file ko đc storage trên server mà đến từ 1 nới khác thì nên dùng streamDownload cái này cho phép đổi tên file, dơnload luôn mà ko cần open file như gile ảnh hoặc pdf
+  + dơnload 1 file đc store trong storage: response->download(..)
