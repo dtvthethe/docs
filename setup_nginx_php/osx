@@ -1,3 +1,18 @@
+- Các bước thực hiện
+1/ Cài đặt các app từ brew cần thiết
+2/ tạo dự án ở thư mục bất kì
+3/ tạo  file config project cd: /usr/local/etc/nginx/sites-enabled
+   3.0/ nội dung file config xem phía dưới
+   3.1/ nhập vào tên dự án, port
+   3.2/ nhập vào path project cho biến "root"
+   3.3/ nếu là Laravel thì phải thêm "/public" sau 3.2
+   3.4/ chú ý fastcgi_pass osx vs linux khác nhau
+4/ reload server: sudo nginx -s reload
+5/ domain trên local dùng file host: sudo nano /etc/hosts
+   VD: 127.0.0.1 <domain>.local
+   comment: "#"
+
+-----------
 brew services list
 
 brew services start XX
@@ -51,7 +66,7 @@ log folder;
 Error 502 Bad Gatewaye
     See linux .txt
 
----------
+--------- nội dung file config---------
 
 server {
     listen 2812;
@@ -73,7 +88,7 @@ server {
     #
     # include snippets/snakeoil.conf;
 
-    root /Users/damthe/workspace/mr_max/mrmax;
+    root /Users/damthe/workspace/mr_max/mrmax; # laravel thì thêm "/public"
     index index.php;
     charset utf-8;
 
@@ -86,7 +101,7 @@ server {
     location ~ \.php$ {
         try_files $uri =404;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_pass 127.0.0.1:9000; # chú ý osx vs linux
 
         fastcgi_index index.php;
         include fastcgi_params;
