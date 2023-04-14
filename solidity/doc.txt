@@ -105,6 +105,7 @@ external vs internal:
         - chính nó: OK
         - contract con: OK
         - bên ngoài: NG
+        - VD: "_checkOnERC721Received()" // có dấu "_" trc tên hàm
     
     external:
         - chính nó: NG
