@@ -1,0 +1,14 @@
+Example:
+    master: xinchao
+
+    branch-a:
+        commit-a1: xinchao A1
+        commit-a2: xinchao A2
+
+    branch-b:
+        commit-b1: xinchao B1
+        commit-b2: xinchao B2
+
+Revert:
+    - revert branch mới đến cũ: branch-b > branch-a
+    - NÊN revert theo commit:  commit-b2 > commit-b1 > commit-a2 > commit-a1
