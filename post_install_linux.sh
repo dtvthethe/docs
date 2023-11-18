@@ -12,6 +12,17 @@ echo "Do you want to install Skype: 'y' (yes) | other key no"
 read isInstallSkype
 echo "Do you want to install Docker: 'y' (yes) | other key no"
 read isInstallDocker
+echo "Do you want to install VNM + NodeJS: 'y' (yes) | other key no"
+read isInstallNode
+
+# If install nodejs
+if [ $isInstallNode = "y" ]; then
+  echo "Type VERSION NVM to install, Ex: 18.0.1:"
+	read nvmVersion
+	echo "Type VERSION Node to install, Ex: 18.0.1:"
+	read nvmNodeVersion
+fi
+
 
 # ==================Install==================:
 echo "Your Ubuntu is starting for install apps!"
@@ -86,6 +97,13 @@ if [ $isInstallDocker = "y" ]; then
   newgrp docker
   sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
   sudo chmod g+rwx "$HOME/.docker" -R
+fi
+
+# NVM + NodeJS
+if [ $isInstallNode = "y" ]; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${nvmVersion}/install.sh | bash
+	source ~/.bashrc
+	nvm install ${nvmNodeVersion}
 fi
 
 # Microsoft Todo
