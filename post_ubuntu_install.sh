@@ -103,6 +103,10 @@ docker-compose -f docker-compose.yml -f docker-compose.mysql.yml -f docker-compo
 sudo apt-get update
 sudo apt-get upgrade
 
+# ZSh
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # ==================Update==================:
 sudo apt-get update
 sudo apt autoremove
