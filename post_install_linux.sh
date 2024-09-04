@@ -90,6 +90,8 @@ sudo apt install gnome-shell-extension-manager
 sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# MySQl workbench
+sudo snap install mysql-workbench-community
 
 # ==================Update==================:
 sudo apt-get update
