@@ -7,23 +7,6 @@ mkdir workspaces
 sudo chmod -R 777 apps/
 sudo chmod -R 777 workspaces/
 
-# ==================Define variables==================:
-echo "Do you want to install Skype: 'y' (yes) | other key no"
-read isInstallSkype
-echo "Do you want to install Docker: 'y' (yes) | other key no"
-read isInstallDocker
-echo "Do you want to install VNM + NodeJS: 'y' (yes) | other key no"
-read isInstallNode
-
-# If install nodejs
-if [ $isInstallNode = "y" ]; then
-  echo "Type VERSION NVM to install, Ex: 18.0.1:"
-	read nvmVersion
-	echo "Type VERSION Node to install, Ex: 18.0.1:"
-	read nvmNodeVersion
-fi
-
-
 # ==================Install==================:
 echo "Your Ubuntu is starting for install apps!"
 sudo apt-get update
@@ -47,9 +30,8 @@ sudo apt-get install sublime-text
 sudo apt update
 sudo snap install --classic code
 
-# DB Gate
-wget https://github.com/dbgate/dbgate/releases/latest/download/dbgate-latest.deb
-sudo apt install -y ./dbgate-latest.deb
+# Mysql Workbench
+sudo apt install mysql-workbench
 
 # Ibus Unikey
 sudo add-apt-repository ppa:ubuntu-vn/ppa
@@ -62,63 +44,54 @@ add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt-get install -y git
 
-# Mysql Server
-sudo apt-get update
-sudo apt-get install -y mysql-server
-
-# Notion
-sudo snap install notion-snap-reborn
-
-# Skype
-if [ $isInstallSkype = "y" ]; then
-  sudo snap install skype
-fi
-
 # Docker
-if [ $isInstallDocker = "y" ]; then
-  # Add Docker's official GPG key:
-  sudo apt-get update
-  sudo apt-get install -y ca-certificates curl gnupg
-  sudo install -m 0755 -d /etc/apt/keyrings
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-  # Add the repository to Apt sources:
-  echo \
-    "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-    "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  sudo apt-get update
+# Add the repository to Apt sources:
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "$HOME/.docker" -R
 
-  sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# Microsoft TrueType Fonts
+# sudo add-apt-repository multiverse
+# sudo apt update && sudo apt install ttf-mscorefonts-installer
+# sudo fc-cache -f -v
+# reinstall in case u reject the license agreement
+# sudo apt install --reinstall ttf-mscorefonts-installer
 
-  sudo groupadd docker
-  sudo usermod -aG docker $USER
-  newgrp docker
-  sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-  sudo chmod g+rwx "$HOME/.docker" -R
-fi
+git clone https://github.com/mrbvrz/segoe-ui-linux
+cd segoe-ui-linux
+chmod +x install.sh
+./install.sh
 
-# NVM + NodeJS
-if [ $isInstallNode = "y" ]; then
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${nvmVersion}/install.sh | bash
-	source ~/.bashrc
-	nvm install ${nvmNodeVersion}
-fi
+# Tweak
+sudo add-apt-repository universe
+sudo apt install gnome-tweak-tool
 
-# Microsoft Todo
-sudo snap install microsoft-todo-unofficial
+# Extensions Manager
+sudo apt-get update
+sudo apt install gnome-shell-extension-manager
+
+
+# Oh my zsh
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 
 # ==================Update==================:
 sudo apt-get update
 sudo apt autoremove
 sudo apt autoclean
-
-# ==================Show version==================:
-git --version
-google-chrome --version
-subl -v
-echo "Visual Code version:" && code -v
-echo "Setting password for mysql: https://www.notion.so/Mysql-d70f3fc6f6054f398e66390ace86d289?pvs=4"
-
-echo "Install and config your Ubuntu Done!"
