@@ -30,14 +30,12 @@ sudo apt-get install sublime-text
 sudo apt update
 sudo snap install --classic code
 
-# Mysql Workbench
-sudo apt install mysql-workbench
 
 # Ibus Unikey
-sudo add-apt-repository ppa:ubuntu-vn/ppa
-sudo apt-get update
-sudo apt-get install -y ibus-unikey
-ibus restart
+# sudo add-apt-repository ppa:ubuntu-vn/ppa
+# sudo apt-get update
+# sudo apt-get install -y ibus-unikey
+# ibus restart
 
 # Git
 add-apt-repository ppa:git-core/ppa
